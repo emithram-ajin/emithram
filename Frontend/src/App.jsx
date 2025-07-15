@@ -1,9 +1,12 @@
 import "./App.css";
+import Footer from "./components/public/footer";
+import WhyEMithram from "./components/public/whyemitram";
 
 function App() {
   return (
     <>
-       <h1>emithram</h1>
+       <WhyEMithram />
+       <Footer />
     </>
   );
 }
