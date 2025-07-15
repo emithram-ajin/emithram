@@ -7,6 +7,8 @@ import Services from "./components/public/Servicesection";
 import Franchise from "./components/public/franchise";
 import Gallery from "./components/public/gallery";  
 import Contact from "./components/public/contact";
+import Footer from "./components/public/footer";
+import WhyEMithram from "./components/public/whyemitram";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
@@ -23,6 +25,7 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
+      <Footer/>
     </Router>    
     </>
   );
