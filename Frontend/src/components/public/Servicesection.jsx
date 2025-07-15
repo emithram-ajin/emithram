@@ -2,7 +2,7 @@ import React from 'react'
 
 function Servicesection() {
   return (
-    <div>Servicesection</div>
+    <div className="pt-50 text-center">Servicesection</div>
   )
 }
 
