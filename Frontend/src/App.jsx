@@ -1,9 +1,10 @@
 import "./App.css";
+import Servicesection from "./components/public/Servicesection";
 
 function App() {
   return (
     <>
-       <h1>emithram</h1>
+    <Servicesection/>
     </>
   );
 }
