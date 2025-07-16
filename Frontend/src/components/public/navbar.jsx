@@ -82,7 +82,15 @@ export default function Navbar() {
               <FontAwesomeIcon icon={faPhone} className="text-[#46ab50]" />
               <span className="text-white text-xs sm:text-sm md:text-lg lg:text-xl font-bold">+91 9539270777</span>
             </span>
-            <button className="bg-white px-1 sm:px-2 md:px-3 py-1 rounded text-xs md:text-sm font-bold text-[#235764]">
+            <button
+              className="bg-white px-1 sm:px-2 md:px-3 py-1 rounded text-xs md:text-sm font-bold text-[#235764]"
+              onClick={() => {
+                const confirmed = window.confirm("Do you want to call +91 8281033673");
+                if (confirmed) {
+                  window.location.href = "tel:+91 8281033673"; 
+                }
+              }}
+            >
               CALL NOW
             </button>
           </div>
