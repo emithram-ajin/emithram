@@ -3,6 +3,7 @@ import { BiLike } from "react-icons/bi";
 import { IoBulbOutline } from "react-icons/io5";
 import { TiTime, TiMessages } from "react-icons/ti";
 import { GrGroup } from "react-icons/gr";
+import { useNavigate } from 'react-router-dom';
 
 // Define features data
 const features = [
@@ -69,6 +70,8 @@ const FeatureItem = ({ feature, isMobile = false }) => {
 };
 
 export default function EMithramSection() {
+    const navigate = useNavigate()
+
     return (
         <>
             <div className="bg-gray-50 min-h-screen p-4 sm:p-6 lg:p-8">
@@ -109,7 +112,7 @@ export default function EMithramSection() {
                             {/* Button */}
                             <button className=" text-white font-semibold py-2 px-4 rounded hover:from-teal-700 hover:to-teal-800 transition-all duration-300" style={{
                                 background: "linear-gradient(to right, #44A1A0, #3687A2)", // teal-600 → teal-700
-                            }}>
+                            }} onClick={()=>navigate('/register')}>
                                 Register a CSP
                             </button>
 

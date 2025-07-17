@@ -9,6 +9,7 @@ import Gallery from "./components/public/gallery";
 import Contact from "./components/public/contact";
 import Footer from "./components/public/footer";
 import WhyEMithram from "./components/public/whyemitram";
+import Registration from './components/public/Registration'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
@@ -24,6 +25,8 @@ function App() {
         <Route path="/franchise" element={<Franchise />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/register" element={<Registration />} />
+
       </Routes>
       <Footer/>
     </Router>    
