@@ -3,12 +3,11 @@ import React from "react";
 import Navbar from "./components/public/navbar";
 import Home from "./components/public/home";
 import About from "./components/public/about";
-import Services from "./components/public/Servicesection";  
+import Certifications from "./components/public/certifications";
 import Franchise from "./components/public/franchise";
 import Gallery from "./components/public/gallery";  
 import Contact from "./components/public/contact";
 import Footer from "./components/public/footer";
-import WhyEMithram from "./components/public/whyemitram";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
@@ -20,7 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
+        <Route path="/certifications" element={<Certifications />} />
         <Route path="/franchise" element={<Franchise />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
