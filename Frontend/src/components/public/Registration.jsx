@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
+
+const site_key = "6LebTYYrAAAAACUW4X0bOsRWh4ZBkWxStx0uBPww";
 
 function Registration() {
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     name: '',
     place: '',
     localBody: '',
@@ -9,9 +12,11 @@ function Registration() {
     mobile: '',
     email: '',
     heardFrom: '',
-  });
+  };
 
+  const [formData, setFormData] = useState(initialFormData);
   const [errors, setErrors] = useState({});
+  const [captchaStatus, setCaptchaStatus] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,12 +39,26 @@ function Registration() {
     return Object.keys(newErrors).length === 0;
   };
 
+  const handleCaptchaChange = (token) => {
+    if (token) {
+      setCaptchaStatus(true);
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!captchaStatus) {
+      alert("Please complete the CAPTCHA");
+      return;
+    }
+
     if (validate()) {
-      alert("Form submitted successfully!");
+    //   alert("Form submitted successfully!");
       console.log("Submitted Data:", formData);
-      // resetForm(); // Optional
+
+      setFormData(initialFormData);
+      setErrors({});
+      setCaptchaStatus(false); // Reset captcha
     }
   };
 
@@ -49,8 +68,7 @@ function Registration() {
         <h2 className="text-center text-2xl font-semibold mb-6">
           e-Mithram Registration
         </h2>
-        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Name */}
           <div>
             <label className="block mb-1 font-medium">Name:</label>
@@ -159,6 +177,7 @@ function Registration() {
               type="text"
               className="w-full p-2 border border-gray-300 rounded bg-gray-100"
               value="Emithram CSP"
+              readOnly
             />
           </div>
 
@@ -185,16 +204,30 @@ function Registration() {
             {errors.heardFrom && <p className="text-red-500 text-sm">{errors.heardFrom}</p>}
           </div>
 
+          {/* CAPTCHA */}
+          <div className="md:col-span-2 flex justify-center">
+            <ReCAPTCHA
+              sitekey={site_key}
+              onChange={handleCaptchaChange}
+            />
+          </div>
+
           {/* Submit Button */}
           <div className="md:col-span-2 flex justify-center mt-6">
             <button
-              type="submit"
-              className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded"
+              type="button"
+              onClick={handleSubmit}
+              disabled={!captchaStatus}
+              className={`px-6 py-2 rounded transition-colors ${
+                captchaStatus
+                  ? "bg-green-500 hover:bg-green-600 text-white"
+                  : "bg-gray-400 text-white cursor-not-allowed"
+              }`}
             >
               Submit
             </button>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );

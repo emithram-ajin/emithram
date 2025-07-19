@@ -5,6 +5,7 @@ import {
   Check,
   Box
 } from "lucide-react";
+import { useNavigate } from 'react-router-dom';
 
 const services = [
   { label: "Govt Services", icon: <Box size={40} className="text-white" /> },
@@ -41,6 +42,8 @@ const steps = [
 ];
 
 function Servicesection() {
+      const navigate = useNavigate()
+
   // Reusable service item component
   const ServiceItem = ({ service, index, circleSize, iconSize, textSize, textWidth, mb }) => (
     <div key={index} className="flex flex-col items-center text-center flex-shrink-0">
@@ -115,7 +118,7 @@ function Servicesection() {
           <div className="w-full sm:w-auto flex justify-center sm:justify-end">
             <button
               className="cursor-pointer bg-white text-teal-600 px-4 sm:px-5 md:px-5 lg:px-6 xl:px-6 py-2 sm:py-2 md:py-2 lg:py-2 xl:py-2 rounded-full font-medium text-xs sm:text-sm md:text-sm lg:text-base xl:text-base hover:bg-gray-50 transition-all duration-200 shadow hover:shadow-lg hover:scale-105 whitespace-nowrap"
-            >
+            onClick={()=>navigate('/register')}>
               Get Franchise
             </button>
           </div>

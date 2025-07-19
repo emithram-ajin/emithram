@@ -1,12 +1,41 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import Whyemitram from './whyemitram';
-import Servicesection from './Servicesection';
+import React, { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import Whyemitram from "./whyemitram";
+import Servicesection from "./Servicesection";
 
 function Home() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    district: "",
+    agree: false,
+  });
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form Data:", formData);
+
+    // Reset form fields
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      district: "",
+      agree: false,
+    });
+  };
   return (
     <>
       <div className="relative min-h-[450px] sm:min-h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px]">
@@ -31,10 +60,8 @@ function Home() {
             >
               {/* Content Container */}
               <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-6 min-h-[450px] sm:min-h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px] grid grid-cols-1 lg:grid-cols-12  gap-2 sm:gap-4 font-anek">
-
                 {/* When image is hidden (< lg), center text and form */}
                 <div className="lg:hidden grid grid-cols-1 md:grid-cols-2 gap-6 py-6 items-start md:items-center md:min-h-[400px]">
-
                   {/* Text Section */}
                   <div className="text-white z-20 flex flex-col justify-center text-center md:text-left space-y-1 sm:space-y-2 md:space-y-3 max-w-2xl mx-auto md:mx-0">
                     <div className="text-lg sm:text-xl md:text-2xl font-bold">
@@ -43,7 +70,8 @@ function Home() {
 
                     <div>
                       <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">
-                        നാട്ടിൽ ഒരു<br />
+                        നാട്ടിൽ ഒരു
+                        <br />
                         <span className="text-[#D9E535] font-extrabold text-3xl sm:text-4xl md:text-5xl leading-none block">
                           ബിസിനസ്
                         </span>
@@ -52,17 +80,16 @@ function Home() {
                         അതും ഏറ്റവും കുറഞ്ഞ മുതൽമുടക്കിൽ
                       </p>
                       <div className="h-[3px] sm:h-[4px] md:h-[5px] w-[20%] bg-[#D9E535] mt-2 sm:mt-3 md:mt-4 mx-auto md:mx-0"></div>
-
                     </div>
 
                     <div className="space-y-1 sm:space-y-2 md:space-y-3">
                       <p className="text-xs sm:text-sm md:text-base font-bold">
-                        ഇപ്പോൾ തന്നെ ഇ മിത്രം ജനസേവന കേന്ദ്രത്തിന്റെ
-                        ഭാഗമാകു
+                        ഇപ്പോൾ തന്നെ ഇ മിത്രം ജനസേവന കേന്ദ്രത്തിന്റെ ഭാഗമാകു
                       </p>
                       <p className="text-[8px] sm:text-[9px] md:text-[10px] hidden md:block font-bold leading-[1.4] sm:leading-[1.6] text-justify max-w-md mx-auto md:mx-0">
                         എല്ലാ വിധ ലൈസൻസുകളോടു കുടി ഗവണ്മെന്റ് ഇതര സേവനങ്ങൾ
-                        പൊതുജനങ്ങൾക് നൽകിക്കൊണ്ട് മാന്യമായ ഒരു വരുമാനം നിങ്ങൾക്കും നേടാം
+                        പൊതുജനങ്ങൾക് നൽകിക്കൊണ്ട് മാന്യമായ ഒരു വരുമാനം
+                        നിങ്ങൾക്കും നേടാം
                       </p>
                     </div>
 
@@ -82,10 +109,16 @@ function Home() {
                         </h3>
                       </div>
 
-                      <form className="space-y-3 sm:space-y-4 md:space-y-5 text-xs sm:text-sm">
+                      <form
+                        onSubmit={handleSubmit}
+                        className="space-y-3 sm:space-y-4 md:space-y-5 text-xs sm:text-sm"
+                      >
                         <div>
                           <input
                             type="text"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
                             placeholder="Name"
                             className="w-full placeholder-black border-b border-teal-400 focus:outline-none focus:border-blue-500 pb-1 text-xs sm:text-sm"
                           />
@@ -93,6 +126,9 @@ function Home() {
                         <div>
                           <input
                             type="text"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
                             placeholder="Email address"
                             className="w-full placeholder-black border-b border-teal-400 focus:outline-none focus:border-blue-500 pb-1 text-xs sm:text-sm"
                           />
@@ -100,6 +136,9 @@ function Home() {
                         <div>
                           <input
                             type="text"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
                             placeholder="Phone"
                             className="w-full placeholder-black border-b border-teal-400 focus:outline-none focus:border-blue-500 pb-1 text-xs sm:text-sm"
                           />
@@ -107,19 +146,32 @@ function Home() {
                         <div>
                           <input
                             type="text"
+                            name="district"
+                            value={formData.district}
+                            onChange={handleChange}
                             placeholder="District"
                             className="w-full placeholder-black border-b border-teal-400 focus:outline-none focus:border-blue-500 pb-1 text-xs sm:text-sm"
                           />
                         </div>
 
                         <div className="flex items-start gap-2 mt-2">
-                          <input type="checkbox" className="mt-1 w-3 h-3 flex-shrink-0" />
+                          <input
+                            type="checkbox"
+                            name="agree"
+                            checked={formData.agree}
+                            onChange={handleChange}
+                            className="mt-1 w-3 h-3 flex-shrink-0"
+                          />
                           <p className="text-[7px] sm:text-[8px] text-gray-500 leading-relaxed">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit, sed diam nonummy nibh euismod tincidunt
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit, sed diam nonummy nibh euismod tincidunt
                           </p>
                         </div>
 
-                        <button className="w-[120px] sm:w-[140px] md:w-[150px] bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-2 sm:py-2.5 font-bold text-xs sm:text-sm hover:opacity-90 transition-opacity mx-auto block">
+                        <button
+                          type="submit"
+                          className="w-[120px] sm:w-[140px] md:w-[150px] bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-2 sm:py-2.5 font-bold text-xs sm:text-sm hover:opacity-90 transition-opacity mx-auto block"
+                        >
                           GET AFFILIATION
                         </button>
                       </form>
@@ -137,7 +189,8 @@ function Home() {
 
                     <div>
                       <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-                        നാട്ടിൽ ഒരു<br />
+                        നാട്ടിൽ ഒരു
+                        <br />
                         <span className="text-[#D9E535] font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl leading-none block">
                           ബിസിനസ്
                         </span>
@@ -146,7 +199,6 @@ function Home() {
                         അതും ഏറ്റവും കുറഞ്ഞ മുതൽമുടക്കിൽ
                       </p>
                       <div className="h-[3px] sm:h-[4px] md:h-[5px] w-[20%] bg-[#D9E535] mt-2 sm:mt-3 md:mt-4 lg:mt-5"></div>
-
                     </div>
 
                     <div className="space-y-1 sm:space-y-2 md:space-y-3">
@@ -157,7 +209,8 @@ function Home() {
                       </p>
                       <p className="text-[8px] sm:text-[9px] md:text-[10px] lg:text-xs hidden md:block font-bold leading-[1.4] sm:leading-[1.6] text-justify max-w-md">
                         എല്ലാ വിധ ലൈസൻസുകളോടു കുടി ഗവണ്മെന്റ് ഇതര സേവനങ്ങൾ
-                        പൊതുജനങ്ങൾക് നൽകിക്കൊണ്ട് മാന്യമായ ഒരു വരുമാനം നിങ്ങൾക്കും നേടാം
+                        പൊതുജനങ്ങൾക് നൽകിക്കൊണ്ട് മാന്യമായ ഒരു വരുമാനം
+                        നിങ്ങൾക്കും നേടാം
                       </p>
                     </div>
 
@@ -183,11 +236,17 @@ function Home() {
                         </h3>
                       </div>
 
-                      <form className="space-y-3 sm:space-y-4 md:space-y-5 text-xs sm:text-sm">
+                      <form
+                        onSubmit={handleSubmit}
+                        className="space-y-3 sm:space-y-4 md:space-y-5 text-xs sm:text-sm"
+                      >
                         <div>
                           <input
                             type="text"
-                            placeholder='Name'
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            placeholder="Name"
                             className="w-full placeholder-black border-b border-teal-400 focus:outline-none focus:border-blue-500 pb-1 text-xs sm:text-sm"
                           />
                         </div>
@@ -195,7 +254,10 @@ function Home() {
                         <div>
                           <input
                             type="text"
-                            placeholder='Email address'
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            placeholder="Email address"
                             className="w-full placeholder-black border-b border-teal-400 focus:outline-none focus:border-blue-500 pb-1 text-xs sm:text-sm"
                           />
                         </div>
@@ -203,7 +265,10 @@ function Home() {
                         <div>
                           <input
                             type="text"
-                            placeholder='Phone'
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            placeholder="Phone"
                             className="w-full placeholder-black border-b border-teal-400 focus:outline-none focus:border-blue-500 pb-1 text-xs sm:text-sm"
                           />
                         </div>
@@ -211,19 +276,32 @@ function Home() {
                         <div>
                           <input
                             type="text"
-                            placeholder='District'
+                            name="district"
+                            value={formData.district}
+                            onChange={handleChange}
+                            placeholder="District"
                             className="w-full placeholder-black border-b border-teal-400 focus:outline-none focus:border-blue-500 pb-1 text-xs sm:text-sm"
                           />
                         </div>
 
                         <div className="flex items-start gap-2 mt-2">
-                          <input type="checkbox" className="mt-1 w-3 h-3 flex-shrink-0" />
+                          <input
+                            type="checkbox"
+                            name="agree"
+                            checked={formData.agree}
+                            onChange={handleChange}
+                            className="mt-1 w-3 h-3 flex-shrink-0"
+                          />
                           <p className="text-[7px] sm:text-[8px] text-gray-500 leading-relaxed">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit, sed diam nonummy nibh euismod tincidunt
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit, sed diam nonummy nibh euismod tincidunt
                           </p>
                         </div>
 
-                        <button className="w-[120px] sm:w-[140px] md:w-[150px] bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-2 sm:py-2.5 font-bold text-xs sm:text-sm hover:opacity-90 transition-opacity mx-auto block">
+                        <button
+                          type="submit"
+                          className="w-[120px] sm:w-[140px] md:w-[150px] bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-2 sm:py-2.5 font-bold text-xs sm:text-sm hover:opacity-90 transition-opacity mx-auto block"
+                        >
                           GET AFFILIATION
                         </button>
                       </form>
@@ -263,8 +341,8 @@ function Home() {
           </SwiperSlide>
         </Swiper>
       </div>
-      <Whyemitram/>
-      <Servicesection/>
+      <Whyemitram />
+      <Servicesection />
     </>
   );
 }
