@@ -1,17 +1,23 @@
 import { FaFacebookF, FaTwitter, FaGooglePlusG, FaLinkedinIn, FaYoutube, FaPhone } from 'react-icons/fa';
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function Footer() {
+  const navigate = useNavigate();
+
   return (
 
     <footer className="bg-[#1f1f1f] text-white px-4 sm:px-6 lg:px-16 py-8 sm:py-10">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10 max-w-7xl mx-auto">
         {/* About Us */}
         <div className="col-span-1 sm:col-span-2 lg:col-span-1">
+          <a href='/'>
           <img
             src="emithram-logo.jpg"
             alt="e-Mithram Logo"
-            className="mb-4 sm:mb-5 w-48 sm:w-60 h-[60px] max-w-full"
+            className="mb-4 sm:mb-5 w-48 sm:w-60 h-[60px] max-w-full cursor-pointer"
           />
+          </a>
+
           <h3 className="text-2xl sm:text-3xl font-bold mb-2">About us</h3>
           <p className="text-sm text-gray-300 leading-relaxed font-poppins mt-3 sm:mt-5">
             Our business model works with the objective of expanding the scope
@@ -35,11 +41,22 @@ export default function Footer() {
         <div className="lg:border-r lg:border-teal-500 lg:pl-6">
           <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Useful Links</h3>
           <ul className="space-y-2 font-poppins text-gray-300 mt-3 sm:mt-5 text-sm">
-            <li>• Contact Us</li>
-            <li>• Privacy & Policy</li>
-            <li>• Refund Policy</li>
-            <li>• Terms & Conditions</li>
-            <li>• Cookie Policy</li>
+            <li>
+              <Link to="/contact" className="hover:underline">• Contact Us</Link>
+            </li>
+            <li>
+              <Link to="/privacy-policy" className="hover:underline">• Privacy & Policy</Link>
+            </li>
+            <li>
+              <Link to="/refund-policy" className="hover:underline">• Refund Policy</Link>
+            </li>
+            <li>
+              <Link to="/terms-conditions" className="hover:underline">• Terms & Conditions</Link>
+            </li>
+            <li>
+              <Link to="/cookie-policy" className="hover:underline">• Cookie Policy</Link>
+            </li>
+
           </ul>
         </div>
 
@@ -69,95 +86,95 @@ export default function Footer() {
             <a href="https://www.youtube.com/@emithram.csc." target="_blank" rel="noopener noreferrer">
               <div
                 style={{
-                  width: "2.6rem",            // w-8 = 32px
-                  height: "2.6rem",           // h-8 = 32px
-                  backgroundColor: "#0d9488", // teal-600
-                  borderRadius: "9999px",   // fully rounded
+                  width: "2.6rem",            
+                  height: "2.6rem",          
+                  backgroundColor: "#0d9488", 
+                  borderRadius: "9999px",   
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "#ffffff",         // text-white
+                  color: "#ffffff",        
                   cursor: "pointer",
                   transition: "background-color 0.3s ease",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#0f766e")} // teal-700
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0d9488")} // teal-600
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#0f766e")} 
+                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0d9488")} 
               >                <FaYoutube size={14} />
               </div>
             </a>
             <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
               <div
                 style={{
-                  width: "2.6rem",            // w-8 = 32px
-                  height: "2.6rem",           // h-8 = 32px
-                  backgroundColor: "#0d9488", // teal-600
-                  borderRadius: "9999px",   // fully rounded
+                  width: "2.6rem",           
+                  height: "2.6rem",          
+                  backgroundColor: "#0d9488", 
+                  borderRadius: "9999px",  
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "#ffffff",         // text-white
+                  color: "#ffffff",         
                   cursor: "pointer",
                   transition: "background-color 0.3s ease",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#0f766e")} // teal-700
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0d9488")} // teal-600
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#0f766e")} 
+                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0d9488")} 
               >                   <FaFacebookF size={14} />
               </div>
             </a>
             <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
               <div
                 style={{
-                  width: "2.6rem",            // w-8 = 32px
-                  height: "2.6rem",           // h-8 = 32px
-                  backgroundColor: "#0d9488", // teal-600
-                  borderRadius: "9999px",   // fully rounded
+                  width: "2.6rem",            
+                  height: "2.6rem",           
+                  backgroundColor: "#0d9488", 
+                  borderRadius: "9999px",   
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "#ffffff",         // text-white
+                  color: "#ffffff",         
                   cursor: "pointer",
                   transition: "background-color 0.3s ease",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#0f766e")} // teal-700
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0d9488")} // teal-600
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#0f766e")} 
+                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0d9488")} 
               >                   <FaTwitter size={14} />
               </div>
             </a>
             <a href="https://plus.google.com" target="_blank" rel="noopener noreferrer">
               <div
                 style={{
-                  width: "2.6rem",            // w-8 = 32px
-                  height: "2.6rem",           // h-8 = 32px
-                  backgroundColor: "#0d9488", // teal-600
-                  borderRadius: "9999px",   // fully rounded
+                  width: "2.6rem",            
+                  height: "2.6rem",           
+                  backgroundColor: "#0d9488", 
+                  borderRadius: "9999px",  
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "#ffffff",         // text-white
+                  color: "#ffffff",         
                   cursor: "pointer",
                   transition: "background-color 0.3s ease",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#0f766e")} // teal-700
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0d9488")} // teal-600
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#0f766e")} 
+                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0d9488")} 
               >                   <FaGooglePlusG size={14} />
               </div>
             </a>
             <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
               <div
                 style={{
-                  width: "2.6rem",            // w-8 = 32px
-                  height: "2.6rem",           // h-8 = 32px
-                  backgroundColor: "#0d9488", // teal-600
-                  borderRadius: "9999px",   // fully rounded
+                  width: "2.6rem",            
+                  height: "2.6rem",           
+                  backgroundColor: "#0d9488", 
+                  borderRadius: "9999px",   
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "#ffffff",         // text-white
+                  color: "#ffffff",         
                   cursor: "pointer",
                   transition: "background-color 0.3s ease",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#0f766e")} // teal-700
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0d9488")} // teal-600
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#0f766e")} 
+                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0d9488")} 
               >                   <FaLinkedinIn size={14} />
               </div>
             </a>
