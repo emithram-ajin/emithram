@@ -16,7 +16,7 @@ export default function Certificates() {
 
   return (
     <>
-      <div className="flex flex-wrap gap-4 justify-center px-4 py-6 mt-25 mb-25">
+      <div className="flex flex-wrap gap-4 justify-center px-4 py-6 mt-28 mb-30">
         {certificates.map((cert, index) => (
           <div
             key={index}

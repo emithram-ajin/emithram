@@ -87,7 +87,7 @@ export default function Navbar() {
               onClick={() => {
                 const confirmed = window.confirm("Do you want to call +91 8281033673");
                 if (confirmed) {
-                  window.location.href = "tel:+91 8281033673"; 
+                  window.location.href = "tel:+91 8281033673";
                 }
               }}
             >
@@ -100,9 +100,9 @@ export default function Navbar() {
 
       <nav className="bg-white  w-full z-50 shadow-md font-poppins top-12">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 md:py-4">
-          <div className="flex items-center">
+          <a href="/" className="flex items-center gap-2">
             <img src={logo} alt="Logo" className="h-10 md:h-14 w-auto" />
-          </div>
+          </a>
 
           <div className="hidden md:flex flex-1 items-center justify-center gap-6 lg:gap-8">
             {navItems.map((item) => (
