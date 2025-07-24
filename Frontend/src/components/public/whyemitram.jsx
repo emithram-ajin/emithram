@@ -152,7 +152,7 @@ export default function EMithramSection() {
                     {/* Screens below 1024px: Horizontal Scroll */}
                     <div className="block lg:hidden">
                         <div className="flex overflow-x-auto scrollbar-hide gap-4 pb-4 px-2" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                            <style jsx>{`.scrollbar-hide::-webkit-scrollbar {display: none;}`}</style>
+                            <style >{`.scrollbar-hide::-webkit-scrollbar {display: none;}`}</style>
                             
                             {features.map((feature, index) => (
                                 <FeatureItem key={index} feature={feature} isMobile={true} />
