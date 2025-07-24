@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 
 const site_key = "6LebTYYrAAAAACUW4X0bOsRWh4ZBkWxStx0uBPww";
@@ -17,6 +17,9 @@ function Registration() {
   const [formData, setFormData] = useState(initialFormData);
   const [errors, setErrors] = useState({});
   const [captchaStatus, setCaptchaStatus] = useState(false);
+  
+  // Add ref for reCAPTCHA
+  const recaptchaRef = useRef();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -53,12 +56,17 @@ function Registration() {
     }
 
     if (validate()) {
-    //   alert("Form submitted successfully!");
       console.log("Submitted Data:", formData);
 
+      // Reset form data
       setFormData(initialFormData);
       setErrors({});
-      setCaptchaStatus(false); // Reset captcha
+      setCaptchaStatus(false);
+      
+      // Reset reCAPTCHA
+      if (recaptchaRef.current) {
+        recaptchaRef.current.reset();
+      }
     }
   };
 
@@ -177,7 +185,6 @@ function Registration() {
               type="text"
               className="w-full p-2 border border-gray-300 rounded bg-gray-100"
               value="Emithram CSP"
-              readOnly
             />
           </div>
 
@@ -207,6 +214,7 @@ function Registration() {
           {/* CAPTCHA */}
           <div className="md:col-span-2 flex justify-center">
             <ReCAPTCHA
+              ref={recaptchaRef}
               sitekey={site_key}
               onChange={handleCaptchaChange}
             />
