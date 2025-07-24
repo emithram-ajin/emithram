@@ -28,28 +28,28 @@ function Gallery() {
       type: "video",
       src: "https://youtu.be/tWsYGYIvaCM?si=OyKxn-kNlteACIp_",
       title: "Video 2",
-      thumbnail: "/thumbnails/video1-thumb.jpg", 
+      thumbnail: "gallery-2.jpeg", 
 
     },
     {
       type: "video",
       src: "https://youtu.be/xeVFsrb2Nz8?si=r1SjidNIswXp9FCF",
       title: "Video 3",
-      thumbnail: "/thumbnails/video1-thumb.jpg", 
+      thumbnail: "gallery-1.jpeg", 
 
     },
     {
       type: "video",
       src: "https://youtu.be/q1oz_ylGdtg?si=3_qAIwlEZ2v2mk2E",
       title: "Video 4",
-      thumbnail: "/thumbnails/video1-thumb.jpg", 
+      thumbnail: "gallery-1.jpeg", 
 
     },
     {
       type: "video",
       src: "https://youtu.be/Mgh24dK4478?si=2p9i4jhNLZe7C2pZ",
       title: "Video 5",
-      thumbnail: "/thumbnails/video1-thumb.jpg", 
+      thumbnail: "gallery-1.jpeg", 
 
     },
   ];

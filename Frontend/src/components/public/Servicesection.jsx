@@ -1,64 +1,69 @@
 import React from "react";
-import {
-  Phone,
-  Grid,
-  Check,
-  Box
-} from "lucide-react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import Testimonials from "./Testimonials";
 
 const services = [
-  { label: "Govt Services", icon: <Box size={40} className="text-white" /> },
-  { label: "Non-Govt Services", icon: <Box size={40} className="text-white" /> },
-  { label: "Banking Services", icon: <Box size={40} className="text-white" /> },
-  { label: "Recharge & Bill Payment", icon: <Box size={40} className="text-white" /> },
-  { label: "Tax Services", icon: <Box size={40} className="text-white" /> },
-  { label: "Travel Services", icon: <Box size={40} className="text-white" /> },
-  { label: "Education Services", icon: <Box size={40} className="text-white" /> },
-  { label: "Marketing Services", icon: <Box size={40} className="text-white" /> },
-  { label: "Design Services", icon: <Box size={40} className="text-white" /> },
-  { label: "Matrimonial", icon: <Box size={40} className="text-white" /> },
+  { label: "Govt Services", icon: "Asset 17.png" },
+  { label: "Non-Govt Services", icon: "Asset 19.png" },
+  { label: "Banking Services", icon: "Asset 18.png" },
+  { label: "Recharge & Bill Payment", icon: "Asset 16.png" },
+  { label: "Tax Services", icon: "Asset 15.png" },
+  { label: "Travel Services", icon: "Asset 13.png" },
+  { label: "Education Services", icon: "Asset 12.png" },
+  { label: "Marketing Services", icon: "Asset 11.png" },
+  { label: "Design Services", icon: "Asset 10.png" },
+  { label: "Matrimonial", icon: "Asset 14.png" },
 ];
 
 const steps = [
   {
     id: 1,
     title: "REQUEST CALL",
-    description: "Lorem ipsum dolor sit amet, consectetur",
-    icon: <Phone size={40} className="text-cyan-600" />,
+    icon: "Asset 9.png",
   },
   {
     id: 2,
-    title: "PLANNING",
-    description: "Lorem ipsum dolor sit amet, consectetur",
-    icon: <Grid size={40} className="text-cyan-600" />,
+    title: "APPROVAL & PAYMENT",
+    icon: "Asset 8.png",
   },
   {
     id: 3,
-    title: "DELIVER",
-    description: "Lorem ipsum dolor sit amet, consectetur",
-    icon: <Check size={40} className="text-cyan-600" />,
+    title: "LICENSING & TRAINING",
+    icon: "Asset 6.png",
+  },
+  {
+    id: 4,
+    title: "FRANCHISE OPENING",
+    icon: "Asset 7.png",
   },
 ];
 
 function Servicesection() {
-      const navigate = useNavigate()
+  const navigate = useNavigate();
 
   // Reusable service item component
-  const ServiceItem = ({ service, index, circleSize, iconSize, textSize, textWidth, mb }) => (
-    <div key={index} className="flex flex-col items-center text-center flex-shrink-0">
-      <div className={`${circleSize} bg-[#34899D] rounded-full flex items-center justify-center ${mb} shadow-md`}>
-        {typeof service.icon === 'string' ? (
-          <img src={service.icon} alt={service.label} className={`${iconSize} object-contain`} />
-        ) : (
-          service.icon
-        )}
+
+  const ServiceItem = ({
+    service,
+    circleSize,
+    iconSize,
+    textSize,
+    textWidth,
+    mb,
+  }) => {
+    return (
+      <div className="flex flex-col items-center text-center shrink-0">
+        <div
+          className={`rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center ${circleSize} ${mb}`}
+        >
+          <img src={service.icon} alt={service.label} />
+        </div>
+        <p className={`${textSize} text-[#2A8193] font-semibold ${textWidth}`}>
+          {service.label}
+        </p>
       </div>
-      <p className={`text-[#2A8193] ${textSize} font-medium ${textWidth} leading-tight`}>
-        {service.label}
-      </p>
-    </div>
-  );
+    );
+  };
 
   return (
     <>
@@ -68,7 +73,7 @@ function Servicesection() {
           {/* Image on the left */}
           <div className="flex-shrink-0 hidden md:block">
             <img
-              src="section-img.png"
+              src="Asset 29.png"
               alt="Section visual"
               className="w-64 md:w-72 lg:w-80 xl:w-80 h-auto rounded-xl"
             />
@@ -93,7 +98,13 @@ function Servicesection() {
 
             <div className="w-full overflow-x-auto">
               <div className="w-fit rounded-full bg-[#F3F7FA] flex justify-start items-center px-4 sm:px-5 md:px-6 lg:px-6 xl:px-6 py-3 sm:py-4 md:py-5 lg:py-5 xl:py-5 gap-2 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-8">
-                {["icon-1.png", "icon-2.png", "icon-3.png", "icon-4.png", "icon-5.png"].map((src, i) => (
+                {[
+                  "icon-1.png",
+                  "icon-2.png",
+                  "icon-3.png",
+                  "icon-4.png",
+                  "icon-5.png",
+                ].map((src, i) => (
                   <img
                     key={i}
                     src={src}
@@ -109,7 +120,7 @@ function Servicesection() {
 
       {/* CTA Section */}
       <div className="w-full flex justify-center px-3 sm:px-4 md:px-6 lg:px-8 xl:px-4 font-poppins bg-[#F3F7FA]">
-        <div className="w-full max-w-5xl bg-gradient-to-r from-[#34899D] to-teal-600 rounded-md sm:rounded-lg md:rounded-xl lg:rounded-2xl xl:rounded-2xl px-3 sm:px-4 md:px-5 lg:px-6 xl:px-4 py-3 sm:py-4 md:py-4 lg:py-5 xl:py-5 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6 xl:gap-8 shadow-md">
+        <div className="w-full max-w-5xl bg-gradient-to-r from-[#F13747] to-[#FE9855] rounded-md sm:rounded-lg md:rounded-xl lg:rounded-2xl xl:rounded-2xl px-3 sm:px-4 md:px-5 lg:px-6 xl:px-4 py-3 sm:py-4 md:py-4 lg:py-5 xl:py-5 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6 xl:gap-8 shadow-md">
           <div className="flex-1 w-full sm:w-auto">
             <h2 className="text-white text-sm sm:text-base md:text-base lg:text-lg xl:text-xl font-semibold leading-snug">
               ഇപ്പോൾ തന്നെ ഈ മിത്രം ജനസേവന കേന്ദ്രത്തിന്റെ ഭാഗമാകൂ
@@ -117,8 +128,9 @@ function Servicesection() {
           </div>
           <div className="w-full sm:w-auto flex justify-center sm:justify-end">
             <button
-              className="cursor-pointer bg-white text-teal-600 px-4 sm:px-5 md:px-5 lg:px-6 xl:px-6 py-2 sm:py-2 md:py-2 lg:py-2 xl:py-2 rounded-full font-medium text-xs sm:text-sm md:text-sm lg:text-base xl:text-base hover:bg-gray-50 transition-all duration-200 shadow hover:shadow-lg hover:scale-105 whitespace-nowrap"
-            onClick={()=>navigate('/register')}>
+              className="cursor-pointer bg-white text-[#12464F] px-4 sm:px-5 md:px-5 lg:px-6 xl:px-6 py-2 sm:py-2 md:py-2 lg:py-2 xl:py-2 rounded-full font-medium text-xs sm:text-sm md:text-sm lg:text-base xl:text-base hover:bg-gray-50 transition-all duration-200 shadow hover:shadow-lg hover:scale-105 whitespace-nowrap"
+              onClick={() => navigate("/register")}
+            >
               Get Franchise
             </button>
           </div>
@@ -126,38 +138,47 @@ function Servicesection() {
       </div>
 
       {/* our services */}
-      <section className="bg-[#F3F7FA] py-8 sm:py-10 md:py-12 lg:py-14 xl:py-16 px-3 sm:px-4 md:px-6 lg:px-8  font-poppins">
+      <section className="bg-[#F3F7FA] py-10 px-4 font-poppins">
         {/* Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10 md:mb-12 lg:mb-14">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-4xl  text-[#2A8193] mb-3 sm:mb-4 md:mb-5 lg:mb-6">
-            Our <span className="underline underline-offset-4 decoration-2 md:decoration-3 font-bold">Services</span>
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl text-[#2A8193] mb-4">
+            Our{" "}
+            <span className="underline underline-offset-4 decoration-2 md:decoration-4 font-bold ">
+              Services
+            </span>
           </h2>
-          <p className="text-[#2A8193] text-sm sm:text-base md:text-lg lg:text-xl xl:text-lg font-medium leading-relaxed px-2 sm:px-4 md:px-0">
-            Our business model works with the objective of expanding the scope of entrepreneurship among the common class of people by providing them with an ocean of opportunities under Common Services segment. Our businesses have expanded all over the Kerala state with the increase
+          <p className="text-[#2A8193] text-sm sm:text-base md:text-lg font-medium leading-relaxed">
+            Our business model works with the objective of expanding the scope
+            of entrepreneurship among the common class of people by providing
+            them with an ocean of opportunities under Common Services segment.
+            Our businesses have expanded all over the Kerala state with the
+            increase.
           </p>
         </div>
 
-        {/* All screens below 1024px: Horizontal Scroll */}
+        {/* Mobile: horizontal scroll */}
         <div className="block lg:hidden">
-          <div className="overflow-x-auto pb-4">
-            <div className="flex gap-4 sm:gap-5 md:gap-6 px-4" style={{ width: 'max-content' }}>
+          <div className="overflow-x-auto pb-4 scrollbar-hide">
+            <div
+              className="flex gap-6 px-2 sm:px-4"
+              style={{ width: "max-content" }}
+            >
               {services.map((service, index) => (
                 <ServiceItem
                   key={index}
                   service={service}
-                  index={index}
-                  circleSize="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24"
-                  iconSize="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
-                  textSize="text-xs sm:text-sm md:text-base"
-                  textWidth="max-w-[80px] sm:max-w-[100px] md:max-w-none"
-                  mb="mb-2 sm:mb-3"
+                  circleSize="w-20 h-20 sm:w-24 sm:h-24"
+                  iconSize="w-10 h-10 sm:w-12 sm:h-12"
+                  textSize="text-sm sm:text-base"
+                  textWidth="max-w-[100px]"
+                  mb="mb-2"
                 />
               ))}
             </div>
           </div>
         </div>
 
-        {/* Large screens and above (1024px+): 2 rows grid */}
+        {/* Desktop: grid */}
         <div className="hidden lg:block">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-5 gap-8">
@@ -165,10 +186,9 @@ function Servicesection() {
                 <ServiceItem
                   key={index}
                   service={service}
-                  index={index}
-                  circleSize="w-24 h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32"
-                  iconSize="w-12 h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16"
-                  textSize="text-base lg:text-lg"
+                  circleSize="w-24 h-24 xl:w-28 xl:h-28"
+                  iconSize="w-12 h-12 xl:w-14 xl:h-14"
+                  textSize="text-base xl:text-lg"
                   textWidth=""
                   mb="mb-4"
                 />
@@ -176,70 +196,98 @@ function Servicesection() {
             </div>
           </div>
         </div>
-
-        {/* Custom CSS for smooth scrolling */}
-        <style >{`
-    /* Hide scrollbar completely on mobile */
-    .overflow-x-auto {
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-    }
-    
-    .overflow-x-auto::-webkit-scrollbar {
-      display: none;
-    }
-    
-    .overflow-x-auto {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-  `}</style>
       </section>
 
       {/* our process */}
-      <section className="w-full px-4 py-12 bg-white font-poppins">
+      <section className="w-full px-4 py-12 bg-white font-sans">
         <div className="max-w-7xl mx-auto text-center">
           {/* Header */}
           <h2 className="text-2xl md:text-4xl text-cyan-700">
-            Our <span className="text-cyan-700 underline font-bold">Process</span>
+            Our{" "}
+            <span className="text-cyan-700 underline font-bold">Process</span>
           </h2>
-          <p className=" text-cyan-700 mt-4 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">
-            Our business model works with the objective of expanding the scope of entrepreneurship
-            among the common class of people by providing them with an ocean of opportunities under
-            Common Services segmen
+          <p className="text-cyan-700 mt-4 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">
+            Our business model works with the objective of expanding the scope
+            of entrepreneurship among the common class of people by providing
+            them with an ocean of opportunities under Common Services segment
           </p>
 
-          {/* Steps */}
-          <div className="relative mt-14 flex flex-col md:flex-row items-center justify-center gap-10 md:gap-14">
+          {/* Steps - Desktop with connecting lines */}
+          <div className="hidden md:flex relative mt-14 items-center justify-center gap-14">
             {steps.map((step, index) => (
-              <div key={step.id} className="relative flex flex-col items-center text-center">
+              <div
+                key={step.id}
+                className="relative flex flex-col items-center text-center"
+              >
                 {/* Top number circle */}
-                <div className="absolute -top-6 w-6 h-6 bg-[#DCE444] text-black text-xs font-bold rounded-full flex items-center justify-center shadow-md z-10">
+                <div className="absolute -top-3 w-6 h-6 bg-[#DCE444] text-black text-xs font-bold rounded-full flex items-center justify-center shadow-md z-10">
                   {step.id}
                 </div>
 
                 {/* Icon circle */}
-                <div className="rounded-full border border-gray-300 p-6 bg-white shadow-md z-10">
-                  {step.icon}
+                <div className="w-20 h-20 rounded-full border border-gray-300 bg-white shadow-md flex items-center justify-center overflow-hidden">
+                  <img
+                    src={step.icon}
+                    alt={step.title}
+                    className="w-full h-full object-contain"
+                  />
                 </div>
 
-                {/* Title & description */}
-                <h3 className="mt-4 text-cyan-700 font-semibold text-sm md:text-base">
+                {/* Title */}
+                <h3 className="mt-4 text-cyan-700 font-semibold text-base">
                   {step.title}
                 </h3>
-                <p className="text-gray-500 text-xs md:text-sm max-w-[150px] mt-1">
-                  {step.description}
-                </p>
 
                 {/* Connecting line (only between items) */}
                 {index !== steps.length - 1 && (
-                  <div className="hidden md:block absolute top-[50px] left-[calc(50%+40px)] w-[calc(100%-80px+3.5rem)] h-0.5 bg-gray-300 z-0"></div>
+                  <div className="absolute top-[50px] left-[calc(50%+40px)] w-[calc(100%-80px+5.5rem)] h-0.5 bg-gray-300 z-0"></div>
                 )}
               </div>
             ))}
           </div>
+
+          {/* Steps - Mobile with horizontal scroll */}
+          {/* Steps - Mobile with horizontal scroll */}
+          <div className="md:hidden mt-14">
+            <div className="overflow-x-auto scrollbar-hide">
+              <div
+                className="flex gap-8 pb-4 px-2"
+                style={{ minWidth: "max-content" }}
+              >
+                {steps.map((step) => (
+                  <div
+                    key={step.id}
+                    className="flex flex-col items-center text-center flex-shrink-0 min-w-[100px]"
+                  >
+                    {/* Icon + Number wrapper */}
+                    <div className="relative w-20 h-20 mt-4">
+                      {/* Top number circle */}
+                      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-[#DCE444] text-black text-xs font-bold rounded-full flex items-center justify-center shadow-md z-10">
+                        {step.id}
+                      </div>
+
+                      {/* Icon circle */}
+                      <div className="w-full h-full rounded-full border border-gray-300 bg-[#007a8a] shadow-md flex items-center justify-center overflow-hidden">
+                        <img
+                          src={step.icon}
+                          alt={step.title}
+                          className="w-3/4 h-3/4 object-contain"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="mt-4 text-cyan-700 font-semibold text-sm">
+                      {step.title}
+                    </h3>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
+      <Testimonials />
     </>
   );
 }
