@@ -146,7 +146,7 @@ function TestimonialSlider() {
             preserveAspectRatio="none"
           >
             <path
-              fill="#F9FAFB"
+              fill="#FFFFFF"
               d="M0,320 C480,200 960,200 1440,320 L1440,320 L0,320 Z"
             />
           </svg>
@@ -155,7 +155,7 @@ function TestimonialSlider() {
         .
       </section>
 
-      <section className="w-full px-4 py-12 bg-gray-50">
+      <section className="w-full px-4 py-12 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2  items-start ">
             {/* Left side - Image with badges */}
@@ -166,7 +166,7 @@ function TestimonialSlider() {
                   <img
                     src="Asset 30.png"
                     alt="Franchise Discussion"
-                    className="w-90 h-100 "
+                    className="w-105 h-120 "
                   />
                 </div>
 

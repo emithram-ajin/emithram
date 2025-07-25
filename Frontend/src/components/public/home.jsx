@@ -18,7 +18,7 @@ function RegistrationForm({ formData, handleChange, handleSubmit, handleMouseEnt
       >
         <div className="flex items-center justify-between mb-3 sm:mb-4 text-center">
           <h3 className="w-full text-center text-base sm:text-sm md:text-sm lg:text-lg font-semibold bg-gradient-to-r from-blue-600 to-teal-400 bg-clip-text text-transparent mb-3">
-            . Registration Form .
+            Registration Form
           </h3>
         </div>
         <form
@@ -130,9 +130,9 @@ const containerClasses = "relative w-full min-h-[450px] sm:min-h-[500px] md:h-[6
   return (
     <>
       <div className="relative min-h-[450px] sm:min-h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px] w-full overflow-hidden">
-        {/* <div className="absolute top-4 right-2 sm:right-4 md:right-[130px] z-50">
+        <div className="absolute top-4 right-2 sm:right-4 md:right-[130px] z-50">
           <Languageselecor />
-        </div> */}
+        </div>
 
         <Swiper
           ref={swiperRef}
@@ -151,7 +151,7 @@ const containerClasses = "relative w-full min-h-[450px] sm:min-h-[500px] md:h-[6
             <div className={containerClasses} style={{ backgroundImage: "url('/banner1.png')" }}>
               <div className={mainContainerClasses}>
                 <div className="lg:hidden grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 py-4 sm:py-6 items-start md:items-center md:min-h-[400px] w-full">
-                  <div className="w-full px-2 ">
+                  <div className="w-full px-2  pr-4">
                     <TextContent />
                   </div>
                   <div className="w-full px-2">

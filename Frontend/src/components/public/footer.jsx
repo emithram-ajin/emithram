@@ -6,7 +6,7 @@ export default function Footer() {
 
   return (
 
-    <footer className="bg-[#276664] text-white px-4 sm:px-6 lg:px-16 py-8 sm:py-10 font-poppins">
+    <footer className="bg-[#276664] text-white px-4 sm:px-6 lg:px-16 py-8 sm:py-10 font-poppins border-t-6 border-[#89B6C1]">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10 max-w-7xl mx-auto">
         {/* About Us */}
         <div className="col-span-1 sm:col-span-2 lg:col-span-1">
