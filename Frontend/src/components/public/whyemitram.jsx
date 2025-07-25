@@ -132,6 +132,7 @@ export default function EMithramSection() {
   </div>
 </div>
 
+
       {/* Advantages */}
       <div
         className="relative text-white pt-12 sm:pt-16 pb-24 sm:pb-32"

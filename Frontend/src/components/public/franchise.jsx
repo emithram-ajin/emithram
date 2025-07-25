@@ -2,7 +2,7 @@
  
  function Franchise() {
    return (
-    <div className="pt-50 text-center">Franchise page</div>
+    <div className="pt-50 text-center pb-50 text-2xl">Franchise page</div>
    )
  }
  

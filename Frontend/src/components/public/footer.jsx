@@ -6,30 +6,56 @@ export default function Footer() {
 
   return (
 
-    <footer className="bg-[#1f1f1f] text-white px-4 sm:px-6 lg:px-16 py-8 sm:py-10">
+    <footer className="bg-[#276664] text-white px-4 sm:px-6 lg:px-16 py-8 sm:py-10 font-poppins">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10 max-w-7xl mx-auto">
         {/* About Us */}
         <div className="col-span-1 sm:col-span-2 lg:col-span-1">
           <a href='/'>
-          <img
-            src="emithram-logo.jpg"
-            alt="e-Mithram Logo"
-            className="mb-4 sm:mb-5 w-48 sm:w-60 h-[60px] max-w-full cursor-pointer"
-          />
+            <div
+              className="w-auto h-[60px] bg-no-repeat bg-contain cursor-pointer"
+              style={{ backgroundImage: "url('/emitram-logo2.png')" }}
+              aria-label="e-Mithram Logo"
+            ></div>
           </a>
 
-          <h3 className="text-2xl sm:text-3xl font-bold mb-2">About us</h3>
-          <p className="text-sm text-gray-300 leading-relaxed font-poppins mt-3 sm:mt-5">
-            Our business model works with the objective of expanding the scope
-            of entrepreneurship among the common class of people by providing them
-            with an ocean of opportunities
+          <p className="text-sm text-white leading-relaxed font-poppins mt-3 sm:mt-5">
+            Our business model works with  the scope
+            of entrepreneurship
           </p>
+          <h3 className="mt-6 text-xl sm:text-2xl font-bold">Follow Us</h3>
+          <div className="flex flex-wrap gap-3 mt-3">
+            <a href="https://www.youtube.com/@emithram.csc." target="_blank" rel="noopener noreferrer">
+              <div className="group hidden sm:flex w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full bg-gradient-to-r from-cyan-600 to-teal-600 items-center justify-center hover:scale-105 transition-transform duration-300">
+                <FaYoutube size={14} />
+              </div>
+            </a>
+
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+              <div className="group hidden sm:flex w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full bg-gradient-to-r from-cyan-600 to-teal-600 items-center justify-center hover:scale-105 transition-transform duration-300">
+                <FaFacebookF size={14} />
+              </div>
+            </a>
+
+            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+              <div className="group hidden sm:flex w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full bg-gradient-to-r from-cyan-600 to-teal-600 items-center justify-center hover:scale-105 transition-transform duration-300">
+                <FaTwitter size={14} />
+              </div>
+            </a>
+
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+              <div className="group hidden sm:flex w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full bg-gradient-to-r from-cyan-600 to-teal-600 items-center justify-center hover:scale-105 transition-transform duration-300">
+                <FaLinkedinIn size={14} />
+              </div>
+            </a>
+          </div>
+
+
         </div>
 
         {/* Our Services */}
-        <div className="lg:border-r lg:border-teal-500 lg:pl-6">
-          <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Our Services</h3>
-          <ul className="space-y-2 text-gray-300 font-poppins text-sm mt-3 sm:mt-5">
+        <div className="lg:border-r-2 lg:border-[#368899] lg:pl-2">
+          <h3 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">Our Services</h3>
+          <ul className="space-y-2 text-white font-poppins text-sm mt-3 sm:mt-5">
             <li>• Govt Services</li>
             <li>• Banking Services</li>
             <li>• Matrimony Services</li>
@@ -38,9 +64,9 @@ export default function Footer() {
         </div>
 
         {/* Useful Links */}
-        <div className="lg:border-r lg:border-teal-500 lg:pl-6">
-          <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Useful Links</h3>
-          <ul className="space-y-2 font-poppins text-gray-300 mt-3 sm:mt-5 text-sm">
+        <div className="lg:border-r-2 lg:border-[#368899] lg:pl-2">
+          <h3 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">Useful Links</h3>
+          <ul className="space-y-2 font-poppins text-white mt-3 sm:mt-5 text-sm">
             <li>
               <Link to="/contact" className="hover:underline">• Contact Us</Link>
             </li>
@@ -62,130 +88,29 @@ export default function Footer() {
 
         {/* Address */}
         <div className="lg:pl-6">
-          <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Address</h3>
-          <p className="text-sm text-gray-300 font-poppins leading-relaxed">
+          <h3 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">Address</h3>
+          <p className="text-sm text-white font-poppins leading-relaxed">
             DD Vyapar Bhavan<br />
             KP Vallon Rd, Kadavanthra, Kochi, Ernakulam<br />
             Pincode: 682020
           </p>
 
-          <div className="mt-4 space-y-1">
-            <div className="flex items-center text-sm text-gray-300">
+          <div className=" space-y-1 text-white">
+            <div className="flex items-center text-sm">
               <FaPhone className="mr-2 flex-shrink-0" />
               <span>95392 70777</span>
             </div>
-            <div className="flex items-center text-sm text-gray-300">
+            <div className="flex items-center text-sm">
               <FaPhone className="mr-2 flex-shrink-0" />
               <span>95392 70666</span>
             </div>
-            <p className="text-sm text-gray-300">✉ emithramcare@gmail.com</p>
+            <p className="text-sm ">✉ emithramcare@gmail.com</p>
           </div>
-
-          <h3 className="mt-6 text-xl sm:text-2xl font-bold">Follow Us</h3>
-          <div className="flex flex-wrap gap-3 mt-3">
-            <a href="https://www.youtube.com/@emithram.csc." target="_blank" rel="noopener noreferrer">
-              <div
-                style={{
-                  width: "2.6rem",            
-                  height: "2.6rem",          
-                  backgroundColor: "#0d9488", 
-                  borderRadius: "9999px",   
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "#ffffff",        
-                  cursor: "pointer",
-                  transition: "background-color 0.3s ease",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#0f766e")} 
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0d9488")} 
-              >                <FaYoutube size={14} />
-              </div>
-            </a>
-            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-              <div
-                style={{
-                  width: "2.6rem",           
-                  height: "2.6rem",          
-                  backgroundColor: "#0d9488", 
-                  borderRadius: "9999px",  
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "#ffffff",         
-                  cursor: "pointer",
-                  transition: "background-color 0.3s ease",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#0f766e")} 
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0d9488")} 
-              >                   <FaFacebookF size={14} />
-              </div>
-            </a>
-            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
-              <div
-                style={{
-                  width: "2.6rem",            
-                  height: "2.6rem",           
-                  backgroundColor: "#0d9488", 
-                  borderRadius: "9999px",   
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "#ffffff",         
-                  cursor: "pointer",
-                  transition: "background-color 0.3s ease",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#0f766e")} 
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0d9488")} 
-              >                   <FaTwitter size={14} />
-              </div>
-            </a>
-            <a href="https://plus.google.com" target="_blank" rel="noopener noreferrer">
-              <div
-                style={{
-                  width: "2.6rem",            
-                  height: "2.6rem",           
-                  backgroundColor: "#0d9488", 
-                  borderRadius: "9999px",  
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "#ffffff",         
-                  cursor: "pointer",
-                  transition: "background-color 0.3s ease",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#0f766e")} 
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0d9488")} 
-              >                   <FaGooglePlusG size={14} />
-              </div>
-            </a>
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-              <div
-                style={{
-                  width: "2.6rem",            
-                  height: "2.6rem",           
-                  backgroundColor: "#0d9488", 
-                  borderRadius: "9999px",   
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "#ffffff",         
-                  cursor: "pointer",
-                  transition: "background-color 0.3s ease",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#0f766e")} 
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0d9488")} 
-              >                   <FaLinkedinIn size={14} />
-              </div>
-            </a>
-
-          </div>
-
         </div>
       </div>
 
       {/* Copyright */}
-      <div className="text-center text-gray-400 text-[10px] sm:text-xs mt-8 sm:mt-10 pt-4">
+      <div className="text-center text-white text-md   mt-2 sm:mt-2 pt-2">
         Copyright © 2025 e-Mithram | All Rights Reserved.
       </div>
 
