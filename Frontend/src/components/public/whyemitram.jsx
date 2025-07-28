@@ -41,96 +41,101 @@ export default function EMithramSection() {
 
   return (
     <>
-  <div className="bg-[#f4f4f4] py-4 sm:py-6 md:py-8 lg:py-12 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 rounded-2xl sm:rounded-3xl w-[95%] sm:w-[92%] md:w-[90%] mx-auto mt-4 sm:mt-6 md:mt-8 lg:mt-[30px] mb-3 sm:mb-4 md:mb-6 lg:mb-[20px] shadow-sm sm:shadow-md lg:shadow-lg xl:shadow-xl">
-  <div className="text-gray-800">
-    {/* Header Section */}
-    <div className="text-center lg:text-left">
-      <h2 className='text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-bold mt-2 sm:mt-4 md:mt-6 lg:mt-[20px] text-[#388CA0] px-2 lg:ml-[60px]'>
-        എന്തുകൊണ്ട് <span className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold'>e-Mithram</span>
-      </h2>
-      <div className="w-16 sm:w-24 md:w-32 lg:w-40 xl:w-48 h-1 mt-2 sm:mt-3 lg:mt-[15px] mx-auto lg:mx-0 lg:ml-[60px] bg-teal-600"></div>
-    </div>
+      <div className="bg-[#f6f3f3] py-4 sm:py-6 md:py-8 lg:py-12 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 rounded-2xl sm:rounded-3xl w-[96%] sm:w-[93%] md:w-[94%] mx-auto mt-4 sm:mt-6 md:mt-8 
+      lg:mt-[35px] mb-3 sm:mb-4 md:mb-6 lg:mb-[20px] shadow-sm sm:shadow-md lg:shadow-lg xl:shadow-xl ml-4 sm:ml-6 md:ml-6 lg:ml-9">
 
-    <div className="flex flex-col lg:flex-row items-start gap-4 sm:gap-6 md:gap-8 lg:gap-10">
-      {/* Text and Features Section */}
-      <div className="w-full lg:flex-1 space-y-3 sm:space-y-4 md:space-y-6 mt-4 sm:mt-6 md:mt-8 lg:mt-10">
-        {/* Description Text */}
-        <div className="px-2 lg:px-0">
-          <p className="text-center lg:text-left lg:ml-[60px] text-teal-700 text-xs sm:text-sm md:text-base lg:text-[16px] xl:text-lg font-bold font-anek leading-relaxed sm:leading-loose lg:leading-[1.6rem] max-w-none lg:max-w-[650px] xl:max-w-[750px]">
-            കേരളം വീണ്ടും മിഷനെത്തും, ഇതു ഗവർമെന്റിനെത്തും സഹോദര്യട്ടുകുടി പ്രവർത്തിക്കുന്ന 2600 കോ അധികം വരുന്ന ഉപേക്ഷ സന്നദ് കേന്ദ്രങ്ങളുടെ ശ്രമലയാണ് ഇവിത്രം. ഇത് കഴിഞ്ഞ 10 വർഷക്കാണ് 2600 കോ അധികം മിക്ച സംരംഭകരെ വാര്‍ത്തട്ടുക്കാന്‍ ഇവിത്രത്തിന്ന കഴിഞ്ഞു. കഴിഞ്ഞും സിവിഭാഗത്തപ്പവും ഉളളവര്‍ക്ക് നിന്ന് ഒരു സംരംഭം കുറിപ്പണ്ണ ബുത്രമുട്ടുക്കില്‍ തുടങ്ങാന്‍ ഇത ചിരിക നിങ്ങള്‍ സഹായിക്കുന്നു.
-          </p>
-        </div>
+        <div className="text-gray-800">
+          {/* Header Section */}
+          <div className="text-center lg:text-left">
+            <span className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-4xl font-bold sm:mt-4 md:mt-6 lg:mt-[15px] text-[#388CA0] px-2 lg:ml-[55px] font-anek'>
+              എന്തുകൊണ്ട് <span className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-bold'>e-Mithram</span>
+            </span>
+            <div className="w-16 sm:w-24 md:w-32 lg:w-40 xl:w-48 h-1 mt-2 sm:mt-3 lg:mt-[15px] mx-auto lg:mx-0 lg:ml-[70px] bg-[#388CA0]"></div>
+          </div>
 
-        {/* Features and Stats Container */}
-        <div className="flex flex-col xl:flex-row items-center xl:items-start text-center xl:text-left justify-center xl:justify-start gap-2 sm:gap-3 md:gap-4 lg:gap-4">
-          {/* Feature List */}
- <div className="w-full xl:flex-1">
-  <div className="flex justify-center xl:justify-start">
-    <div className="grid grid-cols-1 gap-1.5 sm:gap-2 md:gap-3 text-teal-700 text-center xl:text-left px-2 lg:ml-[60px]">
-      {[
-        "Statewide Franchise Network",
-        "Exclusive Training",
-        "Proven Success Across Kerala",
-        "Continuous Quality Improvement",
-        "Quick Backend Support",
-        "Customer-Centric Approach"
-      ].map((text, index) => (
-        <div
-          key={index}
-          className="flex items-center text-left text-xs sm:text-sm md:text-base lg:text-lg xl:text-[20px] font-semibold"
-        >
-<img
-  src="CheckCircleicon.png"
-  alt="Verified Icon"
-  className="w-5 h-5 mr-2"
-/>          <span className="w-full text-center xl:text-left">{text}</span>
-        </div>
-      ))}
-    </div>
-  </div>
-</div>
+          <div className="flex flex-col lg:flex-row items-start gap-4 sm:gap-6 md:gap-8 lg:gap-10">
+            {/* Text and Features Section */}
+            <div className="w-full lg:flex-1 space-y-3 sm:space-y-4 md:space-y-6 mt-4 sm:mt-6 md:mt-8 lg:mt-10">
+              {/* Description Text */}
+              <div className="px-2 lg:px-0">
+                <p className="text-center lg:text-left lg:ml-[70px] text-[#227575] text-xs sm:text-sm md:text-base lg:text-[16px] xl:text-md font-bold font-anek leading-relaxed sm:leading-loose lg:leading-[1.5rem] max-w-none lg:max-w-[600px] xl:max-w-[700px]">
+
+                  കേരളാ സ്റ്റാർട്ടപ്പ് മിഷന്റെയും, ഇന്ത്യ ഗവെർന്മെന്റിന്റെയും സപ്പോർട്ടോടുകൂടി പ്രവർത്തിക്കുന്ന 2600 ൽ അധികം വരുന്ന ഉപഭോക്തൃ സേവന കേന്ദ്രങ്ങളുടെ ശൃംഖലയാണ് ഇമിത്രം.
+                  ഈ കഴിഞ്ഞ 10 വർഷംകൊണ്ട് 2600 ൽ അധികം മികച്ച സംരംഭകരെ വാർത്തെടുക്കാൻ ഇമിത്രത്തിനു കഴിഞ്ഞു. കഴിവും സ്ഥിരോത്സാഹവും ഉള്ളവർക്ക് നല്ല ഒരു സംരംഭം കുറഞ്ഞ
+                  മുതൽമുടക്കിൽ തുടങ്ങാൻ ഇ മിത്രം നിങ്ങളെ സഹായിക്കുന്നു.              </p>
+              </div>
+
+              {/* Features and Stats Container */}
+              <div className="flex flex-col xl:flex-row items-center xl:items-start text-center xl:text-left justify-center xl:justify-start gap-2 sm:gap-3 md:gap-4 lg:gap-4">
+                {/* Feature List */}
+                <div className="w-full xl:flex-1">
+                  <div className="flex justify-center xl:justify-start">
+                    <div className="grid grid-cols-1 gap-1.5 sm:gap-2 md:gap-3 text-teal-700 text-center xl:text-left px-2 lg:ml-[60px]">
+                      {[
+                        "Statewide Franchise Network",
+                        "Exclusive Training",
+                        "Proven Success Across Kerala",
+                        "Continuous Quality Improvement",
+                        "Quick Backend Support",
+                        "Customer-Centric Approach"
+                      ].map((text, index) => (
+                        <div
+                          key={index}
+                          className="flex items-center text-left text-xs sm:text-sm md:text-base lg:text-lg xl:text-[20px] font-semibold"
+                        >
+                          <img
+                            src="CheckCircleicon.png"
+                            alt="Verified Icon"
+                            className="w-5 h-5 mr-2"
+                          />          <span className="w-full text-center xl:text-left">{text}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
 
 
-          {/* Stats Box */}
-          <div className="w-full sm:w-auto mx-auto xl:mx-0 xl:flex-shrink-0 mt-3 sm:mt-4 xl:mt-0">
-            <div className="bg-[#f1f8fa] px-4 sm:px-6 md:px-8 py-3 sm:py-4 md:py-6 w-full sm:w-[180px] md:w-[200px] lg:w-[220px] shadow-sm rounded-tl-[15px] sm:rounded-tl-[20px] md:rounded-tl-[30px] rounded-tr-[15px] sm:rounded-tr-[20px] md:rounded-tr-[30px] rounded-bl-[0px] rounded-br-[15px] sm:rounded-br-[20px] md:rounded-br-[30px]">
-              <div className="text-[#298597] text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">100%</div>
-              <div className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl mb-1 sm:mb-2 md:mb-4">Success Rate</div>
-              <hr className="border-gray-300 my-1 sm:my-2" />
-              <div className="text-[#298597] text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">2940+</div>
-              <div className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl">Franchise</div>
+                {/* Stats Box */}
+                <div className="w-full sm:w-auto mx-auto xl:mx-0 xl:flex-shrink-0 mt-3 sm:mt-4 xl:mt-0">
+                  <div className="bg-[#f1f8fa] px-4 sm:px-6 md:px-8 py-3 sm:py-4 md:py-6 w-full sm:w-[180px] md:w-[200px] lg:w-[220px] shadow-sm rounded-tl-[15px] sm:rounded-tl-[20px] md:rounded-tl-[30px] rounded-tr-[15px] sm:rounded-tr-[20px] md:rounded-tr-[30px] rounded-bl-[0px] rounded-br-[15px] sm:rounded-br-[20px] md:rounded-br-[30px]">
+                    <div className="text-[#298597] text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">100%</div>
+                    <div className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl mb-1 sm:mb-2 md:mb-4">Success Rate</div>
+                    <hr className="border-gray-300 my-1 sm:my-2" />
+                    <div className="text-[#298597] text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">2940+</div>
+                    <div className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl">Franchise</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Register Button */}
+              <div className="text-center xl:text-left px-2 lg:px-0 mt-4 sm:mt-6 font-poppins">
+                <button
+                  className="text-white font-semibold py-2.5 px-5 sm:py-3 sm:px-6 md:py-2 md:px-8 lg:ml-[60px] rounded-tl-[8px] sm:rounded-tl-[10px] rounded-tr-[8px] sm:rounded-tr-[10px] rounded-bl-[8px]
+                   sm:rounded-bl-[10px] rounded-br-[0px] hover:opacity-90 transition-all duration-300 text-md sm:text-sm md:text-xl"
+                  style={{ background: "linear-gradient(to right, #0066E8, #00BBC0)" }}
+                  onClick={() => navigate('/register')}
+                >
+                  More About
+                </button>
+              </div>
+            </div>
+
+            {/* Video Section */}
+            <div className="w-full lg:w-auto lg:flex-shrink-0 mt-4 sm:mt-6 lg:mt-[15px]">
+              <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-none lg:w-[480px] xl:w-[520px] h-40 sm:h-48 md:h-64 lg:h-[300px] xl:h-[320px] mx-auto bg-gradient-to-r from-teal-600 to-blue-700 rounded-xl sm:rounded-2xl lg:rounded-[30px] shadow-[0_4px_20px_rgba(0,0,0,0.3)] sm:shadow-[0_4px_25px_rgba(0,0,0,0.4)] lg:shadow-[0_4px_30px_rgba(0,0,0,0.5)] overflow-hidden relative">
+                <video
+                  src="emithram.mp4"
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  controls
+                />
+              </div>
             </div>
           </div>
         </div>
-
-        {/* Register Button */}
-        <div className="text-center xl:text-left px-2 lg:px-0 mt-4 sm:mt-6 font-poppins">
-          <button
-            className="text-white font-semibold py-2.5 px-5 sm:py-3 sm:px-6 md:py-3 md:px-6 lg:ml-[60px] rounded-tl-[8px] sm:rounded-tl-[10px] rounded-tr-[8px] sm:rounded-tr-[10px] rounded-bl-[8px] sm:rounded-bl-[10px] rounded-br-[0px] hover:opacity-90 transition-all duration-300 text-xs sm:text-sm md:text-base"
-            style={{ background: "linear-gradient(to right, #0066E8, #00BBC0)" }}
-            onClick={() => navigate('/register')}
-          >
-            More About
-          </button>
-        </div>
       </div>
-
-      {/* Video Section */}
-      <div className="w-full lg:w-auto lg:flex-shrink-0 mt-4 sm:mt-6 lg:mt-[15px]">
-        <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-none lg:w-[480px] xl:w-[520px] h-40 sm:h-48 md:h-64 lg:h-[300px] xl:h-[320px] mx-auto bg-gradient-to-r from-teal-600 to-blue-700 rounded-xl sm:rounded-2xl lg:rounded-[30px] shadow-[0_4px_20px_rgba(0,0,0,0.3)] sm:shadow-[0_4px_25px_rgba(0,0,0,0.4)] lg:shadow-[0_4px_30px_rgba(0,0,0,0.5)] overflow-hidden relative">
-          <video
-            src="emithram.mp4"
-            className="w-full h-full object-cover"
-            autoPlay
-            loop
-            muted
-            controls
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 
       {/* Advantages */}
@@ -145,24 +150,23 @@ export default function EMithramSection() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold">
             Our <span className="font-bold">Advantages</span>
           </h2>
-          <div className="h-1 w-12 sm:w-16 md:w-20 lg:w-24 mx-auto mt-2 bg-white rounded"></div>
-          <p className="mt-4 text-sm sm:text-base md:text-lg lg:text-xl max-w-full sm:max-w-2xl lg:max-w-4xl mx-auto px-2">
-            Our business model works with the objective of expanding the scope of
-            entrepreneurship among innovative professionals
+          <div className="h-1 w-[170px] bg-white mx-auto mt-5 "></div>
+          <p className="mt-2 text-md md:text-md md:text-xl lg:text-md w-full sm:w-[500px] md:w-[600px] lg:w-[900px] mx-auto px-2 font-Poppins">
+            Our business model works with the objective of expanding the scope of entrepreneurship among
           </p>
         </div>
         {/* Advantages Section */}
         <div className="mt-6 sm:mt-8 md:mt-12">
           {/* Large Screen Grid (lg and above) */}
           <div className="hidden lg:block">
-            <div className="grid grid-cols-5 gap-6 sm:gap-8 lg:gap-12 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto text-center">
+            <div className="grid grid-cols-5 gap-2 sm:gap-2 lg:gap-3 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center">
               {advantages.map((item, index) => (
                 <div
                   key={index}
                   className="flex flex-col items-center text-white transition-transform transform hover:scale-105 duration-300"
                 >
                   {/* Circle with Image */}
-                  <div className="bg-white w-28 h-28 rounded-full flex items-center justify-center shadow-lg mb-4">
+                  <div className="bg-white w-25 h-25 rounded-full flex items-center justify-center shadow-lg mb-3">
                     <img
                       src={item.image}
                       alt={item.title}
@@ -171,12 +175,12 @@ export default function EMithramSection() {
                   </div>
                   {/* Count */}
                   {item.count && (
-                    <p className="text-2xl font-bold text-center text-white mb-1">
+                    <p className="text-xl font-bold text-center text-white mb-1">
                       {item.count}
                     </p>
                   )}
                   {/* Title */}
-                  <p className="text-base font-poppins text-center text-white leading-tight max-w-[120px]">
+                  <p className="text-[10px] font-semibold font-poppins text-center text-white leading-tight max-w-[100px]">
                     {item.title}
                   </p>
                 </div>
