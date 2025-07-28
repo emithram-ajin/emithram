@@ -240,7 +240,7 @@ function Servicesection() {
 
                 {/* Connecting line (only between items) */}
                 {index !== steps.length - 1 && (
-                  <div className="absolute top-[50px] left-[calc(50%+40px)] w-[calc(100%-80px+5.5rem)] h-0.5 bg-gray-300 z-0"></div>
+                  <div className="absolute top-[40px] left-[calc(50%+40px)] w-[calc(100%-80px+5.5rem)] h-0.5 bg-gray-300 z-0"></div>
                 )}
               </div>
             ))}
