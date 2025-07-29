@@ -5,7 +5,7 @@ export default function Footer() {
   const navigate = useNavigate();
 
   return (
-    <footer className="bg-[#008C80] text-white px-4 sm:px-6 lg:px-16 py-8 sm:py-10 font-poppins border-t-6 border-[#89B6C1]">
+    <footer className="bg-[#008C80] text-white px-10 sm:px-10 lg:px-12 py-6 sm:py-8 font-poppins border-t-6 border-[#89B6C1]">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10 max-w-7xl mx-auto">
         {/* About Us */}
         <div className="col-span-1 sm:col-span-2 lg:col-span-1">
@@ -106,7 +106,7 @@ export default function Footer() {
       </div>
 
       {/* Copyright */}
-      <div className="text-center text-white text-sm sm:text-base mt-8 sm:mt-8 pt-4 ">
+      <div className="text-center text-white text-sm sm:text-base mt-8 sm:mt-8 md:mt-1 pt-4 ">
         Copyright © 2025 e-Mithram | All Rights Reserved.
       </div>
     </footer>

@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Star, ChevronDown, ChevronUp, HandCoins, Store } from "lucide-react";
-import { motion ,AnimatePresence} from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
+
 
 // Dummy data
 const testimonials = [
@@ -60,6 +61,8 @@ function TestimonialSlider() {
   const toggleAccordion = (id) => {
     setOpenAccordion(openAccordion === id ? null : id);
   };
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, margin: "-100px" });
   return (
     <>
       <section className="relative bg-[#F2F8F9] py-16 px-4 font-poppins overflow-hidden">
@@ -150,16 +153,14 @@ function TestimonialSlider() {
               d="M0,320 C480,200 960,200 1440,320 L1440,320 L0,320 Z"
             />
           </svg>
-
         </div>
-
       </section>
 
       <section className="w-full px-3 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-10 md:py-12 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-start">
+        <div className="max-w-7xl mx-auto px-4 ">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12  justify-center items-center">
             {/* Left side - Image with badges */}
-            <div className="relative order-2 lg:order-1">
+            <div className="relative order-2 lg:order-1" ref={ref}>
               {/* Mobile/Tablet Image */}
               <div className="relative overflow-hidden lg:hidden">
                 <div className="flex justify-center">
@@ -170,24 +171,35 @@ function TestimonialSlider() {
                   />
                 </div>
 
-                {/* Mobile badges - positioned differently */}
-                <div className="absolute top-4 right-4 sm:top-6 sm:right-6">
+                {/* Badge 1 - Mobile - Slide in from right */}
+                <motion.div
+                  initial={{ x: 100, opacity: 0 }}
+                  animate={isInView ? { x: 0, opacity: 1 } : {}}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="absolute top-4 right-6 sm:top-6 sm:right-6"
+                >
                   <div className="bg-white border border-teal-400 px-2 sm:px-3 py-1 rounded-full shadow-sm flex items-center gap-1 sm:gap-2">
                     <Store className="w-3 h-3 sm:w-4 sm:h-4 text-[#009689]" />
                     <span className="text-teal-600 text-xs sm:text-sm font-semibold">
                       2900+ Franchise
                     </span>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6">
+                {/* Badge 2 - Mobile - Slide in from left */}
+                <motion.div
+                  initial={{ x: -100, opacity: 0 }}
+                  animate={isInView ? { x: 0, opacity: 1 } : {}}
+                  transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                  className="absolute bottom-4 sm:bottom-6 right-[9.75rem]"
+                >
                   <div className="bg-white border border-teal-400 px-2 sm:px-3 py-1 rounded-full shadow-sm flex items-center gap-1 sm:gap-2">
                     <HandCoins className="w-3 h-3 sm:w-4 sm:h-4 text-[#009689]" />
                     <span className="text-teal-600 text-xs sm:text-sm font-semibold">
                       LOW INVESTMENT
                     </span>
                   </div>
-                </div>
+                </motion.div>
               </div>
 
               {/* Desktop Image */}
@@ -196,53 +208,60 @@ function TestimonialSlider() {
                   <img
                     src="Asset 30.png"
                     alt="Franchise Discussion"
-                    className="w-90 h-100" />
+                    className="w-90 h-100"
+                  />
                 </div>
 
-                {/* Desktop badges - original positioning */}
-                <div className="absolute top-10 right-38">
+                {/* Badge 1 - Desktop - Slide in from right */}
+                <motion.div
+                  initial={{ x: 100, opacity: 0 }}
+                  animate={isInView ? { x: 0, opacity: 1 } : {}}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="absolute top-10 right-[9.5rem]"
+                >
                   <div className="bg-white border border-teal-400 px-4 py-1 rounded-full shadow-sm flex items-center gap-2">
                     <Store className="w-4 h-4 text-[#009689]" />
                     <span className="text-teal-600 text-sm font-semibold">
                       2900+ Franchise
                     </span>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="absolute bottom-12 left-23">
+                {/* Badge 2 - Desktop - Slide in from left */}
+                <motion.div
+                  initial={{ x: -100, opacity: 0 }}
+                  animate={isInView ? { x: 0, opacity: 1 } : {}}
+                  transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                  className="absolute bottom-12 left-[5.75rem]"
+                >
                   <div className="bg-white border border-teal-400 px-3 py-1 rounded-full shadow-sm flex items-center gap-2">
                     <HandCoins className="w-4 h-4 text-[#009689]" />
                     <span className="text-teal-600 text-sm font-semibold">
                       LOW INVESTMENT
                     </span>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
 
             {/* Right side - FAQ Section */}
             <div className="relative order-1 lg:order-2 lg:right-13">
-              <motion.h2
+              <h2
                 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-6 sm:mb-8 text-teal-600 text-center lg:text-left leading-tight font-semibold"
-                initial={{ x: 100, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
               >
                 Frequently <span className="font-bold">asked</span> questions
-              </motion.h2>
+              </h2>
 
               <div className="space-y-3 sm:space-y-4">
                 {faqs.map((faq) => (
                   <div
                     key={faq.id}
-                    className="rounded-lg shadow-sm border border-gray-200 overflow-hidden"
-                  >
+                    className="rounded-lg shadow-sm border border-gray-200 overflow-hidden">
                     <button
                       onClick={() => toggleAccordion(faq.id)}
                       className={`w-full px-3 sm:px-4 md:px-6 py-1 sm:py-2 text-left flex flex-col transition-colors ${openAccordion === faq.id
-                          ? "bg-gradient-to-r from-[#1C9E9E] to-[#277F8E] text-white"
-                          : "bg-white text-[#1C6E7C] hover:bg-gray-50"
+                        ? "bg-gradient-to-r from-[#1C9E9E] to-[#277F8E] text-white"
+                        : "bg-white text-[#1C6E7C] hover:bg-gray-50"
                         }`}
                     >
                       <div className="flex items-start sm:items-center justify-between gap-2 sm:gap-4">
@@ -252,11 +271,10 @@ function TestimonialSlider() {
                             {faq.question}
                           </span>
                         </span>
-
                         <div
                           className={`flex-shrink-0 w-4 h-4 sm:w-7 sm:h-7 flex items-center justify-center ${openAccordion === faq.id
-                              ? "bg-white"
-                              : "bg-gradient-to-r from-[#1C9E9E] to-[#277F8E]"
+                            ? "bg-white"
+                            : "bg-gradient-to-r from-[#1C9E9E] to-[#277F8E]"
                             }`}
                           style={{ borderRadius: 6 }}
                         >
@@ -266,40 +284,35 @@ function TestimonialSlider() {
                             <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 text-[#ffff]" />
                           )}
                         </div>
-                      </div>
+                      </div >
 
-                      {/* White line under question when expanded */}
-                      {openAccordion === faq.id && (
-                        <hr className=" border-white opacity-50" />
-                      )}
+                      <AnimatePresence initial={false}>
+                        {openAccordion === faq.id && (
+                          <motion.div
+                            key="content"
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                            className="overflow-hidden bg-gradient-to-r from-[#1C9E9E] to-[#277F8E] text-white"
+                          >
+                            <div className="px-3 sm:px-4 md:px-6 py-1 sm:py-2">
+                              <p className="text-xs sm:text-sm md:text-base">
+                                {faq.answer}
+                              </p>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </button>
-
-                     <AnimatePresence initial={false}>
-      {openAccordion === faq.id && (
-        <motion.div
-          key="content"
-          initial={{ height: 0, opacity: 0 }}
-          animate={{ height: "auto", opacity: 1 }}
-          exit={{ height: 0, opacity: 0 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="overflow-hidden bg-gradient-to-r from-[#1C9E9E] to-[#277F8E] text-white"
-        >
-          <div className="px-3 sm:px-4 md:px-6 py-1 sm:py-2">
-            <p className="text-xs sm:text-sm md:text-base">
-              {faq.answer}
-            </p>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+                  </div >
+                ))
+                }
+              </div >
+            </div >
+          </div >
+        </div >
+      </section >
     </>
   );
 }

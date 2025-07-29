@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { NavLink,useNavigate } from "react-router-dom";
 import logo from '/emitram-logo1.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone, faHeadset } from '@fortawesome/free-solid-svg-icons';
-import { faFacebookF, faYoutube, faTwitter, faGooglePlusG, faLinkedinIn, } from '@fortawesome/free-brands-svg-icons';
+import { faFacebookF, faYoutube, faTwitter, faLinkedinIn, } from '@fortawesome/free-brands-svg-icons';
 
 export default function Navbar() {
   const navItems = [
