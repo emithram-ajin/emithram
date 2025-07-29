@@ -130,9 +130,9 @@ const containerClasses = "relative w-full min-h-[450px] sm:min-h-[500px] md:h-[6
   return (
     <>
       <div className="relative min-h-[450px] sm:min-h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px] w-full overflow-hidden">
-        {/* <div className="absolute top-4 right-2 sm:right-4 md:right-[130px] z-50">
+        <div className="absolute top-4 right-2 sm:right-4 md:right-[130px] z-50">
           <Languageselecor />
-        </div> */}
+        </div>
 
         <Swiper
           ref={swiperRef}

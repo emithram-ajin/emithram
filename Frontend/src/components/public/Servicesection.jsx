@@ -97,7 +97,7 @@ function Servicesection() {
             </p>
 
             <div className="w-full overflow-x-auto">
-              <div className="w-fit rounded-full bg-[#F3F7FA] flex justify-start items-center px-4 sm:px-5 md:px-6 lg:px-6 xl:px-6 py-3 sm:py-4 md:py-5 lg:py-5 xl:py-5 gap-2 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-8">
+              <div className=" rounded-full bg-[#F3F7FA] flex justify-center items-center px-4 sm:px-5 md:px-6 lg:px-6 xl:px-6 py-3 sm:py-4 md:py-5 lg:py-5 xl:py-5 gap-2 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-8">
                 {[
                   "icon-1.png",
                   "icon-2.png",
@@ -119,23 +119,24 @@ function Servicesection() {
       </div>
 
       {/* CTA Section */}
-      <div className="w-full flex justify-center px-3 sm:px-4 md:px-6 lg:px-8 xl:px-4 font-poppins bg-[#F3F7FA]">
-        <div className="w-full max-w-5xl bg-gradient-to-r from-[#F13747] to-[#FE9855] rounded-md sm:rounded-lg md:rounded-xl lg:rounded-2xl xl:rounded-2xl px-3 sm:px-4 md:px-5 lg:px-6 xl:px-4 py-3 sm:py-4 md:py-4 lg:py-5 xl:py-5 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6 xl:gap-8 shadow-md">
-          <div className="flex-1 w-full sm:w-auto">
-            <h2 className="text-white text-sm sm:text-base md:text-base lg:text-lg xl:text-xl font-semibold leading-snug">
-              ഇപ്പോൾ തന്നെ ഈ മിത്രം ജനസേവന കേന്ദ്രത്തിന്റെ ഭാഗമാകൂ
-            </h2>
-          </div>
-          <div className="w-full sm:w-auto flex justify-center sm:justify-end">
-            <button
-              className="cursor-pointer bg-white text-[#12464F] px-4 sm:px-5 md:px-5 lg:px-6 xl:px-6 py-2 sm:py-2 md:py-2 lg:py-2 xl:py-2 rounded-full font-medium text-xs sm:text-sm md:text-sm lg:text-base xl:text-base hover:bg-gray-50 transition-all duration-200 shadow hover:shadow-lg hover:scale-105 whitespace-nowrap"
-              onClick={() => navigate("/register")}
-            >
-              Get Franchise
-            </button>
-          </div>
-        </div>
-      </div>
+      <div className="w-full  z-50 flex justify-center px-3 sm:px-4 md:px-6 lg:px-8 xl:px-4 font-poppins bg-[#F3F7FA]">
+  <div className="w-full max-w-5xl bg-gradient-to-r from-[#F13747] to-[#FE9855] rounded-md sm:rounded-lg md:rounded-xl lg:rounded-2xl xl:rounded-2xl px-3 sm:px-4 md:px-5 lg:px-6 xl:px-4 py-3 sm:py-4 md:py-4 lg:py-5 xl:py-5 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6 xl:gap-8 shadow-md">
+    <div className="flex-1 w-full sm:w-auto">
+      <h2 className="text-[13px] sm:text-sm md:text-base lg:text-lg xl:text-xl text-white font-semibold">
+        ഇപ്പോൾ തന്നെ ഈ മിത്രം ജനസേവന കേന്ദ്രത്തിന്റെ ഭാഗമാകൂ
+      </h2>
+    </div>
+    <div className="w-full sm:w-auto flex justify-center sm:justify-end">
+      <button
+        className="cursor-pointer bg-white text-[#12464F] px-4 sm:px-5 md:px-5 lg:px-6 xl:px-6 py-2 sm:py-2 md:py-2 lg:py-2 xl:py-2 rounded-full font-medium text-xs sm:text-sm md:text-sm lg:text-base xl:text-base hover:bg-gray-50 transition-all duration-200 shadow hover:shadow-lg hover:scale-105 whitespace-nowrap"
+        onClick={() => navigate("/register")}
+      >
+        Get Franchise
+      </button>
+    </div>
+  </div>
+</div>
+
 
       {/* our services */}
       <section className="bg-[#F3F7FA] py-10 px-4 font-poppins">

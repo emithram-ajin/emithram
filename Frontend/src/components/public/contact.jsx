@@ -87,7 +87,7 @@ function Contact() {
 
   return (
     <div
-      className="min-h-screen bg-white px-4 py-10 md:px-10 md:py-16 border-t-8"
+      className="min-h-screen bg-white px-4 py-10 md:px-10 md:py-16"
       style={{
         borderImage: 'linear-gradient(to right, #44A1A0, #3687A2) 1',
         borderTopStyle: 'solid',
