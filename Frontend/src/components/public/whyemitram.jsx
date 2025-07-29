@@ -48,12 +48,12 @@ export default function EMithramSection() {
           {/* Header Section */}
           <div className="text-center lg:text-left">
             <span className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-4xl font-bold sm:mt-4 md:mt-6 lg:mt-[15px] text-[#388CA0] px-2 lg:ml-[55px] font-anek'>
-              എന്തുകൊണ്ട് <span className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-bold'>e-Mithram</span>
+              എന്തുകൊണ്ട്   <span className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-extrabold '>&nbsp;e-Mithram</span>
             </span>
             <div className="w-16 sm:w-24 md:w-32 lg:w-40 xl:w-48 h-1 mt-2 sm:mt-3 lg:mt-[15px] mx-auto lg:mx-0 lg:ml-[70px] bg-[#388CA0]"></div>
           </div>
 
-          <div className="flex flex-col lg:flex-row items-start gap-4 sm:gap-6 md:gap-8 lg:gap-10">
+          <div className="flex flex-col lg:flex-row items-start gap-4 sm:gap-6 md:gap-8 lg:gap-7">
             {/* Text and Features Section */}
             <div className="w-full lg:flex-1 space-y-3 sm:space-y-4 md:space-y-6 mt-4 sm:mt-6 md:mt-8 lg:mt-10">
               {/* Description Text */}
@@ -66,11 +66,11 @@ export default function EMithramSection() {
               </div>
 
               {/* Features and Stats Container */}
-              <div className="flex flex-col xl:flex-row items-center xl:items-start text-center xl:text-left justify-center xl:justify-start gap-2 sm:gap-3 md:gap-4 lg:gap-4">
+              <div className="flex flex-col xl:flex-row items-center xl:items-start text-center xl:text-left justify-center xl:justify-center ">
                 {/* Feature List */}
                 <div className="w-full xl:flex-1">
                   <div className="flex justify-center xl:justify-start">
-                    <div className="grid grid-cols-1 gap-1.5 sm:gap-2 md:gap-3 text-teal-700 text-center xl:text-left px-2 lg:ml-[60px]">
+                    <div className="grid grid-cols-1 gap-1.5 sm:gap-2 md:gap-2 text-[#227575] text-center xl:text-left px-2 lg:ml-[60px] font-medium">
                       {[
                         "Statewide Franchise Network",
                         "Exclusive Training",
@@ -81,12 +81,12 @@ export default function EMithramSection() {
                       ].map((text, index) => (
                         <div
                           key={index}
-                          className="flex items-center text-left text-xs sm:text-sm md:text-base lg:text-lg xl:text-[20px] font-semibold"
+                          className="flex items-center text-left text-xs sm:text-sm md:text-base lg:text-lg xl:text-[20px] font-medium"
                         >
                           <img
                             src="CheckCircleicon.png"
                             alt="Verified Icon"
-                            className="w-5 h-5 mr-2"
+                            className="w-7 h-7 mr-2"
                           />          <span className="w-full text-center xl:text-left">{text}</span>
                         </div>
                       ))}
@@ -97,12 +97,12 @@ export default function EMithramSection() {
 
                 {/* Stats Box */}
                 <div className="w-full sm:w-auto mx-auto xl:mx-0 xl:flex-shrink-0 mt-3 sm:mt-4 xl:mt-0">
-                  <div className="bg-[#f1f8fa] px-4 sm:px-6 md:px-8 py-3 sm:py-4 md:py-6 w-full sm:w-[180px] md:w-[200px] lg:w-[220px] shadow-sm rounded-tl-[15px] sm:rounded-tl-[20px] md:rounded-tl-[30px] rounded-tr-[15px] sm:rounded-tr-[20px] md:rounded-tr-[30px] rounded-bl-[0px] rounded-br-[15px] sm:rounded-br-[20px] md:rounded-br-[30px]">
+                  <div className="bg-[#f1f8fa] px-4 sm:px-6 md:px-8 py-3 sm:py-4 md:py-6 w-full sm:w-[180px] md:w-[190px] lg:w-[200px] shadow-sm rounded-tl-[15px] sm:rounded-tl-[20px] md:rounded-tl-[30px] rounded-tr-[15px] sm:rounded-tr-[20px] md:rounded-tr-[30px] rounded-bl-[0px] rounded-br-[15px] sm:rounded-br-[20px] md:rounded-br-[30px]">
                     <div className="text-[#298597] text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">100%</div>
-                    <div className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl mb-1 sm:mb-2 md:mb-4">Success Rate</div>
+                    <div className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl mb-1 sm:mb-2 md:mb-4 font-medium">Success Rate</div>
                     <hr className="border-gray-300 my-1 sm:my-2" />
                     <div className="text-[#298597] text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">2940+</div>
-                    <div className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl">Franchise</div>
+                    <div className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl font-medium">Franchise</div>
                   </div>
                 </div>
               </div>
@@ -110,7 +110,7 @@ export default function EMithramSection() {
               {/* Register Button */}
               <div className="text-center xl:text-left px-2 lg:px-0 mt-4 sm:mt-6 font-poppins">
                 <button
-                  className="text-white font-semibold py-2.5 px-5 sm:py-3 sm:px-6 md:py-2 md:px-8 lg:ml-[60px] rounded-tl-[8px] sm:rounded-tl-[10px] rounded-tr-[8px] sm:rounded-tr-[10px] rounded-bl-[8px]
+                  className="text-white font-semibold py-2.5 px-5 sm:py-3 sm:px-6 md:py-2 md:px-8 h-10 lg:ml-[60px] rounded-tl-[8px] sm:rounded-tl-[10px] rounded-tr-[8px] sm:rounded-tr-[10px] rounded-bl-[8px]
                    sm:rounded-bl-[10px] rounded-br-[0px] hover:opacity-90 transition-all duration-300 text-md sm:text-sm md:text-xl"
                   style={{ background: "linear-gradient(to right, #0066E8, #00BBC0)" }}
                   onClick={() => navigate('/register')}
@@ -121,8 +121,8 @@ export default function EMithramSection() {
             </div>
 
             {/* Video Section */}
-            <div className="w-full lg:w-auto lg:flex-shrink-0 mt-4 sm:mt-6 lg:mt-[15px]">
-              <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-none lg:w-[480px] xl:w-[520px] h-40 sm:h-48 md:h-64 lg:h-[300px] xl:h-[320px] mx-auto bg-gradient-to-r from-teal-600 to-blue-700 rounded-xl sm:rounded-2xl lg:rounded-[30px] shadow-[0_4px_20px_rgba(0,0,0,0.3)] sm:shadow-[0_4px_25px_rgba(0,0,0,0.4)] lg:shadow-[0_4px_30px_rgba(0,0,0,0.5)] overflow-hidden relative">
+            <div className="w-full lg:w-auto lg:flex-shrink-0 mt-4 sm:mt-6 lg:mt-[50px] mr-[38px]">
+              <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-none lg:w-[490px] xl:w-[530px] h-40 sm:h-48 md:h-64 lg:h-[300px] xl:h-[360px] mx-auto bg-gradient-to-r from-teal-600 to-blue-700 rounded-xl sm:rounded-2xl lg:rounded-[30px] shadow-[0_4px_20px_rgba(0,0,0,0.3)] sm:shadow-[0_4px_25px_rgba(0,0,0,0.4)] lg:shadow-[0_4px_30px_rgba(0,0,0,0.5)] overflow-hidden relative">
                 <video
                   src="emithram.mp4"
                   className="w-full h-full object-cover"
@@ -188,11 +188,11 @@ export default function EMithramSection() {
             </div>
           </div>
           {/* Small/Medium Screen Horizontal Scroll (below lg) */}
-          <div className="block lg:hidden relative">
+          <div className="block lg:hidden relative ">
             {/* Scroll Container */}
             <div className="relative px-4 sm:px-6">
               <div
-                className="flex gap-4 sm:gap-6 md:gap-8 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory"
+                className="flex gap-4 sm:gap-6 md:gap-8 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory justify-center" 
                 style={{
                   scrollbarWidth: 'none',
                   msOverflowStyle: 'none',
