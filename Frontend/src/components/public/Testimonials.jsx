@@ -85,7 +85,7 @@ function TestimonialSlider() {
           <div className="relative w-full max-w-lg mx-auto md:mx-0">
             {/* Layered Backgrounds */}
             <div className="absolute top-[12px] left-0 right-0 h-[270px] bg-white rounded-tl-[60px] rounded-tr-[60px] rounded-br-[60px] shadow z-0"></div>
-            <div className="absolute top-[5px] left-0 right-0 h-[270px] bg-white rounded-tl-[60px] rounded-tr-[60px] rounded-br-[60px] shadow z-10"></div>
+            <div className="absolute top-[8px] left-0 right-0 h-[270px] bg-white rounded-tl-[60px] rounded-tr-[60px] rounded-br-[60px] shadow z-10"></div>
 
             {/* Foreground Swiper Card */}
             <div className="relative z-20 bg-white rounded-tl-[60px] rounded-tr-[60px] rounded-br-[60px] shadow-lg overflow-hidden">

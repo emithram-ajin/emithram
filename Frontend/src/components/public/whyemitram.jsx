@@ -1,16 +1,15 @@
 import React from 'react';
-import { BiLike } from "react-icons/bi";
-import { IoBulbOutline } from "react-icons/io5";
-import { TiTime, TiMessages } from "react-icons/ti";
-import { GrGroup } from "react-icons/gr";
 import { useNavigate } from 'react-router-dom';
-import { FaCheckCircle } from 'react-icons/fa';
+import CountUp from 'react-countup';
+import { useInView } from 'react-intersection-observer';
+
+
 
 
 const advantages = [
   {
     image: "Asset 22.png",
-    count: "2800+",
+    count: "2940+",
     title: "Franchise All Over Kerala",
   },
   {
@@ -25,12 +24,12 @@ const advantages = [
   },
   {
     image: "Asset 25.png",
-    count: "   ",
+    count: "",
     title: "Community Support",
   },
   {
     image: "Asset 24.png",
-    count: "    ",
+    count: "",
     title: "Licensing & Training",
   },
 ];
@@ -38,6 +37,10 @@ const advantages = [
 
 export default function EMithramSection() {
   const navigate = useNavigate()
+  const { ref, inView } = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
 
   return (
     <>
@@ -66,7 +69,9 @@ export default function EMithramSection() {
               </div>
 
               {/* Features and Stats Container */}
-              <div className="flex flex-col xl:flex-row items-center xl:items-start text-center xl:text-left justify-center xl:justify-start gap-2 sm:gap-3 md:gap-4 lg:gap-4">
+              <div
+                ref={ref}
+                className="flex flex-col xl:flex-row items-center xl:items-start text-center xl:text-left justify-center xl:justify-start gap-2 sm:gap-3 md:gap-4 lg:gap-4">
                 {/* Feature List */}
                 <div className="w-full xl:flex-1">
                   <div className="flex justify-center xl:justify-start">
@@ -87,7 +92,8 @@ export default function EMithramSection() {
                             src="CheckCircleicon.png"
                             alt="Verified Icon"
                             className="w-5 h-5 mr-2"
-                          />          <span className="w-full text-center xl:text-left">{text}</span>
+                          />
+                          <span className="w-full text-center xl:text-left">{text}</span>
                         </div>
                       ))}
                     </div>
@@ -98,10 +104,15 @@ export default function EMithramSection() {
                 {/* Stats Box */}
                 <div className="w-full sm:w-auto mx-auto xl:mx-0 xl:flex-shrink-0 mt-3 sm:mt-4 xl:mt-0">
                   <div className="bg-[#f1f8fa] px-4 sm:px-6 md:px-8 py-3 sm:py-4 md:py-6 w-full sm:w-[180px] md:w-[200px] lg:w-[220px] shadow-sm rounded-tl-[15px] sm:rounded-tl-[20px] md:rounded-tl-[30px] rounded-tr-[15px] sm:rounded-tr-[20px] md:rounded-tr-[30px] rounded-bl-[0px] rounded-br-[15px] sm:rounded-br-[20px] md:rounded-br-[30px]">
-                    <div className="text-[#298597] text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">100%</div>
+                    <div className="text-[#298597] text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">
+                    {inView ? <CountUp end={100} duration={2} suffix="%" /> : null}
+                  </div>
                     <div className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl mb-1 sm:mb-2 md:mb-4">Success Rate</div>
                     <hr className="border-gray-300 my-1 sm:my-2" />
-                    <div className="text-[#298597] text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">2940+</div>
+                    <div className="text-[#298597] text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">
+                   {inView ? <CountUp end={2940} duration={2} suffix="+" /> : null}
+
+                    </div>
                     <div className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl">Franchise</div>
                   </div>
                 </div>
@@ -113,7 +124,7 @@ export default function EMithramSection() {
                   className="text-white font-semibold py-2.5 px-5 sm:py-3 sm:px-6 md:py-2 md:px-8 lg:ml-[60px] rounded-tl-[8px] sm:rounded-tl-[10px] rounded-tr-[8px] sm:rounded-tr-[10px] rounded-bl-[8px]
                    sm:rounded-bl-[10px] rounded-br-[0px] hover:opacity-90 transition-all duration-300 text-md sm:text-sm md:text-xl"
                   style={{ background: "linear-gradient(to right, #0066E8, #00BBC0)" }}
-                  onClick={() => navigate('/register')}
+                  onClick={() => navigate('/about')}
                 >
                   More About
                 </button>
@@ -237,8 +248,16 @@ export default function EMithramSection() {
             viewBox="0 0 1440 320"
             preserveAspectRatio="none"
           >
+            <defs>
+              <linearGradient id="grayGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#F7F7F7" />
+                <stop offset="60%" stopColor="#F7F7F7" />
+                <stop offset="65%" stopColor="#F0F1F1" />
+                <stop offset="100%" stopColor="#F0F1F1" />
+              </linearGradient>
+            </defs>
             <path
-              fill="#F7F7F7"
+              fill="url(#grayGradient)"
               d="M0,320 C480,200 960,200 1440,320 L1440,320 L0,320 Z"
             />
           </svg>

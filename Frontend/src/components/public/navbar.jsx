@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink,useNavigate } from "react-router-dom";
 import logo from '/emitram-logo1.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faHeadset } from '@fortawesome/free-solid-svg-icons';
@@ -10,12 +10,14 @@ export default function Navbar() {
     { label: "HOME", path: "/" },
     { label: "ABOUT", path: "/about" },
     { label: "CERTIFICATIONS", path: "/certifications" },
-    { label: "SERVICE", path: "/franchise" },
+    { label: "SERVICES", path: "/services" },
     { label: "GALLERY", path: "/gallery" },
     { label: "CONTACT", path: "/contact" },
   ];
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate()
+  
 
   return (
     <>
@@ -156,10 +158,13 @@ export default function Navbar() {
 
           {/* Desktop Login Button */}
           <div className="hidden lg:flex flex-shrink-0 space-x-2">
-            <button className="bg-[#D9E535] px-4 xl:px-6 py-1 xl:py-1.5 text-sm xl:text-lg font-bold rounded-full border-1 border-gray-200 hover:bg-[#c4d330] transition-colors cursor-pointer">
+            <button className="bg-[#D9E535] px-4 xl:px-6 py-1 xl:py-1.5 text-sm xl:text-lg font-bold rounded-full border-1 border-gray-200 hover:bg-[#c4d330] transition-colors cursor-pointer"
+            onClick={() => navigate('/register')}
+            >
               Register
             </button>
-            <button className="bg-[#D9E535] px-4 xl:px-6 py-1 xl:py-1.5 text-sm xl:text-lg font-bold rounded-full border-2 border-gray-200 hover:bg-[#c4d330] transition-colors cursor-pointer">
+            <button className="bg-[#D9E535] px-4 xl:px-6 py-1 xl:py-1.5 text-sm xl:text-lg font-bold rounded-full border-2 border-gray-200 hover:bg-[#c4d330] transition-colors cursor-pointer"
+            >
               LOGIN
             </button>
           </div>

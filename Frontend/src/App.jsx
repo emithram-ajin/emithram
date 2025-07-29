@@ -15,6 +15,7 @@ import Privacypolicy from "./components/public/privacy&policy";
 import Refundpolicy from "./components/public/refundpolicy";
 import Termsconditions from "./components/public/terms&conditions";
 import Testimonials from "./components/public/Testimonials";
+import Services from "./components/public/Services";
 
 function App() {
   return (
@@ -33,7 +34,9 @@ function App() {
           <Route path="/refund-policy" element={<Refundpolicy />} />
           <Route path="/terms-conditions" element={<Termsconditions />} />
           <Route path="/cookie-policy" element={<Cookiepolicy />} />
-          <Route path="/testimonial" element={<Testimonials/>} />
+          <Route path="/testimonial" element={<Testimonials />} />
+          <Route path="/services" element={<Services />} />
+
         </Routes>
         <Footer />
       </Router>

@@ -134,7 +134,7 @@ function Home() {
         <div className="fixed bottom-2 right-2 xs:bottom-3 xs:right-3 sm:bottom-4 sm:right-4 md:bottom-5 md:right-5 lg:bottom-6 lg:right-6 z-50 group">
           {/* Sliding help message div */}
           <div className="absolute right-full bottom-1/2 translate-y-1/2 translate-x-1 xs:translate-x-2 sm:translate-x-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 bg-green-500 text-white px-2 py-1 xs:px-3 xs:py-1.5 sm:px-2 sm:py-1 rounded-full whitespace-nowrap shadow-lg text-xs xs:text-sm sm:text-base md:text-md">
-            Need any help?
+            How Can I help
           </div>
 
           {/* WhatsApp icon button with enhanced responsive size */}
