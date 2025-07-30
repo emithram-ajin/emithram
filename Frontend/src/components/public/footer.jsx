@@ -80,7 +80,7 @@ export default function Footer() {
               <Link to="/terms-conditions" className="hover:underline">• Terms & Conditions</Link>
             </li>
             <li>
-              <Link to="/cookie-policy" className="hover:underline">• Cookie Policy</Link>
+              <Link to="/disclaimer" className="hover:underline">• Disclaimer</Link>
             </li>
 
           </ul>

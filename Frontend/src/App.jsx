@@ -10,12 +10,12 @@ import Contact from "./components/public/contact";
 import Footer from "./components/public/footer";
 import Registration from './components/public/Registration';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import Cookiepolicy from "./components/public/cookiepolicy";
 import Privacypolicy from "./components/public/privacy&policy";
 import Refundpolicy from "./components/public/refundpolicy";
 import Termsconditions from "./components/public/terms&conditions";
 import Testimonials from "./components/public/Testimonials";
 import Breadcrumbs from "./components/public/Breadcrumbs";
+import Disclaimer from "./components/public/Disclaimer";
 
 // This component now uses useLocation inside Router
 function RoutedApp() {
@@ -36,7 +36,7 @@ function RoutedApp() {
         <Route path="/privacy-policy" element={<Privacypolicy />} />
         <Route path="/refund-policy" element={<Refundpolicy />} />
         <Route path="/terms-conditions" element={<Termsconditions />} />
-        <Route path="/cookie-policy" element={<Cookiepolicy />} />
+        <Route path="/disclaimer" element={<Disclaimer />} />
         <Route path="/testimonial" element={<Testimonials />} />
       </Routes>
       <Footer />
