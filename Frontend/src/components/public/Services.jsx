@@ -118,7 +118,7 @@ function Services() {
             </h2>
 
             <p
-                className="mt-6 max-w-7xl mx-auto text-base sm:text-lg md:text-xl text-[#008C80]"
+                className="mt-6 max-w-7xl mx-auto text-base sm:text-lg md:text-xl text-[#008C80] px-8"
                 style={{ fontWeight: 400 }}
             >
                 At eMithram CSP, we offer both government and private services to the
@@ -134,16 +134,16 @@ function Services() {
             <div className="w-full max-w-7xl mx-auto px-4 mt-10">
                 {/* Tabs - Horizontal scroll on mobile */}
                 <div className="w-full mb-6">
-                    <div 
-                        className="overflow-x-auto pb-2" 
-                        style={{scrollbarWidth: 'none', msOverflowStyle: 'none'}}
+                    <div
+                        className="overflow-x-auto pb-2 mx-4 sm:mx-0 md:mx-4"
+                        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                     >
-                        <style jsx>{`
+                        <style >{`
                             div::-webkit-scrollbar {
                                 display: none;
                             }
                         `}</style>
-                        <div className="flex gap-3 sm:gap-4 md:gap-6 justify-start sm:justify-center min-w-max pl-4 sm:pl-0">
+                        <div className="flex gap-3 sm:gap-4 md:gap-6 justify-start sm:justify-center min-w-max pl-4 sm:pl-0 px-4">
                             {tabs.map((tab) => (
                                 <button
                                     key={tab}
@@ -161,7 +161,7 @@ function Services() {
                         </div>
                     </div>
                 </div>
-                
+
                 <div className="px-4">
                     <div className="w-full h-px bg-[#00b39f] my-4"></div>
                 </div>
@@ -180,22 +180,20 @@ function Services() {
                             onClick={() => handleCardClick(service)}
                             className="bg-white shadow-md rounded-xl border border-[#00b39f] overflow-hidden text-center cursor-pointer transition-transform duration-300 hover:scale-105 min-w-[160px] w-full max-w-[280px] mx-auto"
                         >
-                            <div className="w-full h-32 sm:h-36 md:h-40 lg:h-32 xl:h-36 overflow-hidden flex items-center justify-center bg-gray-100">
+                            <div className="w-full h-32 sm:h-36 md:h-40 lg:h-44 overflow-hidden bg-gray-100">
                                 <img
                                     src={service.image}
                                     alt={service.title}
-                                    className="w-full h-full object-cover object-center max-w-none"
-                                    style={{
-                                        minHeight: '100%',
-                                        minWidth: '100%'
-                                    }}
+                                    className="w-full h-full object-cover object-center"
                                 />
                             </div>
-                            <div className="p-3 sm:p-4 font-semibold text-[#008C80] flex justify-center items-center gap-2 min-h-[70px] sm:min-h-[80px]">
+
+
+                            <div className="p-2 sm:p-3 font-semibold text-[#008C80] flex justify-center items-center gap-2 min-h-[50px] sm:min-h-[60px]">
                                 <span className='text-sm sm:text-base md:text-lg lg:text-xl leading-tight flex-1 text-left line-clamp-2'>
                                     {service.title}
                                 </span>
-                                <button className="bg-[#008C80] rounded-full w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 text-white flex items-center justify-center text-sm sm:text-base md:text-lg leading-none flex-shrink-0">
+                                <button className="bg-[#008C80] rounded-full w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 text-white flex items-center justify-center text-sm sm:text-base md:text-lg leading-none flex-shrink-0">
                                     ▼
                                 </button>
                             </div>
@@ -226,16 +224,16 @@ function Services() {
 
                             {/* Services List */}
                             {selectedService.subServices && selectedService.subServices.length > 0 ? (
-                                <ul className="space-y-2 max-h-96 overflow-y-auto">
+                                <ul className="space-y-2 ">
                                     {selectedService.subServices.map((sub, index) => (
                                         <li
                                             key={index}
                                             className="flex cursor-pointer text-gray-700 hover:text-[#008C80] pb-1 gap-4 sm:gap-10"
                                         >
-                                            <div className="w-16 sm:w-20 font-semibold text-[#008C80] text-lg sm:text-xl md:text-2xl flex-shrink-0">
+                                            <div className="w-16 sm:w-20 font-semibold text-[#008C80] text-lg sm:text-xl md:text-xl flex-shrink-0">
                                                 {index + 1}.
                                             </div>
-                                            <div className="text-lg sm:text-xl md:text-2xl font-semibold text-[#008C80] flex-1 break-words">
+                                            <div className="text-lg sm:text-xl md:text-xl font-semibold text-[#008C80] flex-1 ">
                                                 {sub}
                                             </div>
                                         </li>
@@ -250,7 +248,7 @@ function Services() {
                     </div>
                 </div>
             )}
-            
+
             {/* Bottom CTA - Responsive */}
             <div className="w-full px-4 py-2 flex justify-center font-poppins mt-20">
                 <div className="w-full max-w-6xl flex flex-col sm:flex-row justify-between items-center bg-gradient-to-r from-[#00C566] to-[#D1D900] rounded-xl px-4 sm:px-6 py-4 sm:py-3 shadow-md gap-4 sm:gap-0">

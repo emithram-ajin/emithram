@@ -162,7 +162,7 @@ export default function Navbar() {
             >
               Register
             </button>
-            <button className="bg-[#D9E535] px-4 xl:px-6 py-1 xl:py-1.5 text-sm xl:text-lg font-bold rounded-full border-2 border-gray-200 hover:bg-[#c4d330] transition-colors cursor-pointer"
+            <button className="bg-[#D9E535] px-4 xl:px-6 py-1 xl:py-1.5 text-sm xl:text-lg font-bold rounded-full border-1 border-gray-200 hover:bg-[#c4d330] transition-colors cursor-pointer"
             >
               LOGIN
             </button>
@@ -254,13 +254,13 @@ export default function Navbar() {
               {/* Login Buttons */}
               <div className="mt-6 pt-4 space-y-3">
                 <button
-                  className="w-full bg-[#D9E535] px-4 py-3 rounded-lg font-bold border-5 border-gray-900 text-black hover:bg-[#c4d330] transition-all duration-200 transform hover:scale-105 shadow-md"
+                  className="w-full bg-[#D9E535] px-4 py-3 rounded-lg font-bold border-1 border-gray-200 text-black hover:bg-[#c4d330] transition-all duration-200 transform hover:scale-105 shadow-md"
                   onClick={() => setMenuOpen(false)}
                 >
                   Register
                 </button>
                 <button
-                  className="w-full bg-[#D9E535] px-4 py-3 rounded-lg font-bold border-5 border-gray-900 text-black hover:bg-[#c4d330] transition-all duration-200 transform hover:scale-105 shadow-md"
+                  className="w-full bg-[#D9E535] px-4 py-3 rounded-lg font-bold border-1 border-gray-200 text-black hover:bg-[#c4d330] transition-all duration-200 transform hover:scale-105 shadow-md"
                   onClick={() => setMenuOpen(false)}
                 >
                   LOGIN
