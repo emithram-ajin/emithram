@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 function About() {
   const [activeTab, setActiveTab] = useState("vision");
-  //   const navigate = useNavigate();
+    const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => setIsOpen(true);

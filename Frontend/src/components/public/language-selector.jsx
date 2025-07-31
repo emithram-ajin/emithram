@@ -51,7 +51,7 @@ function Languageselecor() {
         </button>
 
         {dropdownOpen && (
-          <div className="absolute right-0 mt-2 bg-white rounded-md shadow-md z-50">
+          <div className="absolute right-0 mt-2 bg-white rounded-md shadow-md z-30">
             {languages.map((lng) => (
               <button
                 key={lng.code}

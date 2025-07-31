@@ -8,6 +8,7 @@ import Servicesection from "./Servicesection";
 import { useTranslation } from "react-i18next";
 import Languageselecor from "./language-selector";
 
+
 function RegistrationForm({ formData, handleChange, handleSubmit, handleMouseEnter, handleMouseLeave }) {
   return (
     <div className="flex items-center justify-center font-poppins h-full">
@@ -18,7 +19,7 @@ function RegistrationForm({ formData, handleChange, handleSubmit, handleMouseEnt
       >
         <div className="flex items-center justify-between mb-3 sm:mb-4 text-center">
           <h3 className="w-full text-center text-base sm:text-sm md:text-sm lg:text-lg font-semibold bg-gradient-to-r from-blue-600 to-teal-400 bg-clip-text text-transparent mb-3">
-            . Registration Form .
+            Registration Form
           </h3>
         </div>
         <form
@@ -57,7 +58,7 @@ function TextContent({ isLargeScreen = false }) {
   const titleSizes = isLargeScreen ? "text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl" : "text-2xl sm:text-3xl md:text-4xl";
   const businessSizes = isLargeScreen ? "text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl" : "text-3xl sm:text-4xl md:text-5xl";
   const subtitleSizes = isLargeScreen ? "text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl" : "text-sm sm:text-base md:text-lg";
-  const descSizes = isLargeScreen ? "text-xs sm:text-sm md:text-base lg:text-lg" : "text-xs sm:text-sm md:text-base";
+  const descSizes = isLargeScreen ? "text-sm sm:text-sm md:text-base lg:text-lg" : "text-xs sm:text-sm md:text-base";
   const alignment = isLargeScreen ? "text-left" : "text-center md:text-left";
 
   return (
@@ -65,7 +66,7 @@ function TextContent({ isLargeScreen = false }) {
       <div>
         <h1 className={`${titleSizes} font-bold leading-tight`}>
           {t('hero.title.line1')}<br />
-          <span className={`text-[#D9E535] font-extrabold ${businessSizes} leading-none block`}>{t('hero.title.highlight')}</span>
+          <span className={`text-[#f2ff3d] font-extrabold ${businessSizes} leading-none block`}>{t('hero.title.highlight')}</span>
         </h1>
         <p className={`${subtitleSizes} inline-block pb-2 sm:pb-3 font-bold`}>{t('hero.tagline')}</p>
         <div className={`h-[4px] sm:h-[4px] md:h-[4px] w-[25%] bg-[#D9E535] ${isLargeScreen ? '' : 'mx-auto md:mx-0'}`}></div>
@@ -124,13 +125,34 @@ function Home() {
     setFormData({ name: "", email: "", phone: "", district: "", agree: false });
   };
 
-const containerClasses = "relative w-full min-h-[450px] sm:min-h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px] bg-cover bg-center overflow-hidden bg-[#1D7675]";
+  const containerClasses = "relative w-full min-h-[450px] sm:min-h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px] bg-cover bg-center overflow-hidden bg-[#1D7675]";
   const mainContainerClasses = "relative w-full max-w-7xl mx-auto  sm:px-4 md:px-6 lg:px-0 xl:px-4 min-h-[450px] sm:min-h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px] grid grid-cols-1 lg:grid-cols-12 gap-2 sm:gap-4 lg:gap-0 font-anek";
 
   return (
     <>
       <div className="relative min-h-[450px] sm:min-h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px] w-full overflow-hidden">
-        <div className="absolute top-4 right-2 sm:right-4 md:right-[130px] z-50">
+        <div className="fixed bottom-2 right-2 xs:bottom-3 xs:right-3 sm:bottom-4 sm:right-4 md:bottom-5 md:right-5 lg:bottom-6 lg:right-6 z-50 group">
+          {/* Sliding help message div */}
+          <div className="absolute right-full bottom-1/2 translate-y-1/2 translate-x-1 xs:translate-x-2 sm:translate-x-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 bg-green-500 text-white px-2 py-1 xs:px-3 xs:py-1.5 sm:px-2 sm:py-1 rounded-full whitespace-nowrap shadow-lg text-xs xs:text-sm sm:text-base md:text-md">
+            How Can I help
+          </div>
+
+          {/* WhatsApp icon button with enhanced responsive size */}
+          <a
+            href="https://wa.me/9539270777"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 md:w-14 md:h-14  bg-green-500 text-black rounded-full flex items-center justify-center   transition-all duration-800 group-hover:rotate-[360deg] group-hover:scale-110"
+          >
+            <img
+              src="/support.png"
+              alt="Support Icon"
+              className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 md:w-7 md:h-7  object-contain"
+            />
+          </a>
+        </div>
+
+        <div className="absolute top-4 right-2 sm:right-4 md:right-[130px] z-30">
           <Languageselecor />
         </div>
 
@@ -151,14 +173,14 @@ const containerClasses = "relative w-full min-h-[450px] sm:min-h-[500px] md:h-[6
             <div className={containerClasses} style={{ backgroundImage: "url('/banner1.png')" }}>
               <div className={mainContainerClasses}>
                 <div className="lg:hidden grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 py-4 sm:py-6 items-start md:items-center md:min-h-[400px] w-full">
-                  <div className="w-full px-2 ">
+                  <div className="w-full px-2  pr-4">
                     <TextContent />
                   </div>
                   <div className="w-full px-2">
                     <RegistrationForm {...{ formData, handleChange, handleSubmit, handleMouseEnter: handleFormMouseEnter, handleMouseLeave: handleFormMouseLeave }} />
                   </div>
                 </div>
-                
+
                 <div className="hidden lg:contents">
                   <div className="col-span-5 h-full flex flex-col justify-center pl-4 pr-2">
                     <TextContent isLargeScreen={true} />
@@ -171,6 +193,7 @@ const containerClasses = "relative w-full min-h-[450px] sm:min-h-[500px] md:h-[6
               </div>
             </div>
           </SwiperSlide>
+        
         </Swiper>
       </div>
       <Whyemitram />

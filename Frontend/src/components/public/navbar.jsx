@@ -1,34 +1,35 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink,useNavigate } from "react-router-dom";
 import logo from '/emitram-logo1.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone, faHeadset } from '@fortawesome/free-solid-svg-icons';
-import { faFacebookF, faYoutube, faTwitter, faGooglePlusG, faLinkedinIn, } from '@fortawesome/free-brands-svg-icons';
+import { faFacebookF, faYoutube, faTwitter, faLinkedinIn, } from '@fortawesome/free-brands-svg-icons';
 
 export default function Navbar() {
   const navItems = [
     { label: "HOME", path: "/" },
     { label: "ABOUT", path: "/about" },
     { label: "CERTIFICATIONS", path: "/certifications" },
-    { label: "FRANCHISE", path: "/franchise" },
+    { label: "SERVICES", path: "/services" },
     { label: "GALLERY", path: "/gallery" },
     { label: "CONTACT", path: "/contact" },
   ];
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate()
+  
 
   return (
     <>
       {/* Top Bar */}
       <div className="bg-[#235764] w-full top-0 z-50">
-        <div className="max-w-7xl mx-auto px-2 sm:px-3 py-2 sm:py-1 flex justify-between items-center">
+        <div className="max-w-8xl mx-auto px-6 sm:px-6 md:px-6 py-2 sm:py-1 md:py-2.5 flex justify-between items-center">
           {/* Social Media Icons */}
           <div className="flex items-center gap-1 sm:gap-2 md:gap-3">
             <a
               href="https://www.youtube.com/@emithram.csc."
               target="_blank"
               rel="noopener noreferrer"
-              className="group hidden sm:flex w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full bg-gradient-to-r from-cyan-600 to-teal-600 items-center justify-center hover:scale-105 transition-transform duration-300"
+              className="group flex w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full bg-gradient-to-r from-[#0d9488] to-[#87d54b] items-center justify-center hover:scale-105 transition-transform duration-300"
             >
               <FontAwesomeIcon
                 icon={faYoutube}
@@ -40,7 +41,7 @@ export default function Navbar() {
               href="https://www.youtube.com/@emithram.csc."
               target="_blank"
               rel="noopener noreferrer"
-              className="group hidden sm:flex w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full bg-gradient-to-r from-cyan-600 to-teal-600 items-center justify-center hover:scale-105 transition-transform duration-300"
+              className="group flex w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full bg-gradient-to-r from-[#0d9488] to-[#87d54b] items-center justify-center hover:scale-105 transition-transform duration-300"
             >
               <FontAwesomeIcon
                 icon={faFacebookF}
@@ -52,7 +53,7 @@ export default function Navbar() {
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="group hidden sm:flex w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full bg-gradient-to-r from-cyan-600 to-teal-600 items-center justify-center hover:scale-105 transition-transform duration-300"
+              className="group flex w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full bg-gradient-to-r from-[#0d9488] to-[#87d54b] items-center justify-center hover:scale-105 transition-transform duration-300"
             >
               <FontAwesomeIcon
                 icon={faTwitter}
@@ -64,7 +65,7 @@ export default function Navbar() {
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="group hidden sm:flex w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full bg-gradient-to-r from-cyan-600 to-teal-600 items-center justify-center hover:scale-105 transition-transform duration-300"
+              className="group flex w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full bg-gradient-to-r from-[#0d9488] to-[#87d54b] items-center justify-center hover:scale-105 transition-transform duration-300"
             >
               <FontAwesomeIcon
                 icon={faLinkedinIn}
@@ -74,42 +75,54 @@ export default function Navbar() {
           </div>
 
           {/* Contact Information */}
-          <div className="flex items-center gap-1 sm:gap-2 md:gap-3">
+          <div className="flex items-center">
             <button
-              className="px-1 sm:px-2 py-1 rounded-2xl hover:scale-105 transition-transform cursor-pointer"
+              className="px-1 sm:px-1 rounded-xl hover:scale-102 transition-transform cursor-pointer"
               onClick={() => {
-                const confirmed = window.confirm("Do you want to call +91 8281033673");
-                if (confirmed) {
-                  window.location.href = "tel:+91 8281033673";
-                }
+               window.open("https://www.flipkart.com/search?q=biometric+device&sid=dgv%2Cid7&as=on&as-show=on&otracker=AS_QueryStore_OrganicAutoSuggest_1_7_na_na_na&otracker1=AS_QueryStore_OrganicAutoSuggest_1_7_na_na_na&as-pos=1&as-type=RECENT&suggestionId=biometric+device%7COffice+Equipments&requestId=d0dcaf4a-acc9-4986-bba6-458bc94c9343&as-searchtext=biometric%20device", "_blank");
               }}
             >
-              <span className="bg-black flex items-center gap-1 sm:gap-2 border px-2 sm:px-3 py-1 border-[#a8b9a9] rounded-4xl hover:bg-gray-800 transition-colors">
+              <span className="flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 border border-[#a8b9a9] rounded-xl bg-gradient-to-r from-[#0d9488] to-[#87d54b] transition-colors">
                 <img
-                  src="/support.png"
+                  src="/shop.png"
                   alt="Support Icon"
                   className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 object-contain flex-shrink-0"
                 />
-                <span className="text-white text-xs sm:text-sm md:text-base lg:text-lg font-medium whitespace-nowrap">SUPPORT</span>
+                <span className="text-white text-xs sm:text-sm md:text-base lg:text-lg font-medium whitespace-nowrap">
+                  <span className="hidden xs:inline sm:inline md:inline lg:inline xl:inline">SHOP DEVICES</span>
+                  <span className="xs:hidden sm:hidden md:hidden lg:hidden xl:hidden">SHOP</span>
+                </span>
               </span>
             </button>
 
-            <span className="flex items-center gap-1 sm:gap-2 border border-[#a8b9a9] px-2 sm:px-3 md:px-3 py-1 rounded-4xl">
-              <FontAwesomeIcon
-                icon={faPhone}
-                className="text-[#46ab50] text-sm sm:text-base md:text-lg flex-shrink-0"
-              />
-              <span className="text-white text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-medium whitespace-nowrap">
-                +91 9539270777
+            <button
+              className="px-1 sm:px-1 rounded-xl hover:scale-102 transition-transform cursor-pointer"
+              onClick={() => {
+                const confirmed = window.confirm("Do you want to call +91 9539270777");
+                if (confirmed) {
+                  window.location.href = "tel:+91 9539270777";
+                }
+              }}
+            >
+              <span className="flex items-center gap-1 sm:gap-2 border border-[#a8b9a9] bg-gradient-to-r from-[#0d9488] to-[#87d54b] px-2 sm:px-3 md:px-3 py-1 rounded-xl">
+                <img
+                  src="/phone.png"
+                  alt="Support Icon"
+                  className="w-3 h-3 sm:w-4 sm:h-4 md:w-3 md:h-4 lg:w-5 lg:h-5 object-contain flex-shrink-0"
+                />
+                <span className="text-white text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-medium whitespace-nowrap">
+                  <span className="hidden xs:inline sm:inline">+91 9539270777</span>
+                  <span className="xs:hidden sm:hidden">Call</span>
+                </span>
               </span>
-            </span>
+            </button>
           </div>
         </div>
       </div>
 
       {/* Main Navigation */}
-      <nav className="bg-white w-full shadow-md font-poppins  top-0 z-40">
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-3 sm:px-4 py-2 sm:py-3 md:py-4">
+      <nav className="bg-white w-full shadow-md font-poppins top-0 z-40 sticky">
+        <div className="max-w-8xl mx-auto flex items-center justify-between px-6 sm:px-6 py-2 sm:py-3 md:py-4">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2 flex-shrink-0">
             <img
@@ -125,7 +138,7 @@ export default function Navbar() {
               <NavLink
                 key={item.label}
                 to={item.path}
-                className="relative group  text-md xl:text-base 2xl:text-lg hover:text-[#235764] transition-colors"
+                className="relative group text-md xl:text-base 2xl:text-lg hover:text-[#235764] transition-colors"
               >
                 {({ isActive }) => (
                   <>
@@ -143,8 +156,14 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Login Button */}
-          <div className="hidden lg:block flex-shrink-0">
-            <button className="bg-[#D9E535] px-4 xl:px-6 py-1.5 xl:py-2 text-sm xl:text-lg font-bold rounded-full hover:bg-[#c4d330] transition-colors cursor-pointer">
+          <div className="hidden lg:flex flex-shrink-0 space-x-2">
+            <button className="bg-[#D9E535] px-4 xl:px-6 py-1 xl:py-1.5 text-sm xl:text-lg font-bold rounded-full border-1 border-gray-200 hover:bg-[#c4d330] transition-colors cursor-pointer"
+            onClick={() => navigate('/register')}
+            >
+              Register
+            </button>
+            <button className="bg-[#D9E535] px-4 xl:px-6 py-1 xl:py-1.5 text-sm xl:text-lg font-bold rounded-full border-2 border-gray-200 hover:bg-[#c4d330] transition-colors cursor-pointer"
+            >
               LOGIN
             </button>
           </div>
@@ -177,21 +196,20 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu Overlay */}
-        {/* Mobile Menu Overlay & Sidebar */}
         <div
           className={`
-    lg:hidden fixed inset-0 z-50 transition-opacity duration-300
-    ${menuOpen ? "opacity-100 pointer-events-auto bg-transparent bg-opacity-40" : "opacity-0 pointer-events-none"}
-  `}
+            lg:hidden fixed inset-0 z-50 transition-opacity duration-300
+            ${menuOpen ? "opacity-100 pointer-events-auto bg-transparent bg-opacity-40" : "opacity-0 pointer-events-none"}
+          `}
           onClick={() => setMenuOpen(false)}
         >
           {/* Sidebar */}
           <div
             className={`
-      fixed top-0 right-0 h-full w-[75%] sm:w-[60%] md:w-[45%] bg-white shadow-2xl z-60
-      transform transition-transform duration-300 ease-in-out
-      ${menuOpen ? "translate-x-0" : "translate-x-full"}
-    `}
+              fixed top-0 right-0 h-full w-[75%] sm:w-[60%] md:w-[45%] bg-white shadow-2xl z-60
+              transform transition-transform duration-300 ease-in-out
+              ${menuOpen ? "translate-x-0" : "translate-x-full"}
+            `}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
@@ -214,15 +232,15 @@ export default function Navbar() {
 
             {/* Menu Content */}
             <div className="p-4 h-full overflow-y-auto">
-              <ul className="flex flex-col ">
+              <ul className="flex flex-col">
                 {navItems.map((item) => (
                   <li key={item.label}>
                     <NavLink
                       to={item.path}
                       onClick={() => setMenuOpen(false)}
                       className={({ isActive }) =>
-                        `block py-3 px-4  transition-all duration-200 transform hover:scale-105 ${isActive
-                          ? "bg-gray-100 text-black "
+                        `block py-3 px-4 transition-all duration-200 transform hover:scale-105 ${isActive
+                          ? "bg-gray-100 text-black"
                           : "text-gray-800 hover:scale-105"
                         }`
                       }
@@ -233,10 +251,16 @@ export default function Navbar() {
                 ))}
               </ul>
 
-              {/* Login Button */}
-              <div className="mt-6 pt-4 border-t border-gray-200">
+              {/* Login Buttons */}
+              <div className="mt-6 pt-4 space-y-3">
                 <button
-                  className="w-full bg-[#D9E535] px-4 py-3 rounded-lg font-bold text-black hover:bg-[#c4d330] transition-all duration-200 transform hover:scale-105 shadow-md"
+                  className="w-full bg-[#D9E535] px-4 py-3 rounded-lg font-bold border-5 border-gray-900 text-black hover:bg-[#c4d330] transition-all duration-200 transform hover:scale-105 shadow-md"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Register
+                </button>
+                <button
+                  className="w-full bg-[#D9E535] px-4 py-3 rounded-lg font-bold border-5 border-gray-900 text-black hover:bg-[#c4d330] transition-all duration-200 transform hover:scale-105 shadow-md"
                   onClick={() => setMenuOpen(false)}
                 >
                   LOGIN
@@ -245,7 +269,6 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-
       </nav>
     </>
   );

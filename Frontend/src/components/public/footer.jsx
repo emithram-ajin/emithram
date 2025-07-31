@@ -5,8 +5,7 @@ export default function Footer() {
   const navigate = useNavigate();
 
   return (
-
-    <footer className="bg-[#276664] text-white px-4 sm:px-6 lg:px-16 py-8 sm:py-10 font-poppins">
+    <footer className="bg-[#008C80] text-white px-10 sm:px-10 lg:px-12 py-6 sm:py-8 font-poppins border-t-6 border-[#89B6C1]">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10 max-w-7xl mx-auto">
         {/* About Us */}
         <div className="col-span-1 sm:col-span-2 lg:col-span-1">
@@ -19,37 +18,35 @@ export default function Footer() {
           </a>
 
           <p className="text-sm text-white leading-relaxed font-poppins mt-3 sm:mt-5">
-            Our business model works with  the scope
+            Our business model works with the scope
             of entrepreneurship
           </p>
           <h3 className="mt-6 text-xl sm:text-2xl font-bold">Follow Us</h3>
           <div className="flex flex-wrap gap-3 mt-3">
             <a href="https://www.youtube.com/@emithram.csc." target="_blank" rel="noopener noreferrer">
-              <div className="group hidden sm:flex w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full bg-gradient-to-r from-cyan-600 to-teal-600 items-center justify-center hover:scale-105 transition-transform duration-300">
+              <div className="group flex w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full bg-white text-[#008C80] items-center justify-center hover:scale-105 transition-transform duration-300">
                 <FaYoutube size={14} />
               </div>
             </a>
 
             <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-              <div className="group hidden sm:flex w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full bg-gradient-to-r from-cyan-600 to-teal-600 items-center justify-center hover:scale-105 transition-transform duration-300">
+              <div className="group flex w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full bg-white text-[#008C80]  items-center justify-center hover:scale-105 transition-transform duration-300">
                 <FaFacebookF size={14} />
               </div>
             </a>
 
             <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
-              <div className="group hidden sm:flex w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full bg-gradient-to-r from-cyan-600 to-teal-600 items-center justify-center hover:scale-105 transition-transform duration-300">
+              <div className="group flex w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full bg-white text-[#008C80]  items-center justify-center hover:scale-105 transition-transform duration-300">
                 <FaTwitter size={14} />
               </div>
             </a>
 
             <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-              <div className="group hidden sm:flex w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full bg-gradient-to-r from-cyan-600 to-teal-600 items-center justify-center hover:scale-105 transition-transform duration-300">
+              <div className="group flex w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full bg-white text-[#008C80]  items-center justify-center hover:scale-105 transition-transform duration-300">
                 <FaLinkedinIn size={14} />
               </div>
             </a>
           </div>
-
-
         </div>
 
         {/* Our Services */}
@@ -82,7 +79,6 @@ export default function Footer() {
             <li>
               <Link to="/cookie-policy" className="hover:underline">• Cookie Policy</Link>
             </li>
-
           </ul>
         </div>
 
@@ -95,7 +91,7 @@ export default function Footer() {
             Pincode: 682020
           </p>
 
-          <div className=" space-y-1 text-white">
+          <div className="mt-4 space-y-1 text-white">
             <div className="flex items-center text-sm">
               <FaPhone className="mr-2 flex-shrink-0" />
               <span>95392 70777</span>
@@ -104,16 +100,15 @@ export default function Footer() {
               <FaPhone className="mr-2 flex-shrink-0" />
               <span>95392 70666</span>
             </div>
-            <p className="text-sm ">✉ emithramcare@gmail.com</p>
+            <p className="text-sm">✉ emithramcare@gmail.com</p>
           </div>
         </div>
       </div>
 
       {/* Copyright */}
-      <div className="text-center text-white text-md   mt-2 sm:mt-2 pt-2">
+      <div className="text-center text-white text-sm sm:text-base mt-8 sm:mt-8 md:mt-1 pt-4 ">
         Copyright © 2025 e-Mithram | All Rights Reserved.
       </div>
-
     </footer>
   );
 }

@@ -1,11 +1,10 @@
-import React, { useState ,useRef} from "react";
+import React, { useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Star, ChevronDown, ChevronUp, HandCoins, Store } from "lucide-react";
-import { motion, useInView } from "framer-motion";
-
+import { motion, AnimatePresence, useInView } from "framer-motion";
 
 // Dummy data
 const testimonials = [
@@ -61,20 +60,20 @@ function TestimonialSlider() {
   const toggleAccordion = (id) => {
     setOpenAccordion(openAccordion === id ? null : id);
   };
-   const ref = useRef(null);
+  const ref = useRef(null);
   const isInView = useInView(ref, { once: false, margin: "-100px" });
   return (
     <>
-      <section className="relative bg-[#F2F8F9] py-16 px-4 font-poppins overflow-hidden">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 sm:ml-25">
+      <section className="relative bg-[#F2F8F9] py-16 px-4 sm:px-6 lg:px-8 font-poppins overflow-hidden">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           {/* Left Content */}
           <div>
-            <h2 className="text-2xl md:text-4xl text-cyan-800 font-medium leading-snug">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl text-cyan-800 font-medium leading-snug md:leading-tight">
               Real stories, real trust hear from our{" "}
               <span className="font-bold">satisfied franchise owners</span>
             </h2>
-            <div className="w-35 h-1 bg-cyan-700 mt-4 mb-6"></div>
-            <p className="text-cyan-900 text-sm md:text-base leading-relaxed">
+            <div className="w-24 h-1 bg-cyan-700 mt-4 mb-6"></div>
+            <p className="text-cyan-900 text-sm sm:text-base leading-relaxed sm:leading-loose">
               We take pride in empowering individuals through entrepreneurship.
               Through real-life stories and testimonials, hear how our eMithram
               CSP partners have transformed their livelihoods with stable income
@@ -88,7 +87,7 @@ function TestimonialSlider() {
           <div className="relative w-full max-w-lg mx-auto md:mx-0">
             {/* Layered Backgrounds */}
             <div className="absolute top-[12px] left-0 right-0 h-[270px] bg-white rounded-tl-[60px] rounded-tr-[60px] rounded-br-[60px] shadow z-0"></div>
-            <div className="absolute top-[5px] left-0 right-0 h-[270px] bg-white rounded-tl-[60px] rounded-tr-[60px] rounded-br-[60px] shadow z-10"></div>
+            <div className="absolute top-[8px] left-0 right-0 h-[270px] bg-white rounded-tl-[60px] rounded-tr-[60px] rounded-br-[60px] shadow z-10"></div>
 
             {/* Foreground Swiper Card */}
             <div className="relative z-20 bg-white rounded-tl-[60px] rounded-tr-[60px] rounded-br-[60px] shadow-lg overflow-hidden">
@@ -97,23 +96,19 @@ function TestimonialSlider() {
                 pagination={{ clickable: true }}
                 autoplay={{ delay: 4000 }}
                 loop={true}
-                className="w-full"
+                className="w-full min-h-[270px]"
               >
                 {testimonials.map((item, index) => (
                   <SwiperSlide key={index}>
-                    <div className="p-6 pt-8 text-center">
-                      <p className="text-gray-700 text-sm md:text-base italic mb-4">
+                    <div className="p-6 pt-8 text-center flex flex-col justify-between h-full">
+                      <p className="text-gray-700 text-sm sm:text-base italic mb-4 leading-relaxed">
                         “{item.text}”
                       </p>
 
                       {/* Stars */}
                       <div className="flex justify-center space-x-1 text-yellow-400 text-lg mb-4">
                         {Array.from({ length: 5 }).map((_, i) => (
-                          <Star
-                            key={i}
-                            stroke="2"
-                            className="fill-yellow-400"
-                          />
+                          <Star key={i} className="w-5 h-5 fill-yellow-400" />
                         ))}
                       </div>
 
@@ -140,6 +135,7 @@ function TestimonialSlider() {
             </div>
           </div>
         </div>
+
         {/* Bottom Curve */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
           <svg
@@ -149,168 +145,170 @@ function TestimonialSlider() {
             preserveAspectRatio="none"
           >
             <path
-              fill="#F9FAFB"
+              fill="#FFFFFF"
               d="M0,320 C480,200 960,200 1440,320 L1440,320 L0,320 Z"
             />
           </svg>
-                
         </div>
-        
       </section>
 
-         <section className="w-full px-3 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-10 md:py-12 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-start">
-          {/* Left side - Image with badges */}
-          <div className="relative order-2 lg:order-1" ref={ref}>
-            {/* Mobile/Tablet Image */}
-            <div className="relative overflow-hidden lg:hidden">
-              <div className="flex justify-center">
-                <img
-                  src="Asset 30.png"
-                  alt="Franchise Discussion"
-                  className="w-full max-w-xs sm:max-w-sm md:max-w-md h-auto object-contain"
-                />
-              </div>
-
-              {/* Badge 1 - Mobile - Slide in from right */}
-              <motion.div
-                initial={{ x: 100, opacity: 0 }}
-                animate={isInView ? { x: 0, opacity: 1 } : {}}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="absolute top-4 right-6 sm:top-6 sm:right-6"
-              >
-                <div className="bg-white border border-teal-400 px-2 sm:px-3 py-1 rounded-full shadow-sm flex items-center gap-1 sm:gap-2">
-                  <Store className="w-3 h-3 sm:w-4 sm:h-4 text-[#009689]" />
-                  <span className="text-teal-600 text-xs sm:text-sm font-semibold">
-                    2900+ Franchise
-                  </span>
+      <section className="w-full px-3 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-10 md:py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4 ">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12  justify-center items-center">
+            {/* Left side - Image with badges */}
+            <div className="relative order-2 lg:order-1" ref={ref}>
+              {/* Mobile/Tablet Image */}
+              <div className="relative  lg:hidden ">
+                <div className="flex justify-center">
+                  <img
+                    src="Asset 30.png"
+                    alt="Franchise Discussion"
+                    className="w-full max-w-xs sm:max-w-sm md:max-w-md h-auto object-contain"
+                  />
                 </div>
-              </motion.div>
 
-              {/* Badge 2 - Mobile - Slide in from left */}
-              <motion.div
-                initial={{ x: -100, opacity: 0 }}
-                animate={isInView ? { x: 0, opacity: 1 } : {}}
-                transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-                className="absolute bottom-4 sm:bottom-6 right-[9.75rem]"
-              >
-                <div className="bg-white border border-teal-400 px-2 sm:px-3 py-1 rounded-full shadow-sm flex items-center gap-1 sm:gap-2">
-                  <HandCoins className="w-3 h-3 sm:w-4 sm:h-4 text-[#009689]" />
-                  <span className="text-teal-600 text-xs sm:text-sm font-semibold">
-                    LOW INVESTMENT
-                  </span>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Desktop Image */}
-            <div className="relative overflow-hidden hidden lg:block">
-              <div className="overflow-hidden flex justify-center">
-                <img
-                  src="Asset 30.png"
-                  alt="Franchise Discussion"
-                  className="w-90 h-100"
-                />
-              </div>
-
-              {/* Badge 1 - Desktop - Slide in from right */}
-              <motion.div
-                initial={{ x: 100, opacity: 0 }}
-                animate={isInView ? { x: 0, opacity: 1 } : {}}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="absolute top-10 right-[9.5rem]"
-              >
-                <div className="bg-white border border-teal-400 px-4 py-1 rounded-full shadow-sm flex items-center gap-2">
-                  <Store className="w-4 h-4 text-[#009689]" />
-                  <span className="text-teal-600 text-sm font-semibold">
-                    2900+ Franchise
-                  </span>
-                </div>
-              </motion.div>
-
-              {/* Badge 2 - Desktop - Slide in from left */}
-              <motion.div
-                initial={{ x: -100, opacity: 0 }}
-                animate={isInView ? { x: 0, opacity: 1 } : {}}
-                transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-                className="absolute bottom-12 left-[5.75rem]"
-              >
-                <div className="bg-white border border-teal-400 px-3 py-1 rounded-full shadow-sm flex items-center gap-2">
-                  <HandCoins className="w-4 h-4 text-[#009689]" />
-                  <span className="text-teal-600 text-sm font-semibold">
-                    LOW INVESTMENT
-                  </span>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-
-          {/* Right side - FAQ Section */}
-          <div className="relative order-1 lg:order-2 lg:right-13">
-            <h2
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-6 sm:mb-8 text-teal-600 text-center lg:text-left leading-tight font-semibold"
-            >
-              Frequently <span className="font-bold">asked</span> questions
-            </h2>
-
-            <div className="space-y-3 sm:space-y-4">
-              {faqs.map((faq) => (
-                <div
-                  key={faq.id}
-                  className="rounded-lg shadow-sm border border-gray-200 overflow-hidden"
+                {/* Badge 1 - Mobile - Slide in from right */}
+                <motion.div
+                  initial={{ x: 0, opacity: 0 }}
+                  animate={isInView ? { x: 100, opacity: 1 } : {}}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="absolute top-4 left-1/2 -translate-x-1/2 "
                 >
-                  <button
-                    onClick={() => toggleAccordion(faq.id)}
-                    className={`w-full px-3 sm:px-4 md:px-6 py-1 sm:py-2 text-left flex flex-col transition-colors ${
-                      openAccordion === faq.id
-                        ? "bg-gradient-to-r from-[#1C9E9E] to-[#277F8E] text-white"
-                        : "bg-white text-[#1C6E7C] hover:bg-gray-50"
-                    }`}
-                  >
-                    <div className="flex items-start sm:items-center justify-between gap-2 sm:gap-4">
-                      <span className="font-semibold text-md sm:text-base md:text-base flex-1">
-                        {faq.id}.{" "}
-                        <span className="text-md sm:text-lg md:text-lg font-semibold">
-                          {faq.question}
-                        </span>
-                      </span>
+                  <div className="bg-white border border-teal-400 px-2 sm:px-3 py-1  shadow-sm flex items-center gap-1 sm:gap-2" style={{borderRadius:'6px'}}>
+                    <Store className="w-3 h-3 sm:w-4 sm:h-4 text-[#009689]" />
+                    <span className="text-teal-600 text-xs sm:text-sm font-semibold">
+                      2900+ Franchise
+                    </span>
+                  </div>
+                </motion.div>
 
-                      <div
-                        className={`flex-shrink-0 w-4 h-4 sm:w-7 sm:h-7 flex items-center justify-center ${
-                          openAccordion === faq.id
-                            ? "bg-white"
-                            : "bg-gradient-to-r from-[#1C9E9E] to-[#277F8E]"
-                        }`}
-                        style={{ borderRadius: 6 }}
-                      >
-                        {openAccordion === faq.id ? (
-                          <ChevronUp className="w-3 h-3 sm:w-4 sm:h-4 text-[#3689A1]" />
-                        ) : (
-                          <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 text-[#ffff]" />
-                        )}
-                      </div>
-                    </div>
+                {/* Badge 2 - Mobile - Slide in from left */}
+                <motion.div
+                  initial={{ x: 0, opacity: 0 }}
+                  animate={isInView ? { x: -100, opacity: 1 } : {}}
+                  transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                  className="absolute bottom-4 left-1/2 -translate-x-1/2 "
+                >
+                  <div className="bg-white border border-teal-400 px-2 sm:px-3 py-1  shadow-sm flex items-center gap-1 sm:gap-2" style={{borderRadius:'6px'}}>
+                    <HandCoins className="w-4 h-4 sm:w-4 sm:h-4 text-[#009689]" />
+                    <span className="text-teal-600 text-xs sm:text-sm font-semibold">
+                      Low Investment
+                    </span>
+                  </div>
+                </motion.div>
+              </div>
 
-                    {openAccordion === faq.id && (
-                      <hr className=" border-white opacity-50" />
-                    )}
-                  </button>
-
-                  {openAccordion === faq.id && (
-                    <div className="px-3 sm:px-4 md:px-6 py-1 sm:py-2 bg-gradient-to-r from-[#1C9E9E] to-[#277F8E] text-white">
-                      <p className="text-xs sm:text-sm md:text-base ">
-                        {faq.answer}
-                      </p>
-                    </div>
-                  )}
+              {/* Desktop Image */}
+              <div className="relative overflow-hidden hidden lg:block">
+                <div className="overflow-hidden flex justify-center">
+                  <img
+                    src="Asset 30.png"
+                    alt="Franchise Discussion"
+                    className="w-90 h-100"
+                  />
                 </div>
-              ))}
+
+                {/* Badge 1 - Desktop - Slide in from right */}
+                <motion.div
+                  initial={{ x: 0, opacity: 0 }}
+                  animate={isInView ? { x: 100, opacity: 1 } : {}}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="absolute top-10 left-1/2 -translate-x-1/2  "
+                >
+                  <div className="bg-white border border-teal-400 px-4 py-1  shadow-sm flex items-center gap-2 " style={{borderRadius:'6px'}}>
+                    <Store className="w-4 h-4 text-[#009689]" />
+                    <span className="text-teal-600 text-sm font-semibold">
+                      2900+ Franchise
+                    </span>
+                  </div>
+                </motion.div>
+
+                {/* Badge 2 - Desktop - Slide in from left */}
+                <motion.div
+                  initial={{ x: 0, opacity: 0 }}
+                  animate={isInView ? { x: -100, opacity: 1 } : {}}
+                  transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                  className="absolute bottom-12 left-1/2 -translate-x-1/2  "
+                >
+                  <div className="bg-white border border-teal-400 px-3 py-1  shadow-sm flex items-center gap-2" style={{borderRadius:'6px'}}>
+                    <HandCoins className="w-4 h-4 text-[#009689]" />
+                    <span className="text-teal-600 text-sm font-semibold">
+                      LOW INVESTMENT
+                    </span>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+
+            {/* Right side - FAQ Section */}
+            <div className="relative order-1 lg:order-2 lg:right-13">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-6 sm:mb-8 text-teal-600 text-center lg:text-left leading-tight font-semibold">
+                Frequently <span className="font-bold">asked</span> questions
+              </h2>
+
+              <div className="space-y-3 sm:space-y-4">
+                {faqs.map((faq) => (
+                  <div
+                    key={faq.id}
+                    className="rounded-lg shadow-sm border border-gray-200 overflow-hidden"
+                  >
+                    <button
+                      onClick={() => toggleAccordion(faq.id)}
+                      className={`w-full px-3 sm:px-4 md:px-6 py-1 sm:py-2 text-left flex flex-col transition-colors ${
+                        openAccordion === faq.id
+                          ? "bg-gradient-to-r from-[#1C9E9E] to-[#277F8E] text-white"
+                          : "bg-white text-[#1C6E7C] hover:bg-gray-50"
+                      }`}
+                    >
+                      <div className="flex items-start sm:items-center justify-between gap-2 sm:gap-4">
+                        <span className="font-semibold text-md sm:text-base md:text-base flex-1">
+                          {faq.id}.{" "}
+                          <span className="text-md sm:text-lg md:text-lg font-semibold">
+                            {faq.question}
+                          </span>
+                        </span>
+                        <div
+                          className={`flex-shrink-0 w-4 h-4 sm:w-7 sm:h-7 flex items-center justify-center ${
+                            openAccordion === faq.id
+                              ? "bg-white"
+                              : "bg-gradient-to-r from-[#1C9E9E] to-[#277F8E]"
+                          }`}
+                          style={{ borderRadius: 6 }}
+                        >
+                          {openAccordion === faq.id ? (
+                            <ChevronUp className="w-3 h-3 sm:w-4 sm:h-4 text-[#3689A1]" />
+                          ) : (
+                            <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 text-[#ffff]" />
+                          )}
+                        </div>
+                      </div>
+
+                      <AnimatePresence initial={false}>
+                        {openAccordion === faq.id && (
+                          <motion.div
+                            key="content"
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                            className="overflow-hidden bg-gradient-to-r from-[#1C9E9E] to-[#277F8E] text-white"
+                          >
+                            <div className="px-3 sm:px-4 md:px-6 py-1 sm:py-2">
+                              <p className="text-xs sm:text-sm md:text-base">
+                                {faq.answer}
+                              </p>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </button>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
     </>
   );
 }
