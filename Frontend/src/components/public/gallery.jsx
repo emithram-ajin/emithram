@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Breadcrumbs from './Breadcrumbs'
 
 function Gallery() {
   // Combine images and videos into one media array
@@ -79,6 +80,10 @@ function Gallery() {
   };
 
   return (
+    <>
+          <div className=" py-3 md:pl-10 ml-5">
+        <Breadcrumbs />
+      </div>
     <div className="max-w-7xl mx-auto p-4 min-h-screen">
       <div className="flex flex-col lg:flex-row gap-6 h-full">
         {/* Main Content Area */}
@@ -168,6 +173,7 @@ function Gallery() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

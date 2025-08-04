@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Breadcrumbs from './Breadcrumbs'
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -86,6 +87,10 @@ function Contact() {
   };
 
   return (
+    <>
+    <div className=" py-3 md:pl-5 ml-5">
+        <Breadcrumbs />
+      </div>
     <div
       className="min-h-screen bg-white px-4 py-10 md:px-10 md:py-16"
       style={{
@@ -261,6 +266,7 @@ function Contact() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

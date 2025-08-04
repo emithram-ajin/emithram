@@ -1,22 +1,26 @@
-import { useState } from 'react';
-import { Worker, Viewer } from '@react-pdf-viewer/core';
-import '@react-pdf-viewer/core/lib/styles/index.css';
+import { useState } from "react";
+import { Worker, Viewer } from "@react-pdf-viewer/core";
+import "@react-pdf-viewer/core/lib/styles/index.css";
+import Breadcrumbs from "./Breadcrumbs";
 
 export default function Certificates() {
   const [showPdf, setShowPdf] = useState(false);
-  const [pdfUrl, setPdfUrl] = useState('');
+  const [pdfUrl, setPdfUrl] = useState("");
 
   const handleBackdropClick = () => setShowPdf(false);
 
   const certificates = [
-    { img: '/Recoginition.png', pdf: '/certificate.pdf' },
-    { img: '/incorporation.png', pdf: '/certificate.pdf' },
-    { img: '/startup.png', pdf: '/certificate.pdf' },
+    { img: "/Recoginition.png", pdf: "/certificate.pdf" },
+    { img: "/incorporation.png", pdf: "/certificate.pdf" },
+    { img: "/startup.png", pdf: "/certificate.pdf" },
   ];
 
   return (
     <>
-      <div className="flex flex-wrap gap-4 justify-center px-4 py-6 mt-28 mb-30">
+      <div className=" py-3 md:ml-30 ml-5">
+        <Breadcrumbs />
+      </div>
+      <div className="flex flex-wrap gap-4 justify-center px-4 py-6 mt-20 mb-30">
         {certificates.map((cert, index) => (
           <div
             key={index}

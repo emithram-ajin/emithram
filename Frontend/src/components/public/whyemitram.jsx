@@ -167,78 +167,79 @@ export default function Whyemitram() {
         </div>
         {/* Advantages Section */}
         <div className="mt-6 sm:mt-8 md:mt-12">
-          {/* Large Screen Grid (lg and above) */}
-          <div className="hidden lg:block">
-            <div className="grid grid-cols-5 gap-2 sm:gap-2 lg:gap-3 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center">
-              {advantages.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col items-center text-white transition-transform transform hover:scale-105 duration-300"
-                >
-                  {/* Circle with Image */}
-                  <div className="bg-white w-25 h-25 rounded-full flex items-center justify-center shadow-lg mb-3">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-30 h-30 object-contain"
-                    />
-                  </div>
-                  {/* Count */}
-                  {item.count && (
-                    <p className="text-xl font-bold text-center text-white mb-1">
-                      {item.count}
-                    </p>
-                  )}
-                  {/* Title */}
-                  <p className="text-[10px] font-semibold font-poppins text-center text-white leading-tight max-w-[100px]">
-                    {item.title}
-                  </p>
-                </div>
-              ))}
-            </div>
+  {/* Large Screen Grid (lg and above) */}
+  <div className="hidden lg:block">
+    <div className="grid grid-cols-5 gap-2 sm:gap-2 lg:gap-3 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center">
+      {advantages.map((item, index) => (
+        <div
+          key={index}
+          className="flex flex-col items-center text-white transition-transform transform hover:scale-105 duration-300"
+        >
+          {/* Circle with Image */}
+          <div className="bg-white w-25 h-25 rounded-full flex items-center justify-center shadow-lg mb-3">
+            <img
+              src={item.image}
+              alt={item.title}
+              className="w-30 h-30 object-contain"
+            />
           </div>
-          {/* Small/Medium Screen Horizontal Scroll (below lg) */}
-          <div className="block lg:hidden relative ">
-            {/* Scroll Container */}
-            <div className="relative px-4 sm:px-6">
-              <div
-                className="flex gap-4 sm:gap-6 md:gap-8 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory justify-center"
-                style={{
-                  scrollbarWidth: 'none',
-                  msOverflowStyle: 'none',
-                  WebkitScrollbar: { display: 'none' }
-                }}
-              >
-                {advantages.map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex flex-col items-center text-white transition-transform transform hover:scale-105 duration-300 flex-shrink-0 snap-center"
-                    style={{ minWidth: '140px' }}
-                  >
-                    {/* Circle with Image */}
-                    <div className="bg-white w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center shadow-lg mb-3 sm:mb-4">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-30 h-30 sm:w-16 sm:h-16 md:w-30 md:h-30 object-contain"
-                      />
-                    </div>
-                    {/* Count */}
-                    {item.count && (
-                      <p className="text-base sm:text-lg md:text-xl font-bold text-center text-white mb-1">
-                        {item.count}
-                      </p>
-                    )}
-                    {/* Title */}
-                    <p className="text-xs sm:text-sm md:text-base font-poppins text-center text-white leading-tight max-w-[100px] sm:max-w-[120px] px-1">
-                      {item.title}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          {/* Count */}
+          {item.count && (
+            <p className="text-xl font-bold text-center text-white mb-1">
+              {item.count}
+            </p>
+          )}
+          {/* Title */}
+          <p className="text-[10px] font-semibold font-poppins text-center text-white leading-tight max-w-[100px]">
+            {item.title}
+          </p>
         </div>
+      ))}
+    </div>
+  </div>
+
+  {/* Small/Medium Screen Horizontal Scroll (below lg) */}
+  <div className="block lg:hidden relative">
+    {/* Scroll Container */}
+    <div className="relative">
+      <div
+        className="flex gap-4 sm:gap-6 md:gap-8 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory px-6 sm:px-8"
+        style={{
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none',
+          WebkitScrollbar: { display: 'none' }
+        }}
+      >
+        {advantages.map((item, index) => (
+          <div
+            key={index}
+            className="flex flex-col items-center text-white transition-transform transform hover:scale-105 duration-300 flex-shrink-0 snap-center"
+            style={{ minWidth: '140px' }}
+          >
+            {/* Circle with Image */}
+            <div className="bg-white w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center shadow-lg mb-3 sm:mb-4">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-30 h-30 sm:w-16 sm:h-16 md:w-30 md:h-30 object-contain"
+              />
+            </div>
+            {/* Count */}
+            {item.count && (
+              <p className="text-base sm:text-lg md:text-xl font-bold text-center text-white mb-1">
+                {item.count}
+              </p>
+            )}
+            {/* Title */}
+            <p className="text-xs sm:text-sm md:text-base font-poppins text-center text-white leading-tight max-w-[100px] sm:max-w-[120px] px-1">
+              {item.title}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
         {/* Bottom SVG Wave */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
           <svg

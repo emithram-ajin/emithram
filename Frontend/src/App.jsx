@@ -15,7 +15,6 @@ import Refundpolicy from "./components/public/refundpolicy";
 import Termsconditions from "./components/public/terms&conditions";
 import Testimonials from "./components/public/Testimonials";
 import Services from "./components/public/Services";
-import Breadcrumbs from "./components/public/Breadcrumbs";
 import Disclaimer from "./components/public/Disclaimer";
 
 // This component now uses useLocation inside Router
@@ -25,7 +24,6 @@ function RoutedApp() {
   return (
     <>
       <Navbar />
-      {location.pathname !== "/" && <Breadcrumbs />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

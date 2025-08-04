@@ -3,13 +3,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import ReCAPTCHA from "react-google-recaptcha";
 import Whyemitram from "./whyemitram";
 import Servicesection from "./Servicesection";
 import { useTranslation } from "react-i18next";
 import Languageselecor from "./language-selector";
 
-
-function RegistrationForm({ formData, handleChange, handleSubmit, handleMouseEnter, handleMouseLeave }) {
+function RegistrationForm({ formData, handleChange, handleSubmit, handleMouseEnter, handleMouseLeave, onRecaptchaChange, siteKey, showRecaptcha }) {
   return (
     <div className="flex items-center justify-center font-poppins h-full">
       <div
@@ -38,13 +38,46 @@ function RegistrationForm({ formData, handleChange, handleSubmit, handleMouseEnt
           <div>
             <input type="text" name="district" value={formData.district} onChange={handleChange} placeholder="District" className="w-full placeholder-black border-b border-teal-400 focus:outline-none focus:border-blue-500 pb-1 px-2 text-xs sm:text-xs" required />
           </div>
-          <div className="flex items-start justify-center gap-2 mt-2">
-            <input type="checkbox" name="agree" checked={formData.agree} onChange={handleChange} className="w-4 h-4 flex-shrink-0" required />
-            <p className="text-[10px] sm:text-[8px] md:text-[10px] text-gray-500">
-              I accept the Terms and Conditions and Privacy Policy.</p>
-          </div>
-          <button type="submit" className="w-[140px] sm:w-[140px] md:w-[170px] bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-2 sm:py-2.5 font-bold text-xs sm:text-sm hover:opacity-90 transition-opacity mx-auto block font-poppins rounded-lg tracking-wide">
-            GET AFFILIATION
+          
+          {/* Original checkbox - only show when reCAPTCHA is not visible */}
+          {!showRecaptcha && (
+            <div className="flex items-start justify-center gap-2 mt-2">
+              <input type="checkbox" name="agree" checked={formData.agree} onChange={handleChange} className="w-4 h-4 flex-shrink-0" required />
+              <p className="text-[10px] sm:text-[8px] md:text-[10px] text-gray-500">
+                I accept the Terms and Conditions and Privacy Policy.</p>
+            </div>
+          )}
+          
+          {/* reCAPTCHA component - only show when triggered */}
+          {showRecaptcha && (
+            <div className="flex justify-center mt-4">
+              <div 
+                className="transform origin-center"
+                style={{
+                  transform: 'scale(0.6)',
+                  transformOrigin: 'center',
+                }}
+              >
+                <ReCAPTCHA
+                  sitekey={siteKey}
+                  onChange={onRecaptchaChange}
+                  theme="light"
+                  size="normal"
+                  style={{
+                    width: '100%',
+                    maxWidth: '300px',
+                  }}
+                />
+              </div>
+            </div>
+          )}
+          
+          <button 
+            type="submit" 
+            className="w-[140px] sm:w-[140px] md:w-[170px] bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-2 sm:py-2.5 font-bold text-xs sm:text-sm hover:opacity-90 transition-opacity mx-auto block font-poppins rounded-lg tracking-wide disabled:opacity-50 disabled:cursor-not-allowed"
+            disabled={showRecaptcha && !formData.recaptchaToken}
+          >
+            {showRecaptcha ? 'GET AFFILIATION' : 'GET AFFILIATION'}
           </button>
         </form>
       </div>
@@ -94,9 +127,14 @@ function Home() {
     phone: "",
     district: "",
     agree: false,
+    recaptchaToken: null,
   });
 
+  const [showRecaptcha, setShowRecaptcha] = useState(false);
+
+  const site_key = "6LebTYYrAAAAACUW4X0bOsRWh4ZBkWxStx0uBPww";
   const swiperRef = useRef(null);
+  const recaptchaRef = useRef(null);
 
   const handleFormMouseEnter = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -118,11 +156,57 @@ function Home() {
     }));
   };
 
+  const handleRecaptchaChange = (token) => {
+    setFormData((prev) => ({
+      ...prev,
+      recaptchaToken: token,
+    }));
+  };
+
+  const isFormValid = () => {
+    return formData.name && formData.email && formData.phone && formData.district && formData.agree;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Form submitted");
+    
+    // First check if all form fields are filled and checkbox is checked
+    if (!isFormValid()) {
+      alert("Please fill all fields and accept the terms and conditions");
+      return;
+    }
+
+    // If form is valid but reCAPTCHA hasn't been shown yet, show it
+    if (!showRecaptcha) {
+      setShowRecaptcha(true);
+      return;
+    }
+
+    // If reCAPTCHA is shown but not completed
+    if (showRecaptcha && !formData.recaptchaToken) {
+      alert("Please complete the reCAPTCHA verification");
+      return;
+    }
+
+    // If everything is valid, submit the form
+    alert("Form submitted successfully!");
     console.log("Form Submitted:", formData);
-    setFormData({ name: "", email: "", phone: "", district: "", agree: false });
+    
+    // Reset form and hide reCAPTCHA
+    setFormData({ 
+      name: "", 
+      email: "", 
+      phone: "", 
+      district: "", 
+      agree: false,
+      recaptchaToken: null 
+    });
+    setShowRecaptcha(false);
+    
+    // Reset reCAPTCHA
+    if (recaptchaRef.current) {
+      recaptchaRef.current.reset();
+    }
   };
 
   const containerClasses = "relative w-full min-h-[450px] sm:min-h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px] bg-cover bg-center overflow-hidden bg-[#1D7675]";
@@ -177,7 +261,16 @@ function Home() {
                     <TextContent />
                   </div>
                   <div className="w-full px-2">
-                    <RegistrationForm {...{ formData, handleChange, handleSubmit, handleMouseEnter: handleFormMouseEnter, handleMouseLeave: handleFormMouseLeave }} />
+                    <RegistrationForm 
+                      formData={formData} 
+                      handleChange={handleChange} 
+                      handleSubmit={handleSubmit} 
+                      handleMouseEnter={handleFormMouseEnter} 
+                      handleMouseLeave={handleFormMouseLeave}
+                      onRecaptchaChange={handleRecaptchaChange}
+                      siteKey={site_key}
+                      showRecaptcha={showRecaptcha}
+                    />
                   </div>
                 </div>
 
@@ -187,7 +280,16 @@ function Home() {
                   </div>
                   <div className="col-span-4 flex items-end justify-center z-60 w-full min-h-[450px] sm:min-h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px] bg-no-repeat bg-bottom bg-cover px-0" style={{ backgroundImage: "url('/woman.png')" }}></div>
                   <div className="col-span-3 h-full flex items-center justify-center py-4 pl-2 pr-4">
-                    <RegistrationForm {...{ formData, handleChange, handleSubmit, handleMouseEnter: handleFormMouseEnter, handleMouseLeave: handleFormMouseLeave }} />
+                    <RegistrationForm 
+                      formData={formData} 
+                      handleChange={handleChange} 
+                      handleSubmit={handleSubmit} 
+                      handleMouseEnter={handleFormMouseEnter} 
+                      handleMouseLeave={handleFormMouseLeave}
+                      onRecaptchaChange={handleRecaptchaChange}
+                      siteKey={site_key}
+                      showRecaptcha={showRecaptcha}
+                    />
                   </div>
                 </div>
               </div>
