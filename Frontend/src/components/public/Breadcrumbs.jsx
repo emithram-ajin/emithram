@@ -18,29 +18,26 @@ function Breadcrumbs() {
     const to = "/" + paths.slice(0, index + 1).join("/");
     return {
       path: to,
-      label: routeNameMap[to] || to.split("/").pop()
+      label: routeNameMap[to] || decodeURIComponent(to.split("/").pop())
     };
   });
 
-  // Include Home as the first item
   const fullCrumbs = [{ path: "/", label: "Home" }, ...breadcrumbs];
 
   return (
-    <nav className="text-md text-[#1AA39D] my-4 font-poppins font-normal md:ml-25" aria-label="breadcrumb">
-      <ol className="flex items-center flex-wrap space-x-2">
+    <nav className="text-sm sm:text-base text-[#1AA39D]  font-poppins" aria-label="breadcrumb">
+      <ol className="flex flex-wrap items-center gap-x-2">
         {fullCrumbs.map((item, index) => (
-          <div key={item.path} className="flex items-center space-x-2">
+          <li key={item.path} className="flex items-center gap-x-2">
             {index !== 0 && <ChevronRight className="w-4 h-4 text-[#1AA39D]" />}
-            <li>
-              {index === fullCrumbs.length - 1 ? (
-                <span className="text-[#1AA39D]">{item.label}</span>
-              ) : (
-                <Link to={item.path} className="text-[#1AA39D]hover:underline">
-                  {item.label}
-                </Link>
-              )}
-            </li>
-          </div>
+            {index === fullCrumbs.length - 1 ? (
+              <span className="text-[#1AA39D]">{item.label}</span>
+            ) : (
+              <Link to={item.path} className="text-[#1AA39D] hover:underline">
+                {item.label}
+              </Link>
+            )}
+          </li>
         ))}
       </ol>
     </nav>

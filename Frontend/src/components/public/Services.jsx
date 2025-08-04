@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Breadcrumbs from './Breadcrumbs';
 
 const tabs = [
     'Government',
@@ -111,6 +112,10 @@ function Services() {
     };
 
     return (
+        <>
+              <div className="py-3 md:ml-14 ml-5">
+        <Breadcrumbs />
+      </div>
         <div className="relative pt-10 mb-10 max-w-7xl mx-auto px-4">
             <h2 className="flex items-center justify-center gap-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold font-poppins">
                 <span className="text-[#1fb082]">OUR</span>
@@ -264,6 +269,7 @@ function Services() {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 
