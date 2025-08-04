@@ -47,25 +47,46 @@ function Registration() {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!captchaStatus) {
-      alert("Please complete the CAPTCHA");
-      return;
-    }
+ const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    if (validate()) {
-      console.log("Submitted Data:", formData);
+  if (!captchaStatus) {
+    alert("Please complete the CAPTCHA");
+    return;
+  }
 
-      setFormData(initialFormData);
-      setErrors({});
-      setCaptchaStatus(false);
+  if (validate()) {
+    try {
+      const response = await fetch("http://localhost:4000/api/register-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-      if (recaptchaRef.current) {
-        recaptchaRef.current.reset();
+      if (response.ok) {
+        const result = await response.json();
+        console.log("Server response:", result.message);
+
+        setFormData(initialFormData);
+        setErrors({});
+        setCaptchaStatus(false);
+
+        if (recaptchaRef.current) {
+          recaptchaRef.current.reset();
+        }
+      } else {
+        const errorData = await response.json();
+        console.error("Error submitting form:", errorData.message);
+        alert("Failed to submit form");
       }
+    } catch (error) {
+      console.error("Fetch error:", error);
+      alert("Network error, please try again");
     }
-  };
+  }
+};
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-100 to-blue-200 flex justify-center items-center px-2 py-6 sm:px-4">

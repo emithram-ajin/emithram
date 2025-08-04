@@ -1,11 +1,35 @@
 import mongoose from "mongoose";
 
-const sampledata = new mongoose.Schema({
-  name : {type : String},
-    age : { type : Number},
-    place : {type : String},
+//  form
+const formSchema = new mongoose.Schema({
+  name: { type: String },
+  email: { type: String },
+  phone: { type: String },
+  district: { type: String },
+  createdAt: { type: Date, default: Date.now },
+});
+export const Form = mongoose.model("Form", formSchema);
+
+// Contact form
+const contactFormSchema = new mongoose.Schema({
+  name: { type: String },
+  phone: { type: String },
+  message: { type: String },
+  createdAt: { type: Date, default: Date.now },
+});
+export const ContactForm = mongoose.model("ContactForm", contactFormSchema);
+
+// Franchise reister form
+
+const registerFormSchema = new mongoose.Schema({
+  name:{type:String},
+  place:{type:String},
+  localbody:{type:String},
+  district:{type:String},
+  mobile:{type:Number},
+  email:{type:String},
+  center:{type:String},
+  heardfrom:{type:String},
 })
 
-const Schema = mongoose.model('Sample',sampledata)
-
-export default Schema;
+export const RegisterForm = mongoose.model('RegisterForm',registerFormSchema)
