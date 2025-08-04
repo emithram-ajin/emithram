@@ -1,9 +1,6 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 
-
-
-
-const Refundpolicy = () => {
+const Disclaimer = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -114,7 +111,7 @@ const Refundpolicy = () => {
             style={{ boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)" }}
           >
             <div className="w-full h-full flex items-center justify-center text-white font-semibold bg-[url('short.png')] bg-cover bg-center">
-             
+
             </div>
           </div>
         </div>
@@ -123,74 +120,50 @@ const Refundpolicy = () => {
         <div className="order-2 lg:order-1 p-2 sm:p-4 w-full lg:w-[850px] h-auto rounded text-[#008C7E] mb-8 lg:mb-[80px] font-poppins">
           <div className="max-w-4xl mx-auto px-2 sm:px-4 py-4 sm:py-8 space-y-6 sm:space-y-8">
             {/* Heading */}
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#008C7E] font-medium">
-              Refund Policy | <span className="text-[#008C7E]">eMithram</span>
+            <h1 className="text-2xl sm:text-3xl lg:text-5xl text-[#008C7E] font-medium">
+              Disclaimer
             </h1>
-
             {/* Introduction Paragraph */}
             <p className="text-sm sm:text-base lg:text-lg text-[#008C7E]">
-              Emithram.in is committed to providing our customers with the best possible service.
-              However, due to the nature of our digital services, we are unable to offer refunds
-              on any purchases.
+              The information provided on this website (emithram.in) is for general informational purposes only and
+              should not be considered professional advice. While we strive to ensure the accuracy and completeness
+              of the information, we cannot guarantee its reliability.
             </p>
-
-            {/* Products Section */}
-            <div>
-              <h2 className="text-xl sm:text-2xl lg:text-3xl text-[#008C7E] font-semibold mb-4">
-                Our products and services are:
-              </h2>
-              <ul className="list-disc pl-4 sm:pl-6 space-y-3 text-[#008C7E] text-sm sm:text-base lg:text-lg font-poppins">
-                <li>
-                  Non-tangible and irrevocable. Once a purchase is made, the product or
-                  service is immediately available for download or use.
-                </li>
-                <li>
-                  Delivered electronically. This means there are no physical goods to return.
-                </li>
-              </ul>
-            </div>
-
-            {/* Agreement Section */}
-            <div>
-              <h2 className="text-xl sm:text-2xl lg:text-3xl text-[#008C7E] font-semibold mb-4">
-                By purchasing a product or service from emithram, {' '}
-                <span className="hidden lg:inline"><br /></span>
-                you agree to the following:
-              </h2>
-              <ul className="list-disc pl-4 sm:pl-6 space-y-3 text-[#008C7E] text-sm sm:text-base lg:text-lg font-poppins">
-                <li>You understand that all sales are final and non-refundable.</li>
-                <li>
-                  You have carefully reviewed the product or service description before making
-                  a purchase.
-                </li>
-                <li>
-                  You are aware that emithram.in reserves the right to modify this refund policy
-                  at any time without prior notice.
-                </li>
-              </ul>
-            </div>
-
+            <p className="text-sm sm:text-base lg:text-lg text-[#008C7E]">
+              Emithram.in and its owners assume no responsibility for any errors, omissions, or inaccuracies in
+              the content. The use of any information obtained from this website is at your own risk.
+            </p>
+            <p className="text-sm sm:text-base lg:text-lg text-[#008C7E]">
+              This website may contain links to external websites that are not maintained by emithram.in. We are not
+              responsible for the content or privacy practices of these third-party websites.
+            </p>
+            <p className="text-sm sm:text-base lg:text-lg text-[#008C7E]">
+              The information on this website is subject to change without notice.
+            </p>
             {/* Encourage Section */}
             <div>
-              <h2 className="text-xl sm:text-2xl lg:text-3xl text-[#008C7E] font-semibold mb-4">
-                We encourage you to:
+              <h2 className="text-xl sm:text-2xl lg:text-2xl text-[#008C7E] font-semibold mb-4">
+                Disclaimer of Warranties
               </h2>
-              <ul className="list-disc pl-4 sm:pl-6 space-y-3 text-[#008C7E] text-sm sm:text-base lg:text-lg font-poppins">
-                <li>
-                  Read the product or service description carefully before making a purchase.
-                </li>
-                <li>
-                  Contact us if you have any questions about our products or services.
-                </li>
-              </ul>
+              <p className="text-sm sm:text-base lg:text-lg text-[#008C7E]">
+                Emithram.in disclaims all warranties, express or implied, including but not limited to the implied warranties of merchantability and fitness for a particular purpose.
+              </p>
             </div>
-
-            {/* Contact Line */}
-            <p className="text-sm sm:text-base lg:text-lg text-[#008C7E] font-poppins">
-              If you have any questions about this refund policy, please contact {' '}
-              <span className="hidden lg:inline"><br /></span>
-              us at <span className="font-semibold text-[#008C7E]">emithramcare@gmail.com</span>.
-            </p>
+            <div>
+              <h2 className="text-xl sm:text-2xl lg:text-2xl text-[#008C7E] font-semibold mb-4">
+                Limitation of Liability
+              </h2>
+              <p className="text-sm sm:text-base lg:text-lg text-[#008C7E]">
+                In no event shall emithram.in or its owners be liable for any damages whatsoever, including but not limited to
+                direct, indirect, incidental, consequential, or punitive damages, arising out of or in connection with the use
+                of this website or the information contained herein.
+              </p>
+            </div>
+            <div>
+              <h2 className="text-xl sm:text-2xl lg:text-2xl text-[#008C7E] font-semibold mb-4">
+                This disclaimer is subject to change without notice.
+              </h2>
+            </div>
           </div>
         </div>
       </div>
@@ -199,5 +172,4 @@ const Refundpolicy = () => {
     </>
   )
 }
-
-export default Refundpolicy
+export default Disclaimer

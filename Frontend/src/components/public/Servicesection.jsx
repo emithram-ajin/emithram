@@ -68,7 +68,7 @@ function Servicesection() {
   return (
     <>
       {/* Domains page */}
-      <div className="w-full bg-[url('/Banner.png')] bg-cover bg-center bg-no-repeat flex justify-center items-center px-3  font-poppins">
+      <div className="w-full bg-[url('/Banner.png')] bg-cover bg-center bg-no-repeat flex justify-center items-center px-3  font-poppins mb-0 md:-mb-7">
         <div className="max-w-5xl w-full flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-10">
           {/* Image on the left */}
           <div className="flex-shrink-0 hidden md:block">
@@ -81,12 +81,12 @@ function Servicesection() {
 
           {/* Text content on the right */}
           <div className="my-2 mt-2 sm:mt-3 md:mt-4 flex-1">
-            <h1 className="text-[#3988A2] font-bold text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-4xl mb-3 sm:mb-4 md:mb-4 lg:mb-5 xl:mb-4 mt-10">
+            <h1 className="text-[#3988A2] font-bold text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-4xl pb-3 sm:pb-4 md:pb-4 lg:pb-5 xl:pb-4 ">
               <span className="underline underline-offset-4">Doma</span>
               <span>ins</span>
             </h1>
 
-            <p className="text-[#3988A2] text-sm sm:text-base md:text-base lg:text-lg xl:text-lg 2xl:text-lg leading-relaxed font-semibold mb-6 sm:mb-7 md:mb-8 lg:mb-8 xl:mb-8">
+            <p className="text-[#3988A2] text-sm sm:text-base md:text-base lg:text-lg xl:text-lg 2xl:text-lg leading-relaxed font-semibold mb-2 sm:mb-3 md:mb-4 lg:mb-4 xl:mb-4">
               Our business model works with the objective of expanding the scope
               of entrepreneurship among the common class of people by providing
               them with an ocean of opportunities under the Common Services
@@ -97,7 +97,7 @@ function Servicesection() {
             </p>
 
             <div className="w-full overflow-x-auto">
-              <div className=" rounded-full bg-[#F3F7FA] flex justify-center items-center px-4 sm:px-5 md:px-6 lg:px-6 xl:px-6 py-3 sm:py-4 md:py-5 lg:py-5 xl:py-5 gap-2 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-8">
+              <div className=" rounded-full bg-[#F3F7FA] flex justify-center items-center px-4 sm:px-5 md:px-6 lg:px-6 xl:px-6 py-3 sm:py-4 md:py-5 lg:py-5 xl:py-5 gap-2 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-8 pb-7">
                 {[
                   "icon-1.png",
                   "icon-2.png",

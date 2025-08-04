@@ -159,7 +159,7 @@ function Home() {
         <Swiper
           ref={swiperRef}
           modules={[Autoplay, Pagination]}
-          autoplay={{ delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: false }}
+          autoplay={{ delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: false }}
           loop={true}
           spaceBetween={0}
           slidesPerView={1}
@@ -169,6 +169,55 @@ function Home() {
           className="!w-screen !max-w-none !ml-0 !overflow-hidden"
         >
           {/* --- Slide 1 --- */}
+          <SwiperSlide className="!w-screen !max-w-none !px-0">
+            <div className={containerClasses} style={{ backgroundImage: "url('/banner1.png')" }}>
+              <div className={mainContainerClasses}>
+                <div className="lg:hidden grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 py-4 sm:py-6 items-start md:items-center md:min-h-[400px] w-full">
+                  <div className="w-full px-2  pr-4">
+                    <TextContent />
+                  </div>
+                  <div className="w-full px-2">
+                    <RegistrationForm {...{ formData, handleChange, handleSubmit, handleMouseEnter: handleFormMouseEnter, handleMouseLeave: handleFormMouseLeave }} />
+                  </div>
+                </div>
+
+                <div className="hidden lg:contents">
+                  <div className="col-span-5 h-full flex flex-col justify-center pl-4 pr-2">
+                    <TextContent isLargeScreen={true} />
+                  </div>
+                  <div className="col-span-4 flex items-end justify-center z-60 w-full min-h-[450px] sm:min-h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px] bg-no-repeat bg-bottom bg-cover px-0" style={{ backgroundImage: "url('/woman.png')" }}></div>
+                  <div className="col-span-3 h-full flex items-center justify-center py-4 pl-2 pr-4">
+                    <RegistrationForm {...{ formData, handleChange, handleSubmit, handleMouseEnter: handleFormMouseEnter, handleMouseLeave: handleFormMouseLeave }} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide className="!w-screen !max-w-none !px-0">
+            <div className={containerClasses} style={{ backgroundImage: "url('/banner1.png')" }}>
+              <div className={mainContainerClasses}>
+                <div className="lg:hidden grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 py-4 sm:py-6 items-start md:items-center md:min-h-[400px] w-full">
+                  <div className="w-full px-2  pr-4">
+                    <TextContent />
+                  </div>
+                  <div className="w-full px-2">
+                    <RegistrationForm {...{ formData, handleChange, handleSubmit, handleMouseEnter: handleFormMouseEnter, handleMouseLeave: handleFormMouseLeave }} />
+                  </div>
+                </div>
+
+                <div className="hidden lg:contents">
+                  <div className="col-span-5 h-full flex flex-col justify-center pl-4 pr-2">
+                    <TextContent isLargeScreen={true} />
+                  </div>
+                  <div className="col-span-4 flex items-end justify-center z-60 w-full min-h-[450px] sm:min-h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px] bg-no-repeat bg-bottom bg-cover px-0" style={{ backgroundImage: "url('/woman.png')" }}></div>
+                  <div className="col-span-3 h-full flex items-center justify-center py-4 pl-2 pr-4">
+                    <RegistrationForm {...{ formData, handleChange, handleSubmit, handleMouseEnter: handleFormMouseEnter, handleMouseLeave: handleFormMouseLeave }} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
           <SwiperSlide className="!w-screen !max-w-none !px-0">
             <div className={containerClasses} style={{ backgroundImage: "url('/banner1.png')" }}>
               <div className={mainContainerClasses}>

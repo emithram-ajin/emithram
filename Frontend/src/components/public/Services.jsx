@@ -180,11 +180,11 @@ function Services() {
                             onClick={() => handleCardClick(service)}
                             className="bg-white shadow-md rounded-xl border border-[#00b39f] overflow-hidden text-center cursor-pointer transition-transform duration-300 hover:scale-105 min-w-[160px] w-full max-w-[280px] mx-auto"
                         >
-                            <div className="w-full h-32 sm:h-36 md:h-40 lg:h-44 overflow-hidden bg-gray-100">
+                            <div className="w-full h-32 sm:h-32 md:h-34 lg:h-36 overflow-hidden bg-gray-100">
                                 <img
                                     src={service.image}
                                     alt={service.title}
-                                    className="w-full h-full object-cover object-center"
+                                    className="w-full h-full object-fill"
                                 />
                             </div>
 

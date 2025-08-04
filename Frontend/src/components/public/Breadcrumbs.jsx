@@ -26,7 +26,7 @@ function Breadcrumbs() {
   const fullCrumbs = [{ path: "/", label: "Home" }, ...breadcrumbs];
 
   return (
-    <nav className="text-md text-[#1AA39D] my-4 font-poppins font-bold md:ml-25" aria-label="breadcrumb">
+    <nav className="text-md text-[#1AA39D] my-4 font-poppins font-normal md:ml-25" aria-label="breadcrumb">
       <ol className="flex items-center flex-wrap space-x-2">
         {fullCrumbs.map((item, index) => (
           <div key={item.path} className="flex items-center space-x-2">
