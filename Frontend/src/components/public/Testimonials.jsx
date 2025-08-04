@@ -6,7 +6,6 @@ import "swiper/css/pagination";
 import { Star, ChevronDown, ChevronUp, HandCoins, Store } from "lucide-react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 
-
 // Dummy data
 const testimonials = [
   {
@@ -65,16 +64,16 @@ function TestimonialSlider() {
   const isInView = useInView(ref, { once: false, margin: "-100px" });
   return (
     <>
-      <section className="relative bg-[#F2F8F9] py-16 px-4 font-poppins overflow-hidden">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 sm:ml-25">
+      <section className="relative bg-[#F2F8F9] py-16 px-4 sm:px-6 lg:px-8 font-poppins overflow-hidden">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           {/* Left Content */}
           <div>
-            <h2 className="text-2xl md:text-4xl text-cyan-800 font-medium leading-snug">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl text-cyan-800 font-medium leading-snug md:leading-tight">
               Real stories, real trust hear from our{" "}
               <span className="font-bold">satisfied franchise owners</span>
             </h2>
-            <div className="w-35 h-1 bg-cyan-700 mt-4 mb-6"></div>
-            <p className="text-cyan-900 text-sm md:text-base leading-relaxed">
+            <div className="w-24 h-1 bg-cyan-700 mt-4 mb-6"></div>
+            <p className="text-cyan-900 text-sm sm:text-base leading-relaxed sm:leading-loose">
               We take pride in empowering individuals through entrepreneurship.
               Through real-life stories and testimonials, hear how our eMithram
               CSP partners have transformed their livelihoods with stable income
@@ -97,23 +96,19 @@ function TestimonialSlider() {
                 pagination={{ clickable: true }}
                 autoplay={{ delay: 4000 }}
                 loop={true}
-                className="w-full"
+                className="w-full min-h-[270px]"
               >
                 {testimonials.map((item, index) => (
                   <SwiperSlide key={index}>
-                    <div className="p-6 pt-8 text-center">
-                      <p className="text-gray-700 text-sm md:text-base italic mb-4">
+                    <div className="p-6 pt-8 text-center flex flex-col justify-between h-full">
+                      <p className="text-gray-700 text-sm sm:text-base italic mb-4 leading-relaxed">
                         “{item.text}”
                       </p>
 
                       {/* Stars */}
                       <div className="flex justify-center space-x-1 text-yellow-400 text-lg mb-4">
                         {Array.from({ length: 5 }).map((_, i) => (
-                          <Star
-                            key={i}
-                            stroke="2"
-                            className="fill-yellow-400"
-                          />
+                          <Star key={i} className="w-5 h-5 fill-yellow-400" />
                         ))}
                       </div>
 
@@ -140,6 +135,7 @@ function TestimonialSlider() {
             </div>
           </div>
         </div>
+
         {/* Bottom Curve */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
           <svg
@@ -162,7 +158,7 @@ function TestimonialSlider() {
             {/* Left side - Image with badges */}
             <div className="relative order-2 lg:order-1" ref={ref}>
               {/* Mobile/Tablet Image */}
-              <div className="relative overflow-hidden lg:hidden">
+              <div className="relative  lg:hidden ">
                 <div className="flex justify-center">
                   <img
                     src="Asset 30.png"
@@ -173,12 +169,12 @@ function TestimonialSlider() {
 
                 {/* Badge 1 - Mobile - Slide in from right */}
                 <motion.div
-                  initial={{ x: 100, opacity: 0 }}
-                  animate={isInView ? { x: 0, opacity: 1 } : {}}
+                  initial={{ x: 0, opacity: 0 }}
+                  animate={isInView ? { x: 100, opacity: 1 } : {}}
                   transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="absolute top-4 right-6 sm:top-6 sm:right-6"
+                  className="absolute top-4 left-1/2 -translate-x-1/2 "
                 >
-                  <div className="bg-white border border-teal-400 px-2 sm:px-3 py-1 rounded-full shadow-sm flex items-center gap-1 sm:gap-2">
+                  <div className="bg-white border border-teal-400 px-2 sm:px-3 py-1  shadow-sm flex items-center gap-1 sm:gap-2" style={{borderRadius:'6px'}}>
                     <Store className="w-3 h-3 sm:w-4 sm:h-4 text-[#009689]" />
                     <span className="text-teal-600 text-xs sm:text-sm font-semibold">
                       2900+ Franchise
@@ -188,15 +184,15 @@ function TestimonialSlider() {
 
                 {/* Badge 2 - Mobile - Slide in from left */}
                 <motion.div
-                  initial={{ x: -100, opacity: 0 }}
-                  animate={isInView ? { x: 0, opacity: 1 } : {}}
+                  initial={{ x: 0, opacity: 0 }}
+                  animate={isInView ? { x: -100, opacity: 1 } : {}}
                   transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-                  className="absolute bottom-4 sm:bottom-6 right-[9.75rem]"
+                  className="absolute bottom-4 left-1/2 -translate-x-1/2 "
                 >
-                  <div className="bg-white border border-teal-400 px-2 sm:px-3 py-1 rounded-full shadow-sm flex items-center gap-1 sm:gap-2">
-                    <HandCoins className="w-3 h-3 sm:w-4 sm:h-4 text-[#009689]" />
+                  <div className="bg-white border border-teal-400 px-2 sm:px-3 py-1  shadow-sm flex items-center gap-1 sm:gap-2" style={{borderRadius:'6px'}}>
+                    <HandCoins className="w-4 h-4 sm:w-4 sm:h-4 text-[#009689]" />
                     <span className="text-teal-600 text-xs sm:text-sm font-semibold">
-                      LOW INVESTMENT
+                      Low Investment
                     </span>
                   </div>
                 </motion.div>
@@ -214,12 +210,12 @@ function TestimonialSlider() {
 
                 {/* Badge 1 - Desktop - Slide in from right */}
                 <motion.div
-                  initial={{ x: 100, opacity: 0 }}
-                  animate={isInView ? { x: 0, opacity: 1 } : {}}
+                  initial={{ x: 0, opacity: 0 }}
+                  animate={isInView ? { x: 100, opacity: 1 } : {}}
                   transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="absolute top-10 right-[9.5rem]"
+                  className="absolute top-10 left-1/2 -translate-x-1/2  "
                 >
-                  <div className="bg-white border border-teal-400 px-4 py-1 rounded-full shadow-sm flex items-center gap-2">
+                  <div className="bg-white border border-teal-400 px-4 py-1  shadow-sm flex items-center gap-2 " style={{borderRadius:'6px'}}>
                     <Store className="w-4 h-4 text-[#009689]" />
                     <span className="text-teal-600 text-sm font-semibold">
                       2900+ Franchise
@@ -229,12 +225,12 @@ function TestimonialSlider() {
 
                 {/* Badge 2 - Desktop - Slide in from left */}
                 <motion.div
-                  initial={{ x: -100, opacity: 0 }}
-                  animate={isInView ? { x: 0, opacity: 1 } : {}}
+                  initial={{ x: 0, opacity: 0 }}
+                  animate={isInView ? { x: -100, opacity: 1 } : {}}
                   transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-                  className="absolute bottom-12 left-[5.75rem]"
+                  className="absolute bottom-12 left-1/2 -translate-x-1/2  "
                 >
-                  <div className="bg-white border border-teal-400 px-3 py-1 rounded-full shadow-sm flex items-center gap-2">
+                  <div className="bg-white border border-teal-400 px-3 py-1  shadow-sm flex items-center gap-2" style={{borderRadius:'6px'}}>
                     <HandCoins className="w-4 h-4 text-[#009689]" />
                     <span className="text-teal-600 text-sm font-semibold">
                       LOW INVESTMENT
@@ -246,9 +242,7 @@ function TestimonialSlider() {
 
             {/* Right side - FAQ Section */}
             <div className="relative order-1 lg:order-2 lg:right-13">
-              <h2
-                className="text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-6 sm:mb-8 text-teal-600 text-center lg:text-left leading-tight font-semibold"
-              >
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-6 sm:mb-8 text-teal-600 text-center lg:text-left leading-tight font-semibold">
                 Frequently <span className="font-bold">asked</span> questions
               </h2>
 
@@ -256,13 +250,15 @@ function TestimonialSlider() {
                 {faqs.map((faq) => (
                   <div
                     key={faq.id}
-                    className="rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                    className="rounded-lg shadow-sm border border-gray-200 overflow-hidden"
+                  >
                     <button
                       onClick={() => toggleAccordion(faq.id)}
-                      className={`w-full px-3 sm:px-4 md:px-6 py-1 sm:py-2 text-left flex flex-col transition-colors ${openAccordion === faq.id
-                        ? "bg-gradient-to-r from-[#1C9E9E] to-[#277F8E] text-white"
-                        : "bg-white text-[#1C6E7C] hover:bg-gray-50"
-                        }`}
+                      className={`w-full px-3 sm:px-4 md:px-6 py-1 sm:py-2 text-left flex flex-col transition-colors ${
+                        openAccordion === faq.id
+                          ? "bg-gradient-to-r from-[#1C9E9E] to-[#277F8E] text-white"
+                          : "bg-white text-[#1C6E7C] hover:bg-gray-50"
+                      }`}
                     >
                       <div className="flex items-start sm:items-center justify-between gap-2 sm:gap-4">
                         <span className="font-semibold text-md sm:text-base md:text-base flex-1">
@@ -272,10 +268,11 @@ function TestimonialSlider() {
                           </span>
                         </span>
                         <div
-                          className={`flex-shrink-0 w-4 h-4 sm:w-7 sm:h-7 flex items-center justify-center ${openAccordion === faq.id
-                            ? "bg-white"
-                            : "bg-gradient-to-r from-[#1C9E9E] to-[#277F8E]"
-                            }`}
+                          className={`flex-shrink-0 w-4 h-4 sm:w-7 sm:h-7 flex items-center justify-center ${
+                            openAccordion === faq.id
+                              ? "bg-white"
+                              : "bg-gradient-to-r from-[#1C9E9E] to-[#277F8E]"
+                          }`}
                           style={{ borderRadius: 6 }}
                         >
                           {openAccordion === faq.id ? (
@@ -284,7 +281,7 @@ function TestimonialSlider() {
                             <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 text-[#ffff]" />
                           )}
                         </div>
-                      </div >
+                      </div>
 
                       <AnimatePresence initial={false}>
                         {openAccordion === faq.id && (
@@ -305,14 +302,13 @@ function TestimonialSlider() {
                         )}
                       </AnimatePresence>
                     </button>
-                  </div >
-                ))
-                }
-              </div >
-            </div >
-          </div >
-        </div >
-      </section >
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
