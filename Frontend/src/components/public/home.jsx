@@ -3,13 +3,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import ReCAPTCHA from "react-google-recaptcha";
 import Whyemitram from "./whyemitram";
 import Servicesection from "./Servicesection";
 import { useTranslation } from "react-i18next";
 import Languageselecor from "./language-selector";
 
-
-function RegistrationForm({ formData, handleChange, handleSubmit, handleMouseEnter, handleMouseLeave }) {
+function RegistrationForm({ formData, handleChange, handleSubmit, handleMouseEnter, handleMouseLeave, onRecaptchaChange, siteKey, showRecaptcha }) {
   return (
     <div className="flex items-center justify-center font-poppins h-full">
       <div
@@ -38,13 +38,46 @@ function RegistrationForm({ formData, handleChange, handleSubmit, handleMouseEnt
           <div>
             <input type="text" name="district" value={formData.district} onChange={handleChange} placeholder="District" className="w-full placeholder-black border-b border-teal-400 focus:outline-none focus:border-blue-500 pb-1 px-2 text-xs sm:text-xs" required />
           </div>
-          <div className="flex items-start justify-center gap-2 mt-2">
-            <input type="checkbox" name="agree" checked={formData.agree} onChange={handleChange} className="w-4 h-4 flex-shrink-0" required />
-            <p className="text-[10px] sm:text-[8px] md:text-[10px] text-gray-500">
-              I accept the Terms and Conditions and Privacy Policy.</p>
-          </div>
-          <button type="submit" className="w-[140px] sm:w-[140px] md:w-[170px] bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-2 sm:py-2.5 font-bold text-xs sm:text-sm hover:opacity-90 transition-opacity mx-auto block font-poppins rounded-lg tracking-wide">
-            GET AFFILIATION
+          
+          {/* Original checkbox - only show when reCAPTCHA is not visible */}
+          {!showRecaptcha && (
+            <div className="flex items-start justify-center gap-2 mt-2">
+              <input type="checkbox" name="agree" checked={formData.agree} onChange={handleChange} className="w-4 h-4 flex-shrink-0" required />
+              <p className="text-[10px] sm:text-[8px] md:text-[10px] text-gray-500">
+                I accept the Terms and Conditions and Privacy Policy.</p>
+            </div>
+          )}
+          
+          {/* reCAPTCHA component - only show when triggered */}
+          {showRecaptcha && (
+            <div className="flex justify-center mt-4">
+              <div 
+                className="transform origin-center"
+                style={{
+                  transform: 'scale(0.6)',
+                  transformOrigin: 'center',
+                }}
+              >
+                <ReCAPTCHA
+                  sitekey={siteKey}
+                  onChange={onRecaptchaChange}
+                  theme="light"
+                  size="normal"
+                  style={{
+                    width: '100%',
+                    maxWidth: '300px',
+                  }}
+                />
+              </div>
+            </div>
+          )}
+          
+          <button 
+            type="submit" 
+            className="w-[140px] sm:w-[140px] md:w-[170px] bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-2 sm:py-2.5 font-bold text-xs sm:text-sm hover:opacity-90 transition-opacity mx-auto block font-poppins rounded-lg tracking-wide disabled:opacity-50 disabled:cursor-not-allowed"
+            disabled={showRecaptcha && !formData.recaptchaToken}
+          >
+            {showRecaptcha ? 'GET AFFILIATION' : 'GET AFFILIATION'}
           </button>
         </form>
       </div>
@@ -62,28 +95,43 @@ function TextContent({ isLargeScreen = false }) {
   const alignment = isLargeScreen ? "text-left" : "text-center md:text-left";
 
   return (
-    <div className={`text-white flex flex-col justify-center space-y-1 sm:space-y-2 md:space-y-3 ${isLargeScreen ? 'space-y-4' : ''} max-w-2xl ${isLargeScreen ? '' : 'mx-auto md:mx-0'} ${alignment}`}>
-      <div>
-        <h1 className={`${titleSizes} font-bold leading-tight`}>
-          {t('hero.title.line1')}<br />
-          <span className={`text-[#f2ff3d] font-extrabold ${businessSizes} leading-none block`}>{t('hero.title.highlight')}</span>
-        </h1>
-        <p className={`${subtitleSizes} inline-block pb-2 sm:pb-3 font-bold`}>{t('hero.tagline')}</p>
-        <div className={`h-[4px] sm:h-[4px] md:h-[4px] w-[25%] bg-[#D9E535] ${isLargeScreen ? '' : 'mx-auto md:mx-0'}`}></div>
-      </div>
-      <div className="space-y-1 sm:space-y-2 md:space-y-3">
-        <p className={`${descSizes} font-bold`}>
-          {t('hero.description.line1')}
-          {isLargeScreen && <br className="hidden sm:block" />}
-          {isLargeScreen && <span className="sm:hidden"> </span>} {t('hero.description.line2')}
-        </p>
-      </div>
-      <div className="flex justify-center md:justify-start pt-6 sm:pt-2 md:pt-4 lg:pt-6">
-        <button className="w-[160px] sm:w-[140px] sm:py-1 text-[12px] xl:text-[18px] bg-white border border-white text-teal-900 font-semibold rounded-tl-xl rounded-tr-xl rounded-bl-xl hover:bg-teal-900 hover:text-white transition-all duration-300">
-          Explore More
-        </button>
-      </div>
-    </div>
+    <div
+  className={`text-white flex flex-col justify-center space-y-1 sm:space-y-2 md:space-y-3
+    ${isLargeScreen ? 'space-y-4' : ''}
+    max-w-2xl
+    ${isLargeScreen ? '' : 'mx-auto md:mx-0'}
+    ${alignment}`}>
+  <div>
+    <h1 className={`${titleSizes} font-bold leading-tight`}>
+      {t('hero.title.line1')}<br />
+      <span className="text-[#f2ff3d] font-extrabold leading-none block">
+        {t('hero.title.highlight')}
+      </span>
+    </h1>
+    <p className={`${subtitleSizes} inline-block pb-2 sm:pb-3 font-bold`}>
+      {t('hero.tagline')}
+    </p>
+    <div
+      className={`h-[4px] sm:h-[4px] md:h-[4px] w-[25%] bg-[#D9E535] 
+        ${isLargeScreen ? '' : 'mx-auto md:mx-0'}`}
+    ></div>
+  </div>
+
+  <div className="space-y-1 sm:space-y-2 md:space-y-3">
+    <p className={`${descSizes} font-bold`}>
+      {t('hero.description.line1')}
+      {isLargeScreen && <br className="hidden sm:block" />}
+      {isLargeScreen && <span className="sm:hidden"> </span>}
+      {t('hero.description.line2')}
+    </p>
+  </div>
+
+  <div className="flex justify-center md:justify-start pt-6 sm:pt-2 md:pt-4 lg:pt-6">
+    <button className="w-[160px] sm:w-[140px] sm:py-1 text-[12px] xl:text-[18px] bg-white border border-white text-teal-900 font-semibold rounded-tl-xl rounded-tr-xl rounded-bl-xl hover:bg-teal-900 hover:text-white transition-all duration-300">
+      Explore More
+    </button>
+  </div>
+</div>
   );
 }
 
@@ -94,9 +142,14 @@ function Home() {
     phone: "",
     district: "",
     agree: false,
+    recaptchaToken: null,
   });
 
+  const [showRecaptcha, setShowRecaptcha] = useState(false);
+
+  const site_key = "6LebTYYrAAAAACUW4X0bOsRWh4ZBkWxStx0uBPww";
   const swiperRef = useRef(null);
+  const recaptchaRef = useRef(null);
 
   const handleFormMouseEnter = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -118,12 +171,78 @@ function Home() {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Form submitted");
-    console.log("Form Submitted:", formData);
-    setFormData({ name: "", email: "", phone: "", district: "", agree: false });
+  const handleRecaptchaChange = (token) => {
+    setFormData((prev) => ({
+      ...prev,
+      recaptchaToken: token,
+    }));
   };
+
+  const isFormValid = () => {
+    return formData.name && formData.email && formData.phone && formData.district && formData.agree;
+  };
+
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  if (!isFormValid()) {
+    alert("Please fill all fields and accept the terms and conditions");
+    return;
+  }
+
+  if (!showRecaptcha) {
+    setShowRecaptcha(true);
+    return;
+  }
+
+  if (!formData.recaptchaToken) {
+    alert("Please complete the reCAPTCHA verification");
+    return;
+  }
+
+  try {
+    const response = await fetch("http://localhost:4000/api/submit-form", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        district: formData.district,
+        recaptchaToken: formData.recaptchaToken,
+      }),
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      alert("Form submitted and saved successfully!");
+    } else {
+      alert(result.message || "Submission failed");
+    }
+  } catch (error) {
+    console.error("Error submitting form:", error);
+    alert("Something went wrong, try again later.");
+  }
+
+  // Reset form and reCAPTCHA
+  setFormData({
+    name: "",
+    email: "",
+    phone: "",
+    district: "",
+    agree: false,
+    recaptchaToken: null,
+  });
+  setShowRecaptcha(false);
+
+  if (recaptchaRef.current) {
+    recaptchaRef.current.reset();
+  }
+};
+
 
   const containerClasses = "relative w-full min-h-[450px] sm:min-h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px] bg-cover bg-center overflow-hidden bg-[#1D7675]";
   const mainContainerClasses = "relative w-full max-w-7xl mx-auto  sm:px-4 md:px-6 lg:px-0 xl:px-4 min-h-[450px] sm:min-h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px] grid grid-cols-1 lg:grid-cols-12 gap-2 sm:gap-4 lg:gap-0 font-anek";
@@ -177,7 +296,16 @@ function Home() {
                     <TextContent />
                   </div>
                   <div className="w-full px-2">
-                    <RegistrationForm {...{ formData, handleChange, handleSubmit, handleMouseEnter: handleFormMouseEnter, handleMouseLeave: handleFormMouseLeave }} />
+                    <RegistrationForm 
+                      formData={formData} 
+                      handleChange={handleChange} 
+                      handleSubmit={handleSubmit} 
+                      handleMouseEnter={handleFormMouseEnter} 
+                      handleMouseLeave={handleFormMouseLeave}
+                      onRecaptchaChange={handleRecaptchaChange}
+                      siteKey={site_key}
+                      showRecaptcha={showRecaptcha}
+                    />
                   </div>
                 </div>
 
@@ -187,7 +315,16 @@ function Home() {
                   </div>
                   <div className="col-span-4 flex items-end justify-center z-60 w-full min-h-[450px] sm:min-h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px] bg-no-repeat bg-bottom bg-cover px-0" style={{ backgroundImage: "url('/woman.png')" }}></div>
                   <div className="col-span-3 h-full flex items-center justify-center py-4 pl-2 pr-4">
-                    <RegistrationForm {...{ formData, handleChange, handleSubmit, handleMouseEnter: handleFormMouseEnter, handleMouseLeave: handleFormMouseLeave }} />
+                    <RegistrationForm 
+                      formData={formData} 
+                      handleChange={handleChange} 
+                      handleSubmit={handleSubmit} 
+                      handleMouseEnter={handleFormMouseEnter} 
+                      handleMouseLeave={handleFormMouseLeave}
+                      onRecaptchaChange={handleRecaptchaChange}
+                      siteKey={site_key}
+                      showRecaptcha={showRecaptcha}
+                    />
                   </div>
                 </div>
               </div>
