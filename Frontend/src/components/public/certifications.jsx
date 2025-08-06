@@ -17,7 +17,7 @@ export default function Certificates() {
 
   return (
     <>
-      <div className=" py-3 md:ml-30 ml-5">
+      <div className=" py-3 md:pl-14 pl-5">
         <Breadcrumbs />
       </div>
       <div className="flex flex-wrap gap-4 justify-center px-4 py-6 mt-20 mb-30">

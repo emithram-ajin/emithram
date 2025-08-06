@@ -61,7 +61,7 @@ function About() {
 
   return (
     <>
-      <div className="bg-gray-50 py-3 md:pl-30 ml-5">
+      <div className="bg-gray-50 py-3 md:pl-14 pl-5">
         <Breadcrumbs />
       </div>
       <section className="w-full min-h-screen bg-gray-50 font-poppins flex flex-col items-center px-0">
@@ -117,7 +117,10 @@ function About() {
               </div>
             </div>
             <button
-              onClick={() => navigate("/register")}
+              onClick={() => {
+                navigate('/register');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
               className="bg-gradient-to-r from-green-700 to-green-500 text-white font-semibold px-6 py-3 text-lg rounded-2xl hover:shadow-lg transition-shadow duration-300"
             >
               Start Your Franchise Journey
@@ -235,7 +238,10 @@ function About() {
               വരുമാനത്തിലേക്കുള്ള നിങ്ങളുടെ യാത്ര ഇവിടെ ആരംഭിക്കുന്നു.{" "}
             </h2>
             <button
-              onClick={() => navigate("/register")}
+              onClick={() => {
+                navigate('/register');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
               className="bg-white text-[#006F59] font-semibold text-xs sm:text-sm px-4 py-1.5 sm:px-5 sm:py-2 rounded-full border border-[#006F59] hover:bg-gray-100 transition duration-200 whitespace-nowrap"
             >
               Apply for Franchise

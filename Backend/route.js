@@ -1,6 +1,11 @@
 import express from "express";
-import { Form, ContactForm,RegisterForm } from "./schema.js";
+import { Form, ContactForm,RegisterForm,ImageSchema } from "./schema.js";
 const router = express.Router();
+
+import multer from 'multer';
+
+const storage = multer.memoryStorage(); 
+const upload = multer({ storage });
 
 
 router.post('/submit-form',async(req,res)=>{
@@ -41,6 +46,34 @@ router.post('/register-form',async(req,res)=>{
     res.status(500).json({message:'server error'})
   }
 })
+
+router.post('/upload-image', upload.single('image'), async (req, res) => {
+  try {
+    const { page, position, title, description } = req.body;
+
+    if (!page || !position || !req.file) {
+      return res.status(400).json({ error: 'Page, position, and image are required' });
+    }
+
+    const newImage = new HomeImage({
+      page,
+      position,
+      title,
+      description,
+      image: {
+        data: req.file.buffer,
+        contentType: req.file.mimetype,
+      }
+    });
+
+    await newImage.save();
+    res.status(201).json({ message: 'Image uploaded successfully' });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to upload image' });
+  }
+});
 
 
 export default router;

@@ -38,7 +38,7 @@ function RegistrationForm({ formData, handleChange, handleSubmit, handleMouseEnt
           <div>
             <input type="text" name="district" value={formData.district} onChange={handleChange} placeholder="District" className="w-full placeholder-black border-b border-teal-400 focus:outline-none focus:border-blue-500 pb-1 px-2 text-xs sm:text-xs" required />
           </div>
-          
+
           {/* Original checkbox - only show when reCAPTCHA is not visible */}
           {!showRecaptcha && (
             <div className="flex items-start justify-center gap-2 mt-2">
@@ -47,11 +47,11 @@ function RegistrationForm({ formData, handleChange, handleSubmit, handleMouseEnt
                 I accept the Terms and Conditions and Privacy Policy.</p>
             </div>
           )}
-          
+
           {/* reCAPTCHA component - only show when triggered */}
           {showRecaptcha && (
             <div className="flex justify-center mt-4">
-              <div 
+              <div
                 className="transform origin-center"
                 style={{
                   transform: 'scale(0.6)',
@@ -71,10 +71,10 @@ function RegistrationForm({ formData, handleChange, handleSubmit, handleMouseEnt
               </div>
             </div>
           )}
-          
-          <button 
-            type="submit" 
-            className="w-[140px] sm:w-[140px] md:w-[170px] bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-2 sm:py-2.5 font-bold text-xs sm:text-sm hover:opacity-90 transition-opacity mx-auto block font-poppins rounded-lg tracking-wide disabled:opacity-50 disabled:cursor-not-allowed"
+
+          <button
+            type="submit"
+            className="w-[140px] sm:w-[140px] md:w-[170px] bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-2 sm:py-2.5 font-bold text-xs sm:text-sm hover:opacity-90 transition-opacity mx-auto block font-poppins rounded-lg tracking-wide disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
             disabled={showRecaptcha && !formData.recaptchaToken}
           >
             {showRecaptcha ? 'GET AFFILIATION' : 'GET AFFILIATION'}
@@ -96,42 +96,42 @@ function TextContent({ isLargeScreen = false }) {
 
   return (
     <div
-  className={`text-white flex flex-col justify-center space-y-1 sm:space-y-2 md:space-y-3
+      className={`text-white flex flex-col justify-center space-y-1 sm:space-y-2 md:space-y-3
     ${isLargeScreen ? 'space-y-4' : ''}
     max-w-2xl
     ${isLargeScreen ? '' : 'mx-auto md:mx-0'}
     ${alignment}`}>
-  <div>
-    <h1 className={`${titleSizes} font-bold leading-tight`}>
-      {t('hero.title.line1')}<br />
-      <span className="text-[#f2ff3d] font-extrabold leading-none block">
-        {t('hero.title.highlight')}
-      </span>
-    </h1>
-    <p className={`${subtitleSizes} inline-block pb-2 sm:pb-3 font-bold`}>
-      {t('hero.tagline')}
-    </p>
-    <div
-      className={`h-[4px] sm:h-[4px] md:h-[4px] w-[25%] bg-[#D9E535] 
+      <div>
+        <h1 className={`${titleSizes} font-bold leading-tight`}>
+          {t('hero.title.line1')}<br />
+          <span className="text-[#f2ff3d] font-extrabold leading-none block">
+            {t('hero.title.highlight')}
+          </span>
+        </h1>
+        <p className={`${subtitleSizes} inline-block pb-2 sm:pb-3 font-bold`}>
+          {t('hero.tagline')}
+        </p>
+        <div
+          className={`h-[4px] sm:h-[4px] md:h-[4px] w-[25%] bg-[#D9E535] 
         ${isLargeScreen ? '' : 'mx-auto md:mx-0'}`}
-    ></div>
-  </div>
+        ></div>
+      </div>
 
-  <div className="space-y-1 sm:space-y-2 md:space-y-3">
-    <p className={`${descSizes} font-bold`}>
-      {t('hero.description.line1')}
-      {isLargeScreen && <br className="hidden sm:block" />}
-      {isLargeScreen && <span className="sm:hidden"> </span>}
-      {t('hero.description.line2')}
-    </p>
-  </div>
+      <div className="space-y-1 sm:space-y-2 md:space-y-3">
+        <p className={`${descSizes} font-bold`}>
+          {t('hero.description.line1')}
+          {isLargeScreen && <br className="hidden sm:block" />}
+          {isLargeScreen && <span className="sm:hidden"> </span>}
+          {t('hero.description.line2')}
+        </p>
+      </div>
 
-  <div className="flex justify-center md:justify-start pt-6 sm:pt-2 md:pt-4 lg:pt-6">
-    <button className="w-[160px] sm:w-[140px] sm:py-1 text-[12px] xl:text-[18px] bg-white border border-white text-teal-900 font-semibold rounded-tl-xl rounded-tr-xl rounded-bl-xl hover:bg-teal-900 hover:text-white transition-all duration-300">
-      Explore More
-    </button>
-  </div>
-</div>
+      <div className="flex justify-center md:justify-start pt-6 sm:pt-2 md:pt-4 lg:pt-6 ">
+        <button className=" cursor-pointer w-[160px] sm:w-[140px] sm:py-1 text-[12px] xl:text-[18px] bg-white border border-white text-teal-900 font-semibold rounded-tl-xl rounded-tr-xl rounded-bl-xl hover:bg-teal-900 hover:text-white transition-all duration-300 ">
+          Explore More
+        </button>
+      </div>
+    </div>
   );
 }
 
@@ -182,66 +182,66 @@ function Home() {
     return formData.name && formData.email && formData.phone && formData.district && formData.agree;
   };
 
- const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  if (!isFormValid()) {
-    alert("Please fill all fields and accept the terms and conditions");
-    return;
-  }
-
-  if (!showRecaptcha) {
-    setShowRecaptcha(true);
-    return;
-  }
-
-  if (!formData.recaptchaToken) {
-    alert("Please complete the reCAPTCHA verification");
-    return;
-  }
-
-  try {
-    const response = await fetch("http://localhost:4000/api/submit-form", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        district: formData.district,
-        recaptchaToken: formData.recaptchaToken,
-      }),
-    });
-
-    const result = await response.json();
-
-    if (response.ok) {
-      alert("Form submitted and saved successfully!");
-    } else {
-      alert(result.message || "Submission failed");
+    if (!isFormValid()) {
+      alert("Please fill all fields and accept the terms and conditions");
+      return;
     }
-  } catch (error) {
-    console.error("Error submitting form:", error);
-    alert("Something went wrong, try again later.");
-  }
 
-  // Reset form and reCAPTCHA
-  setFormData({
-    name: "",
-    email: "",
-    phone: "",
-    district: "",
-    agree: false,
-    recaptchaToken: null,
-  });
-  setShowRecaptcha(false);
+    if (!showRecaptcha) {
+      setShowRecaptcha(true);
+      return;
+    }
 
-  if (recaptchaRef.current) {
-    recaptchaRef.current.reset();
-  }
-};
+    if (!formData.recaptchaToken) {
+      alert("Please complete the reCAPTCHA verification");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:4000/api/submit-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          district: formData.district,
+          recaptchaToken: formData.recaptchaToken,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert("Form submitted and saved successfully!");
+      } else {
+        alert(result.message || "Submission failed");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Something went wrong, try again later.");
+    }
+
+    // Reset form and reCAPTCHA
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      district: "",
+      agree: false,
+      recaptchaToken: null,
+    });
+    setShowRecaptcha(false);
+
+    if (recaptchaRef.current) {
+      recaptchaRef.current.reset();
+    }
+  };
 
 
   const containerClasses = "relative w-full min-h-[450px] sm:min-h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px] bg-cover bg-center overflow-hidden bg-[#1D7675]";
@@ -275,10 +275,10 @@ function Home() {
           <Languageselecor />
         </div>
 
-        <Swiper
+      <Swiper
           ref={swiperRef}
           modules={[Autoplay, Pagination]}
-          autoplay={{ delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: false }}
+          autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: false }}
           loop={true}
           spaceBetween={0}
           slidesPerView={1}
@@ -296,11 +296,11 @@ function Home() {
                     <TextContent />
                   </div>
                   <div className="w-full px-2">
-                    <RegistrationForm 
-                      formData={formData} 
-                      handleChange={handleChange} 
-                      handleSubmit={handleSubmit} 
-                      handleMouseEnter={handleFormMouseEnter} 
+                    <RegistrationForm
+                      formData={formData}
+                      handleChange={handleChange}
+                      handleSubmit={handleSubmit}
+                      handleMouseEnter={handleFormMouseEnter}
                       handleMouseLeave={handleFormMouseLeave}
                       onRecaptchaChange={handleRecaptchaChange}
                       siteKey={site_key}
@@ -315,11 +315,11 @@ function Home() {
                   </div>
                   <div className="col-span-4 flex items-end justify-center z-60 w-full min-h-[450px] sm:min-h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px] bg-no-repeat bg-bottom bg-cover px-0" style={{ backgroundImage: "url('/woman.png')" }}></div>
                   <div className="col-span-3 h-full flex items-center justify-center py-4 pl-2 pr-4">
-                    <RegistrationForm 
-                      formData={formData} 
-                      handleChange={handleChange} 
-                      handleSubmit={handleSubmit} 
-                      handleMouseEnter={handleFormMouseEnter} 
+                    <RegistrationForm
+                      formData={formData}
+                      handleChange={handleChange}
+                      handleSubmit={handleSubmit}
+                      handleMouseEnter={handleFormMouseEnter}
                       handleMouseLeave={handleFormMouseLeave}
                       onRecaptchaChange={handleRecaptchaChange}
                       siteKey={site_key}
@@ -330,7 +330,94 @@ function Home() {
               </div>
             </div>
           </SwiperSlide>
-        
+
+          <SwiperSlide className="!w-screen !max-w-none !px-0">
+            <div className={containerClasses} style={{ backgroundImage: "url('/banner1.png')" }}>
+              <div className={mainContainerClasses}>
+                <div className="lg:hidden grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 py-4 sm:py-6 items-start md:items-center md:min-h-[400px] w-full">
+                  <div className="w-full px-2  pr-4">
+                    <TextContent />
+                  </div>
+                  <div className="w-full px-2">
+                    <RegistrationForm
+                      formData={formData}
+                      handleChange={handleChange}
+                      handleSubmit={handleSubmit}
+                      handleMouseEnter={handleFormMouseEnter}
+                      handleMouseLeave={handleFormMouseLeave}
+                      onRecaptchaChange={handleRecaptchaChange}
+                      siteKey={site_key}
+                      showRecaptcha={showRecaptcha}
+                    />
+                  </div>
+                </div>
+
+                <div className="hidden lg:contents">
+                  <div className="col-span-5 h-full flex flex-col justify-center pl-4 pr-2">
+                    <TextContent isLargeScreen={true} />
+                  </div>
+                  <div className="col-span-4 flex items-end justify-center z-60 w-full min-h-[450px] sm:min-h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px] bg-no-repeat bg-bottom bg-cover px-0" style={{ backgroundImage: "url('/woman.png')" }}></div>
+                  <div className="col-span-3 h-full flex items-center justify-center py-4 pl-2 pr-4">
+                    <RegistrationForm
+                      formData={formData}
+                      handleChange={handleChange}
+                      handleSubmit={handleSubmit}
+                      handleMouseEnter={handleFormMouseEnter}
+                      handleMouseLeave={handleFormMouseLeave}
+                      onRecaptchaChange={handleRecaptchaChange}
+                      siteKey={site_key}
+                      showRecaptcha={showRecaptcha}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide className="!w-screen !max-w-none !px-0">
+            <div className={containerClasses} style={{ backgroundImage: "url('/banner1.png')" }}>
+              <div className={mainContainerClasses}>
+                <div className="lg:hidden grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 py-4 sm:py-6 items-start md:items-center md:min-h-[400px] w-full">
+                  <div className="w-full px-2  pr-4">
+                    <TextContent />
+                  </div>
+                  <div className="w-full px-2">
+                    <RegistrationForm
+                      formData={formData}
+                      handleChange={handleChange}
+                      handleSubmit={handleSubmit}
+                      handleMouseEnter={handleFormMouseEnter}
+                      handleMouseLeave={handleFormMouseLeave}
+                      onRecaptchaChange={handleRecaptchaChange}
+                      siteKey={site_key}
+                      showRecaptcha={showRecaptcha}
+                    />
+                  </div>
+                </div>
+
+                <div className="hidden lg:contents">
+                  <div className="col-span-5 h-full flex flex-col justify-center pl-4 pr-2">
+                    <TextContent isLargeScreen={true} />
+                  </div>
+                  <div className="col-span-4 flex items-end justify-center z-60 w-full min-h-[450px] sm:min-h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px] bg-no-repeat bg-bottom bg-cover px-0" style={{ backgroundImage: "url('/woman.png')" }}></div>
+                  <div className="col-span-3 h-full flex items-center justify-center py-4 pl-2 pr-4">
+                    <RegistrationForm
+                      formData={formData}
+                      handleChange={handleChange}
+                      handleSubmit={handleSubmit}
+                      handleMouseEnter={handleFormMouseEnter}
+                      handleMouseLeave={handleFormMouseLeave}
+                      onRecaptchaChange={handleRecaptchaChange}
+                      siteKey={site_key}
+                      showRecaptcha={showRecaptcha}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+
+
         </Swiper>
       </div>
       <Whyemitram />

@@ -129,7 +129,10 @@ function Servicesection() {
           <div className="w-full sm:w-auto flex justify-center sm:justify-end">
             <button
               className="cursor-pointer bg-white text-[#12464F] px-4 sm:px-5 md:px-5 lg:px-6 xl:px-6 py-2 sm:py-2 md:py-2 lg:py-2 xl:py-2 rounded-full font-medium text-xs sm:text-sm md:text-sm lg:text-base xl:text-base hover:bg-gray-50 transition-all duration-200 shadow hover:shadow-lg hover:scale-105 whitespace-nowrap"
-              onClick={() => navigate("/register")}
+              onClick={() => {
+                navigate('/register');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
             >
               Get Franchise
             </button>

@@ -117,7 +117,7 @@ function Contact() {
 
   return (
     <>
-      <div className=" py-3 md:pl-5 ml-5">
+      <div className=" py-3 md:pl-14 pl-5">
         <Breadcrumbs />
       </div>
       <div

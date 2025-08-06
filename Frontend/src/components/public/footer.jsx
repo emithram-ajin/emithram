@@ -65,19 +65,19 @@ export default function Footer() {
           <h3 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">Useful Links</h3>
           <ul className="space-y-2 font-poppins text-white mt-3 sm:mt-5 text-sm">
             <li>
-              <Link to="/contact" className="hover:underline">• Contact Us</Link>
+              <Link to="/contact" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:underline">• Contact Us</Link>
             </li>
             <li>
-              <Link to="/privacy-policy" className="hover:underline">• Privacy & Policy</Link>
+              <Link to="/privacy-policy" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:underline">• Privacy & Policy</Link>
             </li>
             <li>
-              <Link to="/refund-policy" className="hover:underline">• Refund Policy</Link>
+              <Link to="/refund-policy" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:underline">• Refund Policy</Link>
             </li>
             <li>
-              <Link to="/terms-conditions" className="hover:underline">• Terms & Conditions</Link>
+              <Link to="/terms-conditions" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:underline">• Terms & Conditions</Link>
             </li>
             <li>
-              <Link to="/disclaimer" className="hover:underline">• Disclaimer</Link>
+              <Link to="/disclaimer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:underline">• Disclaimer</Link>
             </li>
           </ul>
         </div>

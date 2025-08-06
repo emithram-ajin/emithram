@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink,useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import logo from '/emitram-logo1.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faYoutube, faTwitter, faLinkedinIn, } from '@fortawesome/free-brands-svg-icons';
@@ -16,7 +16,7 @@ export default function Navbar() {
 
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate()
-  
+
 
   return (
     <>
@@ -79,7 +79,7 @@ export default function Navbar() {
             <button
               className="px-1 sm:px-1 rounded-xl hover:scale-102 transition-transform cursor-pointer"
               onClick={() => {
-               window.open("https://www.flipkart.com/search?q=biometric+device&sid=dgv%2Cid7&as=on&as-show=on&otracker=AS_QueryStore_OrganicAutoSuggest_1_7_na_na_na&otracker1=AS_QueryStore_OrganicAutoSuggest_1_7_na_na_na&as-pos=1&as-type=RECENT&suggestionId=biometric+device%7COffice+Equipments&requestId=d0dcaf4a-acc9-4986-bba6-458bc94c9343&as-searchtext=biometric%20device", "_blank");
+                window.open("https://www.flipkart.com/search?q=biometric+device&sid=dgv%2Cid7&as=on&as-show=on&otracker=AS_QueryStore_OrganicAutoSuggest_1_7_na_na_na&otracker1=AS_QueryStore_OrganicAutoSuggest_1_7_na_na_na&as-pos=1&as-type=RECENT&suggestionId=biometric+device%7COffice+Equipments&requestId=d0dcaf4a-acc9-4986-bba6-458bc94c9343&as-searchtext=biometric%20device", "_blank");
               }}
             >
               <span className="flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 border border-[#a8b9a9] rounded-xl bg-gradient-to-r from-[#0d9488] to-[#87d54b] transition-colors">
@@ -139,9 +139,11 @@ export default function Navbar() {
                 key={item.label}
                 to={item.path}
                 className="relative group text-md xl:text-base 2xl:text-lg hover:text-[#235764] transition-colors"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+
               >
                 {({ isActive }) => (
-                  <>
+                  <div>
                     <span className={`${isActive ? "font-semibold text-black" : "text-gray-800"} whitespace-nowrap`}>
                       {item.label}
                     </span>
@@ -149,7 +151,7 @@ export default function Navbar() {
                       className={`absolute left-0 -bottom-1 h-[3px] md:h-[4px] lg:h-[5px] bg-[#D9E535] transition-all duration-300 ease-in-out ${isActive ? "w-full" : ""
                         }`}
                     />
-                  </>
+                  </div>
                 )}
               </NavLink>
             ))}
@@ -158,7 +160,11 @@ export default function Navbar() {
           {/* Desktop Login Button */}
           <div className="hidden lg:flex flex-shrink-0 space-x-2">
             <button className="bg-[#D9E535] px-4 xl:px-6 py-1 xl:py-1.5 text-sm xl:text-lg font-bold rounded-full border-1 border-gray-200 hover:bg-[#c4d330] transition-colors cursor-pointer"
-            onClick={() => navigate('/register')}
+              onClick={() => {
+                navigate('/register');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+
             >
               Register
             </button>

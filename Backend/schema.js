@@ -33,3 +33,26 @@ const registerFormSchema = new mongoose.Schema({
 })
 
 export const RegisterForm = mongoose.model('RegisterForm',registerFormSchema)
+
+const imageSchema = new mongoose.Schema({
+  page: {
+    type: String,
+    required: true,
+    enum: ['home', 'about', 'service', 'gallery'], // Add more pages as needed
+  },
+  position: {
+    type: String,
+    required: true,
+  },
+  title: String,
+  description: String,
+  image: {
+    data: Buffer,
+    contentType: String,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  }
+});
+export const ImageSchema =mongoose.model('imageupload',imageSchema)

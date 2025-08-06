@@ -17,7 +17,7 @@ function Gallery() {
     {
       type: "image",
       src: "gallery-3.jpeg",
-      title: "Gallery Image 3",
+      title: "Bussiness Insight",
     },
     {
       type: "video",
@@ -81,7 +81,7 @@ function Gallery() {
 
   return (
     <>
-          <div className=" py-3 md:pl-10 ml-5">
+          <div className=" py-3 md:pl-14 pl-5">
         <Breadcrumbs />
       </div>
     <div className="max-w-7xl mx-auto p-4 min-h-screen">
@@ -93,7 +93,7 @@ function Gallery() {
               <img
                 src={selectedMedia.src}
                 alt={selectedMedia.title}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-cover"
               />
             ) : (
               <iframe
@@ -114,7 +114,7 @@ function Gallery() {
         {/* Sidebar */}
         <div className="lg:w-1/3 w-full">
           <div className="bg-white rounded-xl shadow-lg p-4 h-full">
-            <h3 className="text-lg font-semibold mb-4 text-gray-800 border-b pb-2">
+            <h3 className="text-lg font-semibold mb-4 text-[#006F59] border-b pb-2">
               Gallery Items
             </h3>
 

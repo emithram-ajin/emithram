@@ -103,7 +103,7 @@ function Registration() {
                 value={formData.name}
                 onChange={handleChange}
                 type="text"
-                className="w-full p-2 border border-gray-300 rounded"
+                className="w-full p-2 border border-gray-300 rounded bg-white"
                 placeholder="Enter your name"
               />
               {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
@@ -116,7 +116,7 @@ function Registration() {
                 value={formData.place}
                 onChange={handleChange}
                 type="text"
-                className="w-full p-2 border border-gray-300 rounded"
+                className="w-full p-2 border border-gray-300 rounded  bg-white"
                 placeholder="Enter your place"
               />
               {errors.place && <p className="text-red-500 text-sm">{errors.place}</p>}
@@ -128,7 +128,7 @@ function Registration() {
                 name="localBody"
                 value={formData.localBody}
                 onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded"
+                className="w-full p-2 border border-gray-300 rounded  bg-white"
               >
                 <option value="">--Select--</option>
                 <option>Panchayath</option>
@@ -144,7 +144,7 @@ function Registration() {
                 name="district"
                 value={formData.district}
                 onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded"
+                className="w-full p-2 border border-gray-300 rounded  bg-white"
               >
                 <option value="">--Select--</option>
                 <option>Thiruvananthapuram</option>
@@ -172,7 +172,7 @@ function Registration() {
                 value={formData.mobile}
                 onChange={handleChange}
                 type="text"
-                className="w-full p-2 border border-gray-300 rounded"
+                className="w-full p-2 border border-gray-300 rounded  bg-white"
                 placeholder="Enter your mobile number"
               />
               {errors.mobile && <p className="text-red-500 text-sm">{errors.mobile}</p>}
@@ -185,7 +185,7 @@ function Registration() {
                 value={formData.email}
                 onChange={handleChange}
                 type="email"
-                className="w-full p-2 border border-gray-300 rounded"
+                className="w-full p-2 border border-gray-300 rounded  bg-white"
                 placeholder="Enter your email"
               />
               {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
@@ -195,7 +195,7 @@ function Registration() {
               <label className="block mb-1 font-medium">Centre Name:</label>
               <input
                 type="text"
-                className="w-full p-2 border border-gray-300 rounded bg-gray-100"
+                className="w-full p-2 border border-gray-300 rounded  bg-white"
                 value="Emithram CSP"
                 disabled
               />
@@ -209,7 +209,7 @@ function Registration() {
                 name="heardFrom"
                 value={formData.heardFrom}
                 onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded"
+                className="w-full p-2 border border-gray-300 rounded  bg-white"
               >
                 <option value="">--Select--</option>
                 <option>Facebook</option>
