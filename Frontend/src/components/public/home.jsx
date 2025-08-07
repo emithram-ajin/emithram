@@ -313,7 +313,7 @@ function Home() {
                   <div className="col-span-5 h-full flex flex-col justify-center pl-4 pr-2">
                     <TextContent isLargeScreen={true} />
                   </div>
-                  <div className="col-span-4 flex items-end justify-center z-60 w-full min-h-[450px] sm:min-h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px] bg-no-repeat bg-bottom bg-cover px-0" style={{ backgroundImage: "url('/woman.png')" }}></div>
+                  <div className="col-span-4 flex items-end justify-center z-60 w-full min-h-[450px] sm:min-h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px] bg-no-repeat bg-bottom bg-cover px-0" style={{ backgroundImage: "url('/Asset 39@2x.webp')" }}></div>
                   <div className="col-span-3 h-full flex items-center justify-center py-4 pl-2 pr-4">
                     <RegistrationForm
                       formData={formData}

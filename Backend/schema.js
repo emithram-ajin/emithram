@@ -38,14 +38,14 @@ const imageSchema = new mongoose.Schema({
   page: {
     type: String,
     required: true,
-    enum: ['home', 'about', 'service', 'gallery'], // Add more pages as needed
+    enum: ['home', 'about', 'service', 'gallery'], 
   },
   position: {
     type: String,
     required: true,
   },
-  title: String,
-  description: String,
+  title: {type:String},
+  description:{type:String} ,
   image: {
     data: Buffer,
     contentType: String,

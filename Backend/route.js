@@ -47,7 +47,7 @@ router.post('/register-form',async(req,res)=>{
   }
 })
 
-router.post('/upload-image', upload.single('image'), async (req, res) => {
+router.post('/uploads', upload.single('image'), async (req, res) => {
   try {
     const { page, position, title, description } = req.body;
 
@@ -55,7 +55,7 @@ router.post('/upload-image', upload.single('image'), async (req, res) => {
       return res.status(400).json({ error: 'Page, position, and image are required' });
     }
 
-    const newImage = new HomeImage({
+    const newImage = new ImageSchema({
       page,
       position,
       title,
@@ -75,5 +75,33 @@ router.post('/upload-image', upload.single('image'), async (req, res) => {
   }
 });
 
+
+router.get('/uploads', async (req, res) => {
+  try {
+    const { page, position, title } = req.query;
+
+    // Build dynamic query object
+    const query = {};
+    if (page) query.page = page;
+    if (position) query.position = position;
+    if (title) query.title = { $regex: title, $options: 'i' }; // optional fuzzy search
+
+    const images = await ImageSchema.find(query);
+
+    const formattedImages = images.map(img => ({
+      _id: img._id,
+      page: img.page,
+      position: img.position,
+      title: img.title,
+      description: img.description,
+      image: `data:${img.image.contentType};base64,${img.image.data.toString('base64')}`
+    }));
+
+    res.status(200).json(formattedImages);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to fetch filtered images' });
+  }
+});
 
 export default router;

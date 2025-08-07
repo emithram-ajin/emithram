@@ -13,16 +13,6 @@
       "details": "Earn a respectable income by providing non-governmental services to the public with all necessary licenses"
     },
     "exploreButton": "Explore More"
-  },
-  "registrationForm": {
-    "title": "Registration Form",
-    "fields": {
-      "name": "Name",
-      "email": "Email address",
-      "phone": "Phone",
-      "district": "District"
-    },
-    "termsText": "I agree to the terms and conditions and privacy policy",
-    "submitButton": "GET AFFILIATION"
   }
+
 }
